@@ -20,4 +20,4 @@ Projekt je v súčasnosti v testovacom režime vývíjaný a poskytovaný ako ot
     `src/main/resources/META-INF/resources/pipelines` .
 
 
-3. Po príprave databázy je možné použiť maven na zbuildovanie samotného portálu, ktorý je nutné pripojiť na vytvorenú RDF databázu (súbor aaplication.properties)
+3. Po príprave databázy je možné použiť maven na zbuildovanie samotného portálu, ktorý je nutné pripojiť na vytvorenú RDF databázu (súbor application.properties)
