@@ -1,0 +1,17 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>
+prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#>
+select distinct ?catalog ?catalogTitle ?dataset ?datasetTitle ?publisher ?publisherName ?theme ?themeLabel where {
+    ?catalog rdf:type dcat:Catalog .
+    ?dataset dct:title ?datasetTitle .
+    ?catalog dct:title ?catalogTitle .
+    ?catalog dcat:dataset ?dataset .
+    ?dataset rdf:type dcat:Dataset .
+    ?dataset dct:publisher ?publisher .
+    ?dataset dcat:theme ?theme .
+    FILTER langMatches( lang(?catalogTitle), "sk" )
+    FILTER langMatches( lang(?datasetTitle), "sk" )
+    ?publisher skos:prefLabel ?publisherName .
+    FILTER langMatches( lang(?publisherName), "sk" ) 
+    ?theme skos:prefLabel ?themeLabel .
+    FILTER langMatches( lang(?themeLabel), "sk" ) 
+} order by asc(?catalogTitle)  asc(?datasetTitle)

@@ -1,0 +1,907 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY schema "http://schema.org/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY dcat "http://www.w3.org/ns/dcat#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY lsub "https://data.gov.sk/def/ontology/legal-subject/" >
+    <!ENTITY fin "https://data.gov.sk/def/ontology/finance/" >
+    <!ENTITY pper "https://data.gov.sk/def/ontology/physical-person/" >
+    <!ENTITY loca "https://data.gov.sk/def/ontology/location/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY adms "http://www.w3.org/ns/adms#" >
+    <!ENTITY cv "http://data.europa.eu/m8g/" >    
+]>
+
+
+<rdf:RDF xmlns="https://data.gov.sk/def/ontology/location/"
+     xml:base="https://data.gov.sk/def/ontology/location/"
+     xmlns:schema="http://schema.org/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:pper="https://data.gov.sk/def/ontology/physical-person/"
+     xmlns:lsub="https://data.gov.sk/def/ontology/legal-subject/"
+     xmlns:fin="https://data.gov.sk/def/ontology/finance/"
+     xmlns:loca="https://data.gov.sk/def/ontology/location/"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:adms="http://www.w3.org/ns/adms#"
+     xmlns:cv="http://data.europa.eu/m8g/">
+  
+    <owl:Ontology rdf:about="https://data.gov.sk/def/ontology/location/2021-MM-DD.owl">
+        <dct:title rdf:datatype="&xsd;string">Ontológia entít lokácie</dct:title>
+		<dct:creator rdf:resource="http://www.linkedin.com/in/miroslavliska" />
+        <dct:contributor rdf:resource="http://www.linkedin.com/in/mareksurek" />
+        <owl:versionInfo rdf:datatype="&xsd;string">2021-MM-DD</owl:versionInfo>
+        <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    </owl:Ontology>
+   
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    
+     <!-- https://data.gov.sk/def/ontology/location/addressType -->
+
+    <owl:ObjectProperty rdf:about="&loca;addressType">
+        <rdfs:label xml:lang="sk">typ adresy</rdfs:label>
+        <rdfs:label xml:lang="en">address type</rdfs:label>
+        <rdfs:label xml:lang="de">Adresstyp</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;PhysicalAddress"/>	
+        <rdfs:range rdf:resource="&loca;AddressType"/>
+        <rdfs:description xml:lang="sk">Relácia adresy na jej typ definovaný hodnotami číselníka CL010139 Druh adresy.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/712" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.17" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/712">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/712" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.17">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.17</skos:notation>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+         
+    <!-- https://data.gov.sk/def/ontology/location/building -->
+
+    <owl:ObjectProperty rdf:about="&loca;building">
+        <rdfs:label xml:lang="sk">budova</rdfs:label>
+        <rdfs:label xml:lang="en">building</rdfs:label>
+        <rdfs:label xml:lang="de">Gebäude</rdfs:label>
+        <rdfs:range rdf:resource="&loca;Building"/>
+        <rdfs:description xml:lang="sk">Relácia na budovu.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/668" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.16" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/668">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/668" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.16">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.16</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">Building</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    <!-- https://data.gov.sk/def/ontology/location/buidingType -->
+
+    <owl:ObjectProperty rdf:about="&loca;buildingType">
+        <rdfs:label xml:lang="sk">typ budovy</rdfs:label>
+        <rdfs:label xml:lang="en">building type</rdfs:label>
+        <rdfs:label xml:lang="de">Gebäudetyp</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;Building"/>	
+        <rdfs:range rdf:resource="&loca;BuildingType"/>
+        <rdfs:description xml:lang="sk">Relácia budovy na jej typ definovaný hodnotami číselníka CL010143 Kód druhu stavby.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/412" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.16.1" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/412">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/412" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.16.1">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/> 
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.16.1</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">BuildingTypeCode</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+ 
+    <!-- https://data.gov.sk/def/ontology/location/buidingPurpose -->
+
+    <owl:ObjectProperty rdf:about="&loca;buidingPurpose">
+        <rdfs:label xml:lang="sk">účel budovy</rdfs:label>
+        <rdfs:label xml:lang="en">building purpose</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;Building"/>	
+        <rdfs:range rdf:resource="&loca;BuildingPurpose"/>
+        <rdfs:description xml:lang="sk">Relácia budovy na jej účel definovaný hodnotami číselníka CL010142 Účel budovy.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/666" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.16.2" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/666">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/666" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.16.2">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.16.2</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">BuildingPurpose</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    <!-- https://data.gov.sk/def/ontology/location/unCountry -->
+
+    <owl:ObjectProperty rdf:about="&loca;unCountry">
+        <rdfs:label xml:lang="sk">krajina OSN</rdfs:label>
+        <rdfs:label xml:lang="en">UN country</rdfs:label>
+        <rdfs:label xml:lang="de">UN-Land</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;Location"/>
+        <rdfs:range rdf:resource="&loca;UNCountry"/>
+        <rdfs:description xml:lang="sk">Relácia na krajinu OSN definovanú hodnotami číselníka CL000086 Krajina OSN.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/393" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.2" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/393">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/393" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.2">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/> 
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.2</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">Country</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+        
+    
+    <!-- https://data.gov.sk/def/ontology/location/nuts3 -->
+
+    <owl:ObjectProperty rdf:about="&loca;nuts3">
+        <rdfs:label xml:lang="en"><![CDATA[regional statistical local unit 3]]></rdfs:label>
+        <rdfs:label xml:lang="sk"><![CDATA[regionálna štatistická územná jednotka 3]]></rdfs:label>
+        <rdfs:label xml:lang="de"><![CDATA[regionale statistische Gebietseinheit 3]]></rdfs:label>
+        <skos:altLabel xml:lang="sk">kraj</skos:altLabel>
+        <rdfs:domain rdf:resource="&loca;Location"/>
+        <rdfs:range rdf:resource="&loca;NUTS3"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/706" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.3" />
+        <rdfs:description xml:lang="sk">Relácia na kraj definovaný hodnotami číselníka CL000023 Regionálna štatistická územná jednotka - kraj.</rdfs:description>
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/706">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/706" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.3">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.3</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">Region</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>  
+    
+    
+    <!-- https://data.gov.sk/def/ontology/location/lau1 -->
+
+    <owl:ObjectProperty rdf:about="&loca;lau1">
+        <dct:title xml:lang="sk"><![CDATA[lokálna štatistická územná jednotka 1]]></dct:title>
+        <dct:title xml:lang="en"><![CDATA[local statistical territorial unit 1]]></dct:title>
+        <dct:title xml:lang="de"><![CDATA[lokale statistische Gebietseinheit 1]]></dct:title>
+        <skos:altLabel xml:lang="sk">okres</skos:altLabel>      
+        <rdfs:domain rdf:resource="&loca;Location"/>
+        <rdfs:range rdf:resource="&loca;LAU1"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/707" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.4" />
+        <rdfs:description xml:lang="sk">Relácia na okres definovaný hodnotami číselníka CL000024 Lokálna štatistická územná jednotka 1 – okres.</rdfs:description>
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/707">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/707" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.4">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.4</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">County</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>  
+      
+   <!-- https://data.gov.sk/def/ontology/location/lau2 -->
+
+    <owl:ObjectProperty rdf:about="&loca;lau2">
+        <dct:title xml:lang="sk"><![CDATA[lokálna štatistická územná jednotka 2]]></dct:title>
+        <dct:title xml:lang="en"><![CDATA[local statistical territorial unit 2]]></dct:title>
+        <dct:title xml:lang="de"><![CDATA[lokale statistische Gebietseinheit 2]]></dct:title>  
+        <skos:altLabel xml:lang="sk">obec</skos:altLabel>      
+        <rdfs:domain rdf:resource="&loca;Location"/>
+        <rdfs:range rdf:resource="&loca;LAU2"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/708" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.5" />
+        <rdfs:description xml:lang="sk">Relácia na obec definovanú hodnotami číselníka CL000025 Lokálna štatistická územná jednotka 2 – obec.</rdfs:description>
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/708">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/708" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>   
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.5">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.5</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">Municipality</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>  
+    
+    <!-- https://data.gov.sk/def/ontology/location/district -->
+
+    <owl:ObjectProperty rdf:about="&loca;district">
+        <rdfs:label xml:lang="sen">district</rdfs:label>
+        <rdfs:label xml:lang="sk">časť obce</rdfs:label>
+        <rdfs:label xml:lang="de">Teil der Gemeinde</rdfs:label>
+        <rdfs:range rdf:resource="&loca;District"/>
+        <rdfs:description xml:lang="sk">Relácia na časť obce definovanú hodnotami číselníka CL010141 Časť obce.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/401" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.6" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/401">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/401" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.6">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.6</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">District</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    <!-- https://data.gov.sk/def/ontology/location/physicalAddress -->
+
+    <owl:ObjectProperty rdf:about="&loca;physicalAddress">
+        <rdfs:label xml:lang="en">physical address</rdfs:label>
+        <rdfs:label xml:lang="sk">fyzická adresa</rdfs:label>
+        <rdfs:label xml:lang="de">physikalische Adresse</rdfs:label>
+        <rdfs:range rdf:resource="&loca;PhysicalAddress"/>
+        <rdfs:description xml:lang="sk">Relácia na fyzickú adresu v Registry adries.</rdfs:description>
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>		
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/716" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3" />
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/716">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/716" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">PhysicalAddress</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+       
+    
+    <!-- https://data.gov.sk/def/ontology/location/postAddress -->
+
+    <owl:ObjectProperty rdf:about="&loca;postAddress">
+        <rdfs:subPropertyOf rdf:resource="&loca;physicalAddress" />
+        <rdfs:label xml:lang="en">delivery address</rdfs:label>
+        <rdfs:label xml:lang="sk">poštová adresa</rdfs:label>
+        <skos:altLabel xml:lang="sk">doručovacia adresa</skos:altLabel>
+        <rdfs:label xml:lang="de">Lieferadresse</rdfs:label>
+        <rdfs:description xml:lang="sk">Relácia na poštovú adresu v Registry adries.</rdfs:description>
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>		
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/678" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.14" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/678">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/678" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.14">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.14</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">DeliveryAddress</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    <!-- https://data.gov.sk/def/ontology/location/postRecipient -->
+
+    <owl:ObjectProperty rdf:about="&loca;postRecipient">
+        <rdfs:subPropertyOf rdf:resource="&pper;physicalPerson" />
+        <rdfs:label xml:lang="en">post recipient</rdfs:label>
+        <rdfs:label xml:lang="sk">príjemca pošty</rdfs:label>
+        <rdfs:label xml:lang="de">Mail-Empfänger</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/672" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.13.3" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+        <rdfs:description xml:lang="sk">Relácia na príjímateľa pošty.</rdfs:description>
+    </owl:ObjectProperty>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.13.3">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.13.3</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">Recipient</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+            
+   <!-- https://data.gov.sk/def/ontology/location/postOfficeBox -->
+
+    <owl:ObjectProperty rdf:about="&loca;postOfficeBox">
+        <rdfs:range rdf:resource="&loca;PostOfficeBox" />
+        <rdfs:label xml:lang="en">p.o.box</rdfs:label>
+        <rdfs:label xml:lang="sk">p.o.box</rdfs:label>
+        <rdfs:label xml:lang="de">p.o.box</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/673" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.14.2" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+        <rdfs:description xml:lang="sk">Relácia na POBOX.</rdfs:description>
+    </owl:ObjectProperty>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/673">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/673" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.14.2">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.14.2</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">PostOfficeBox</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    <!-- https://data.gov.sk/def/ontology/location/postCode -->
+
+    <owl:ObjectProperty rdf:about="&loca;postCode">
+        <rdfs:label xml:lang="en">postal code</rdfs:label>
+        <rdfs:label xml:lang="sk">poštové smerovacie číslo</rdfs:label>
+        <skos:altLabel xml:lang="sk">PSČ</skos:altLabel>	
+        <rdfs:label xml:lang="de">postleitzahl</rdfs:label>
+        <rdfs:range rdf:resource="&loca;PostCode"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/675" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.14.1" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+        <rdfs:description xml:lang="sk">Relácia na PSČ.</rdfs:description>
+    </owl:ObjectProperty>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/675">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/675" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.14.1">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.14.1</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">PostalCode</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    <!-- https://data.gov.sk/def/ontology/location/street -->
+
+    <owl:ObjectProperty rdf:about="&loca;street">
+        <rdfs:label xml:lang="en">street</rdfs:label>
+        <rdfs:label xml:lang="sk">ulica</rdfs:label>
+        <rdfs:label xml:lang="de">Straße</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/403" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:ObjectProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/403">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/403" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    
+      
+  <!-- https://data.gov.sk/def/ontology/location/hasApartment -->
+
+    <owl:DatatypeProperty rdf:about="&loca;hasApartment">
+        <rdfs:label xml:lang="en">has apartment</rdfs:label>
+        <rdfs:label xml:lang="sk">má byt</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;Building"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:description xml:lang="sk">Popisuje, či sa v budove nachádzajú byty. Príklad: Aj budova, ktorá je prioritne nebytová, môže obsahovať byty, napríklad škola s bytom pre školníka.</rdfs:description>
+         <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/410" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	 
+    </owl:DatatypeProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/410">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/410" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+        
+    <!-- https://data.gov.sk/def/ontology/location/orientationNumber -->
+
+    <owl:DatatypeProperty rdf:about="&loca;orientationNumber">
+        <rdfs:label xml:lang="sk">orientačné číslo</rdfs:label>
+        <rdfs:label xml:lang="en">orientation number</rdfs:label>
+        <rdfs:label xml:lang="de">Orientierungsnummer</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;Entrance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:description xml:lang="sk">Obsahuje názov budovy alebo číslo domu.Môže obsahovať aj nečíselné znaky, preto je definovaný ako reťazec. Príklady použitia: 10, 23A, 18/III.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/408" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.8" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:DatatypeProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/408">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/408" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.8">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.8</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">BuildingNumber</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+
+    <!-- https://data.gov.sk/def/ontology/location/buildingPart -->
+
+    <owl:DatatypeProperty rdf:about="&loca;buildingPart">
+        <rdfs:label xml:lang="sk">časť budovy</rdfs:label>
+        <rdfs:label xml:lang="en">building part</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;Building"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.10" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/670" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+        <rdfs:description xml:lang="sk">Tento prvok je určený na bližšie určenie miesta v rámci budovy, ak je to potrebné. Príklady: Blok D, dielňa, 4. poschodie vpravo, byt.</rdfs:description>
+    </owl:DatatypeProperty>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/670">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/670" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.10">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.10</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">BuildingUnit</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    <!-- https://data.gov.sk/def/ontology/location/formattedAddress -->
+
+    <owl:DatatypeProperty rdf:about="&loca;formattedAddress">
+        <rdfs:label xml:lang="en">formatted address</rdfs:label>
+        <rdfs:label xml:lang="sk">formátovaná adresa</rdfs:label>
+        <rdfs:label xml:lang="de">formatiert Adresse</rdfs:label>
+        <rdfs:domain rdf:resource="&loca;PhysicalAddress"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:description xml:lang="sk">Informácia, ktorá obsahuje neštruktúrovanú adresu spojujúcu viaceré alebo bližšie nerozlíšené údaje (katastrálne územie, názov hospodárskej usadlosti a podobne). </rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/406" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.1" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:DatatypeProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/406">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/406" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.1">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.1</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">AddressLine</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>
+    
+    
+   <!-- https://data.gov.sk/def/ontology/location/propertyRegistrationNumber -->
+
+    <owl:DatatypeProperty rdf:about="&loca;propertyRegistrationNumber">
+        <rdfs:label xml:lang="sk">súpisné číslo</rdfs:label>
+        <rdfs:label xml:lang="en">property identifier number</rdfs:label>
+        <rdfs:label xml:lang="de">Registernummer </rdfs:label>
+        <rdfs:domain rdf:resource="&loca;Building"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:description xml:lang="sk">Obsahuje súpisné číslo budovy.</rdfs:description>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/407" />
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/kdp-id/D.1.3.9" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	 
+    </owl:DatatypeProperty>
+            
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/407">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/407" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/kdp-id/D.1.3.9">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <adms:status rdf:resource="http://purl.org/adms/status/Deprecated"/>         
+        <skos:notation rdf:datatype="&xsd;string">D.1.3.9</skos:notation>
+        <skos:altSymbol rdf:datatype="&xsd;string">PropertyRegistrationNumber</skos:altSymbol>
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/kdp-code"/>
+    </adms:Identifier>   
+    
+    
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+    
+    
+    <!-- https://data.gov.sk/def/ontology/location/Location -->
+
+    <owl:Class rdf:about="&loca;Location">
+        <rdfs:label xml:lang="en">Location</rdfs:label>
+        <rdfs:label xml:lang="sk">Lokácia</rdfs:label>
+        <rdfs:label xml:lang="de">Location</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+
+    <!-- https://data.gov.sk/def/ontology/location/Apartment -->
+
+    <owl:Class rdf:about="&loca;Apartment">
+        <rdfs:label xml:lang="en">Apartment</rdfs:label>
+        <rdfs:label xml:lang="sk">Byt</rdfs:label>
+        <rdfs:label xml:lang="de">Wohnung</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/718" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/718">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/718" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+    
+    <!-- https://data.gov.sk/def/ontology/location/UNCountry -->
+
+    <owl:Class rdf:about="&loca;UNCountry">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="en">UN Country</rdfs:label>
+        <rdfs:label xml:lang="sk">Krajina OSN</rdfs:label>
+        <rdfs:label xml:lang="de">UN-Land</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/394" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/394">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/394" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>   
+
+    
+   <!-- https://data.gov.sk/def/ontology/location/NUTS3 -->
+
+    <owl:Class rdf:about="&loca;NUTS3">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="en"><![CDATA[Regional statistical local unit 3]]></rdfs:label>
+        <rdfs:label xml:lang="sk"><![CDATA[Regionálna štatistická územná jednotka 3]]></rdfs:label>
+        <rdfs:label xml:lang="de"><![CDATA[Regionale statistische Gebietseinheit 3]]></rdfs:label>
+        <skos:altLabel xml:lang="sk">Kraj</skos:altLabel>
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/registration/metais-standard/709" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/registration/metais-standard/709">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/709" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>  
+    
+    <!-- https://data.gov.sk/def/ontology/location/LAU1 -->
+
+    <owl:Class rdf:about="&loca;LAU1">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="sk"><![CDATA[Lokálna štatistická územná jednotka 1]]></rdfs:label>
+        <rdfs:label xml:lang="en"><![CDATA[Local statistical territorial unit 1]]></rdfs:label>
+        <rdfs:label xml:lang="de"><![CDATA[Lokale statistische Gebietseinheit 1]]></rdfs:label>
+        <skos:altLabel xml:lang="sk">Okres</skos:altLabel>	
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/registration/metais-standard/710" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/registration/metais-standard/710">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/710" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier>  
+    
+    <!-- https://data.gov.sk/def/ontology/location/LAU2 -->
+
+    <owl:Class rdf:about="&loca;LAU2">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="sk"><![CDATA[Lokálna štatistická územná jednotka 2]]></rdfs:label>
+        <rdfs:label xml:lang="en"><![CDATA[Local statistical territorial unit 2]]></rdfs:label>
+        <rdfs:label xml:lang="de"><![CDATA[Lokale statistische Gebietseinheit 2]]></rdfs:label>  
+        <skos:altLabel xml:lang="sk">Obec</skos:altLabel>	
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/registration/metais-standard/711" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/registration/metais-standard/711">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/711" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+       
+   <!-- https://data.gov.sk/def/ontology/location/District -->
+
+    <owl:Class rdf:about="&loca;District">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="en">District</rdfs:label>
+        <rdfs:label xml:lang="sk">Časť obce</rdfs:label>
+        <rdfs:label xml:lang="de">Teil der Gemeinde</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/402" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/402">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/402" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+    
+    <!-- https://data.gov.sk/def/ontology/location/Street -->
+
+    <owl:Class rdf:about="&loca;Street">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="en">Street</rdfs:label>
+        <rdfs:label xml:lang="sk">Ulica</rdfs:label>
+        <rdfs:label xml:lang="de">Straße</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/405" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/405">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/405" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+
+   <!-- https://data.gov.sk/def/ontology/location/PhysicalAddress -->
+
+    <owl:Class rdf:about="&loca;PhysicalAddress">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="en">Physical Address</rdfs:label>
+        <rdfs:label xml:lang="sk">Fyzická adresa</rdfs:label>
+        <rdfs:label xml:lang="de">physikalische Adresse</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&loca;Location"/>
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/717" />	
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/717">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/717" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+   
+    <!-- https://data.gov.sk/def/ontology/location/Building -->
+
+    <owl:Class rdf:about="&loca;Building">
+        <rdfs:subClassOf rdf:resource="&dct;PeriodOfTime"/>        
+        <rdfs:label xml:lang="en">Building</rdfs:label>
+        <rdfs:label xml:lang="sk">Budova</rdfs:label>
+        <rdfs:label xml:lang="de">Gebäude</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/669" />	
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/669">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/669" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+
+    <!-- https://data.gov.sk/def/ontology/location/AddressType -->
+
+    <owl:Class rdf:about="&loca;AddressType">
+        <rdfs:label xml:lang="en">Address Type</rdfs:label>
+        <rdfs:label xml:lang="sk">Typ adresy</rdfs:label>
+        <rdfs:label xml:lang="de">Adresstyp</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/713" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/713">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/713" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+
+
+    <!-- https://data.gov.sk/def/ontology/location/BuildingType -->
+
+    <owl:Class rdf:about="&loca;BuildingType">
+        <rdfs:label xml:lang="en">Building Type</rdfs:label>
+        <rdfs:label xml:lang="sk">Typ budovy</rdfs:label>
+        <rdfs:label xml:lang="de">Gebäudetyp</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/413" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/413">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/413" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+    <!-- https://data.gov.sk/def/ontology/location/BuildingPurpose -->
+
+    <owl:Class rdf:about="&loca;BuildingPurpose">
+        <rdfs:label xml:lang="en">Building Purpose</rdfs:label>
+        <rdfs:label xml:lang="sk">Účel budovy</rdfs:label>
+        <rdfs:label xml:lang="de">Gebäude Zweck</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/667" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/667">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/667" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+        
+    <!-- https://data.gov.sk/def/ontology/location/BuildingPart -->
+
+    <owl:Class rdf:about="&loca;BuildingPart">
+        <rdfs:label xml:lang="en">Building Part</rdfs:label>
+        <rdfs:label xml:lang="sk">Časť budovy</rdfs:label>
+        <rdfs:label xml:lang="de">Teil des Gebäudes</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/671" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/671">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/671" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+    
+    <!-- https://data.gov.sk/def/ontology/location/Entrance -->
+
+    <owl:Class rdf:about="&loca;Entrance">
+        <rdfs:subClassOf rdf:resource="https://data.gov.sk/def/ontology/location/Location" />
+        <rdfs:label xml:lang="en">Entrance</rdfs:label>
+        <rdfs:label xml:lang="sk">Vchod</rdfs:label>
+        <rdfs:label xml:lang="de">Eingang</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/409" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/409">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/409" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+    
+    <!-- https://data.gov.sk/def/ontology/location/PostOfficeBox -->
+
+    <owl:Class rdf:about="&loca;PostOfficeBox">
+        <rdfs:subClassOf rdf:resource="https://data.gov.sk/def/ontology/location/Location" />
+        <rdfs:label xml:lang="en">Post Office Box</rdfs:label>
+        <rdfs:label xml:lang="sk">Poštový priečinok</rdfs:label>
+        <rdfs:label xml:lang="de">Post Office Box</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/674" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/674">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/674" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+    <!-- https://data.gov.sk/def/ontology/location/PostCode -->
+
+    <owl:Class rdf:about="&loca;PostCode">
+        <rdfs:label xml:lang="en">Postal Code</rdfs:label>
+        <rdfs:label xml:lang="sk">Poštové smerovacie číslo</rdfs:label>
+        <skos:altLabel xml:lang="sk">PSČ</skos:altLabel>	
+        <rdfs:label xml:lang="de">Postleitzahl</rdfs:label>
+        <adms:identifier rdf:resource="https://data.gov.sk/id/identifier/metais-standard/676" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/def/ontology/location/2021-MM-DD"/>	
+    </owl:Class>
+    
+    <adms:Identifier rdf:about="https://data.gov.sk/id/identifier/metais-standard/676">
+        <dct:creator rdf:resource="https://data.gov.sk/id/legal-subject/00151742" />
+        <dcat:accessURL rdf:resource="https://metais.vicepremier.gov.sk/standardization/draftdetail/676" />
+        <dct:type rdf:resource="https://data.gov.sk/def/identifier-type/metais-standard"/>
+    </adms:Identifier> 
+    
+</rdf:RDF>

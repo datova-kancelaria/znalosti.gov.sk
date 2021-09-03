@@ -1,0 +1,116 @@
+@prefix cpov: <http://data.europa.eu/m8g/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix loca: <https://data.gov.sk/def/ontology/location/> .
+
+
+<https://data.gov.sk/id/physical-address/10539221> a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Štefánikova 882/15, Bratislava-Staré Mesto, 81105" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+
+<https://data.gov.sk/id/physical-address/5998707>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Námestie slobody 2899/1, Bratislava-Staré Mesto, 81106" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+
+<https://data.gov.sk/id/physical-address/5999554>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Štefanovičova 2968/5, Bratislava-Staré Mesto, 81104" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+                    
+<https://data.gov.sk/id/physical-address/5970646>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Dobrovičova 116/12, Bratislava-Staré Mesto, 81109" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+
+<https://data.gov.sk/id/physical-address/6180911>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0103529346> ;
+                    loca:formattedAddress "Stromová 2665/1, Bratislava-Nové Mesto, 83101" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .                    
+
+<https://data.gov.sk/id/physical-address/7101446000>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0103529346> ;
+                    loca:formattedAddress "Limbová 3330/2, Bratislava-Nové Mesto, 83101" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+                    
+<https://data.gov.sk/id/physical-address/6163894>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0103529346> ;
+                    loca:formattedAddress "Račianska 1523/71, Bratislava-Nové Mesto, 83102" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/5991854>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Špitálska 2206/4, Bratislava-Staré Mesto, 81108" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+                    
+<https://data.gov.sk/id/physical-address/597992A>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Hlboká cesta 967/2, Bratislava-Staré Mesto, 81104" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/6058745>a loca:PhysicalAddress ;
+                    loca:formattedAddress "Drieňová 74/24, Bratislava-Ružinov, 82103" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/599873A>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Námestie slobody 2902/6, Bratislava-Staré Mesto, 81106" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+           
+<https://data.gov.sk/id/physical-address/35000009>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Štefanovičova 4558/3, Bratislava-Staré Mesto, 81104" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/4339654>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0103529346> ;
+                    loca:formattedAddress "Račianska 1523/71, Bratislava-Nové Mesto, 83102" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/6002557>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Pražská 3229/29, Bratislava-Staré Mesto, 81104" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/6150507>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0103529346> ;
+                    loca:formattedAddress "Kutuzovova 258/8, Bratislava-Nové Mesto, 83103" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/6044181>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0102529320> ;
+                    loca:formattedAddress "Ružová dolina 606/10, Bratislava-Ružinov, 82109" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+
+<https://data.gov.sk/id/physical-address/6064355>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0102529320> ;
+                    loca:formattedAddress "Bajkalská 1467/27, Bratislava-Ružinov, 82105" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/10047598>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0105529460> ;
+                    loca:formattedAddress "Budatínska 3249/30, Bratislava-Petržalka, 85106" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/5969656>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0101528595> ;
+                    loca:formattedAddress "Námestie Ľudovíta Štúra 35/1, Bratislava-Staré Mesto, 81102" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+   
+<https://data.gov.sk/id/physical-address/6042597>a loca:PhysicalAddress ;
+                    loca:lau2 <https://data.gov.sk/id/lau2/SK0102529320> ;
+                    loca:formattedAddress "Miletičova 551/3, Bratislava-Ružinov, 82108" ;
+                    rdfs:referencedBy <https://data.gov.sk/set/data/physical-address/2021-MM-DD-uoss> .
+                       

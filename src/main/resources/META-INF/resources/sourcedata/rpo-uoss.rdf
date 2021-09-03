@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:loca="https://data.gov.sk/def/ontology/location/"
+    xmlns:lsub="https://data.gov.sk/def/ontology/legal-subject/">
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/50349287">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/10539221"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151513">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/5998707"/>     
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151742">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/5999554"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>    
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151866">
+    <rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <!-- Ministerstvo vnútra Slovenskej republiky, Pribinova 2 81272 Bratislava - mestská časť Staré Mesto
+         <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/"/> -->
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+    <isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>    
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00156621">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/5970646"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>    
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00164381">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6180911"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00165182">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/5974397"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00165565">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/7101446000"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00166073">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6163894"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00681156">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/5991854"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00686832">
+    <!-- Mlynské nivy 44/A, 821 09 Ružinov
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6163894"/> -->
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00699021">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/597992A"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00699063">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6058745"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30416094">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/599873A"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30810710">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/35000009"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30810787">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/4339654"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30844363">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6002557"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30845572">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6150507"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/31797903">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6044181"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30844185">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6064355"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+    <isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/36061701">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/10047598"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/42181810">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/5969656"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00166197">
+   	<rdf:type rdf:resource="https://data.gov.sk/def/ontology/legal-subject/LegalSubject"/>
+    <headquarters xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/id/physical-address/6042597"/>
+    <legalFormType xmlns="https://data.gov.sk/def/ontology/legal-subject/" rdf:resource="https://data.gov.sk/def/legal-form-type/382"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/central-public-authority/2021-MM-DD"/>
+</rdf:Description>
+
+
+</rdf:RDF>

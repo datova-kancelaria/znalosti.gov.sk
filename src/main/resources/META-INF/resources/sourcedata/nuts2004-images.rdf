@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+ <rdf:Description rdf:about="https://data.gov.sk/id/nuts3/SK010">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/Bratislava_e_3448_2897.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/Z_BA_3448_3288.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0101528595">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/stare%20mesto_3254_2803.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/stare%20mesto_3254_3121.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0102529311">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/podunajske%20biskupice_e_3255_2784.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/podunajske%20biskupice_z_3255_3122.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0102529320">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/ruzinov_3256_2801.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/ruzinov_3256_3123.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0102529338">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/vrakuna_e_3257_2786.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/vrakuna_z_3257_3124.jpg"/>    
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0103529346">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/nove%20mesto_e_3258_2794.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/nove%20mesto_z_3258_3125.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0103529354">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/raca_3259_2800.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/raca_3259_3126.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0103529362">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/vajnory_3260_2806.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/vajnory_3260_3127.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0104529371">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/Devin_N_Ves_e_3381_2753.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/Devin_N_Ves_v_3381_3247.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0104529389">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/Dubravka_e_3262_90.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/Dubravka_v_3262_3129.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0104529397">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/karlova%20ves_3263_2797.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/karlova%20ves_3263_3130.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0104529401">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/devin_3264_2829.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/devin_3264_3131.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0104529419">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/lamac_3265_2759.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/Lamac_v_3265_3132.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0104529427">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/zahorska%20bystrica_e_3266_2787.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/zahorska%20bystrica_z_3266_3133.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0105529435">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/cunovo_e_3267_2789.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/cunovo_z_3267_3134.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0105529443">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/jarovce_3268_2796.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/jarovce_3268_3135.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0105529460">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/petrzalka_3269_2764.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/Petrzalka_v_3269_3136.jpg"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/lau2/SK0105529494">
+	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/nuts-images/2021-MM-DD"/>
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/ERBY/Rusovce_e_3270_2766.jpg"/>
+    <img xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://ives.minv.sk/heraldreg/prilohy/VLAJKY/Rusovce_v_3270_3137.jpg"/>
+</rdf:Description>
+
+</rdf:RDF>

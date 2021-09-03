@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY cv "http://data.europa.eu/m8g/" > 
+    <!ENTITY egov "https://data.gov.sk/def/ontology/egov/" >
+    <!ENTITY lsub "https://data.gov.sk/def/ontology/legal-subject/" >
+    <!ENTITY loca "https://data.gov.sk/def/ontology/location/" >    
+    <!ENTITY dcat "http://www.w3.org/ns/dcat#" >
+    <!ENTITY adms "http://www.w3.org/ns/adms#" >
+]>
+
+
+<rdf:RDF xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:cv="http://data.europa.eu/m8g/"
+     xmlns:egov="https://data.gov.sk/def/ontology/egov/"
+     xmlns:lsub="https://data.gov.sk/def/ontology/legal-subject/"
+     xmlns:loca="https://data.gov.sk/def/ontology/location/"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:adms="http://www.w3.org/ns/adms#">
+  
+
+    <!-- https://data.gov.sk/def/reference-data/rpo/01 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/01">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&skos;prefLabel" />
+        <rdf:object rdf:resource="&xsd;string" />
+        <dct:relates rdf:resource="&lsub;legalID" />        
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/> 
+    </egov:ReferenceData>
+    
+    <!-- https://data.gov.sk/def/reference-data/rpo/02 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/02">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;headquarters" />
+        <rdf:object rdf:resource="&loca;PhysicalAddress" />
+        <dct:relates rdf:resource="&lsub;legalID" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>
+     
+    
+<!-- https://data.gov.sk/def/reference-data/rpo/03 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/03">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;establishmentAddress" />
+        <rdf:object rdf:resource="&lsub;PhysicalAddress" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>
+    
+    
+    <!-- https://data.gov.sk/def/reference-data/rpo/04 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/04">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;legalID" />
+        <rdf:object rdf:resource="&lsub;LegalID" />
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>
+    
+     
+    <!-- https://data.gov.sk/def/reference-data/rpo/05 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/05">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;stakeholder" />
+        <rdf:object rdf:resource="&lsub;Stakeholder" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>   
+     
+     
+    <!-- https://data.gov.sk/def/reference-data/rpo/06 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/06">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;equity" />
+        <rdf:object rdf:resource="&lsub;Equity" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>   
+     
+    <!-- https://data.gov.sk/def/reference-data/rpo/07 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/07">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;deposit" />
+        <rdf:object rdf:resource="&lsub;Deposit" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>       
+     
+    <!-- https://data.gov.sk/def/reference-data/rpo/08 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/08">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;shares" />
+        <rdf:object rdf:resource="&lsub;Deposit" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>     
+    
+     <!-- https://data.gov.sk/def/reference-data/rpo/09 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/09">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;statutoryBody" />
+        <rdf:object rdf:resource="&lsub;StatutoryBody" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>
+    
+    
+       
+     <!-- https://data.gov.sk/def/reference-data/rpo/10 -->
+    
+    <egov:ReferenceData rdf:about="https://data.gov.sk/def/reference-data/rpo/10">
+        <rdf:subject rdf:resource="&lsub;LegalSubject" />
+        <rdf:predicate rdf:resource="&lsub;authorizationToExecuteNote" />
+        <rdf:object rdf:resource="&xsd;string" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/225" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/220" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/217" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/215" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/218" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/6117" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/219" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/224" />
+        <dct:source rdf:resource="https://data.gov.sk/id/egov/isvs/226" />        
+        <egov:referenceDataDefintionFor rdf:resource="https://data.gov.sk/id/egov/isvs/420" />
+        <rdfs:isDefinedBy rdf:resource="https://data.gov.sk/set/data/rpo-reference-data/2021-MM-DD"/>
+    </egov:ReferenceData>
+    
+    
+</rdf:RDF>
+
+

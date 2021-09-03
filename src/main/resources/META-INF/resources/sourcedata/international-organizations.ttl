@@ -1,0 +1,27 @@
+@prefix cpov: <http://data.europa.eu/m8g/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+
+<https://www.w3.org> a org:Organization ;
+                    skos:prefLabel "Konzorcium W3C"@sk ,
+                                   "W3C Consortium"@en ;
+                    foaf:logo <https://www.w3.org/Icons/WWW/w3c_home_nb.png> ;
+                    foaf:homePage <https://www.w3.org/> ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/international-organizations/2021-MM-DD> .
+
+<https://op.europa.eu> a org:Organization ;
+                    skos:prefLabel "Úrad pre vydávanie publikácií EU"@sk ,
+                                   "Publication Office of the European Union"@en ;
+                    foaf:homePage <https://op.europa.eu>  ;
+                    foaf:logo <https://op.europa.eu/documents/10530/14988/eulawandpublications.png> ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/international-organizations/2021-MM-DD> .

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151513">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">The Slovak Republic Government Office</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Úrad vlády SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151742">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Finance of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo financií SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151866">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Interior of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo vnútra SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00156621">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Agriculture and Rural Development of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo pôdohospodárstva a rozvoja vidieka SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00164381">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Education, Science, Research and Sport of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo školstva, vedy, výskumu a športu SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00165182">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Culture of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo kultúry SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00165565">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Health of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo zdravotníctva SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00166073">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Justice of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo spravodlivosti SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00166197">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Statistical Office of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Štatistický úrad SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00166260">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Geodesy, Cartography and Cadastre Authority of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Úrad geodézie, kartografie a katastra SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00681156">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Labour, Social Affairs and Family of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo práce, sociálnych vecí a rodiny SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00686832">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Economy of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo hospodárstva SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00699021">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Foreign and European Affairs of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo zahraničných vecí a európskych záležitostí SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00699063">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Anti-Monopoly Office of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Protimonopolný úrad SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30416094">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Transport and Construction of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo dopravy a výstavby SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30810710">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Office for Standardization, Metrology and Testing of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Úrad pre normalizáciu, metrológiu a skúšobníctvo SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30810787">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Industrial Property Office of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Úrad priemyselného vlastníctva SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30844185">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Office for Nuclear Supervision of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Úrad jadrového dozoru SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30844363">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Administration of State Material Reserves of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Správa štátnych hmotných rezerv SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30845572">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Defence of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo obrany SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/31797903">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Office for Public Procurement</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Úrad pre verejné obstarávanie</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/36061701">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">National Security Authority</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Národný bezpečnostný úrad</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/42181810">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Environment of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo životného prostredia SR</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/50349287">
+	<rdf:type rdf:resource="http://data.europa.eu/m8g/PublicOrganization"/>
+	<inScheme xmlns="http://www.w3.org/2004/02/skos/core#" rdf:resource="https://data.gov.sk/set/codelist/0069/2021-MM-DD"/>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="en">Ministry of Investments, Regional Development and Informatization of the Slovak Republic</prefLabel>
+	<prefLabel xmlns="http://www.w3.org/2004/02/skos/core#" xml:lang="sk">Ministerstvo investícií, regionálneho rozvoja a informatizácie Slovenskej republiky</prefLabel>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/set/codelist/0069/2021-MM-DD">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#" xml:lang="en">Slovak Republic Central State Authorities</label>
+	<label xmlns="http://www.w3.org/2000/01/rdf-schema#" xml:lang="sk">Ústredné orgány štátu Slovenskej republiky</label>
+</rdf:Description>
+
+</rdf:RDF>

@@ -1,0 +1,19 @@
+#header {
+  height: var(--lumo-size-xl);
+}
+#header h1 {
+  font-size: var(--lumo-font-size-l);
+  margin: 0;
+}
+#header img#logo {
+  height: var(--lumo-size-l);
+  margin: 0 var(--lumo-space-s);
+}
+#header vaadin-avatar {
+  margin-right: var(--lumo-space-m);
+  margin-left: auto;
+}
+vaadin-app-layout[dir='rtl'] #header vaadin-avatar {
+  margin-left: var(--lumo-space-m);
+  margin-right: auto;
+}

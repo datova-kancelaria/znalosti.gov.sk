@@ -1,0 +1,98 @@
+@prefix cpov: <http://data.europa.eu/m8g/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix egov: <https://data.gov.sk/def/ontology/egov/> .
+
+
+<https://data.gov.sk/id/egov/isvs/225> a egov:ISVS ;
+                    dct:title "Register spoločenstiev vlastníkov bytov a nebytových priestorov"@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/isvs/220> a egov:ISVS ;
+                    dct:title "Register občianskych združení"@sk ;
+                    foaf:homepage "https://ives.minv.sk/rmno/" .                    
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+                    
+<https://data.gov.sk/id/egov/isvs/217> a egov:ISVS ;
+                    dct:title "Register nadácií"@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/isvs/215> a egov:ISVS ;
+                    dct:title "Evidencia organizácií s medzinárodným prvkom"@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+  
+<https://data.gov.sk/id/egov/isvs/218> a egov:ISVS ;
+                    dct:title "Register neinvestičných fondov"@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/isvs/6117> a egov:ISVS ;
+                    dct:title "Obchodný register"@sk ;
+                    skos:symbol "ORSR"@sk ;                    
+                    foaf:homepage "https://www.orsr.sk/" ;
+                    rdfs:comment "Elektronické služby IS obchodného registra umožňujú posielanie návrhov na zápis, zmenu a výmaz údajov zapísaných do obchodného registra , ukladanie listín do zbierky listín, podávanie námietok proti odmietnutiu vykonania zápisu do obchodného registra a návrhov na konanie o zhode. Súčasne poskytujú možnosť vyžiadať si výpis z obchodného registra, kópiu listiny uloženú v zbierke listín a potvrdenie o skutočnosti, že sa listín v zbierke listín nenachádza a to v elektronickej alebo listinnej podobe."@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/isvs/219> a egov:ISVS ;
+                    dct:title "Register neziskových organizácií poskytujúcich všeobecne prospešné služby"@sk ;
+                    foaf:homepage "https://ives.minv.sk/rmno/" ;       
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+  
+<https://data.gov.sk/id/egov/isvs/224> a egov:ISVS ;
+                    dct:title "Register strán"@sk ;
+                    foaf:homepage "https://ives.minv.sk/rez/registre/pages/start.aspx?type=ps" ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+                    
+<https://data.gov.sk/id/egov/isvs/226> a egov:ISVS ;
+                    dct:title "Register združení obcí"@sk ;
+                    foaf:homepage "https://ives.minv.sk/rez/registre/pages/start.aspx?type=ob" .
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/isvs/420> a egov:ISVS ;
+                    skos:symbol "RPO"@sk ;                    
+                    dct:title "Register právnických osôb, podnikateľov a orgánov verejnej moci"@sk ;
+                    foaf:homepage "https://rpo.statistics.sk/rpo/" ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+                    
+<https://data.gov.sk/id/egov/isvs/63> a egov:ISVS ;
+                    dct:title "Centrálny metainformačný systém verejnej správy"@sk ;
+                    skos:symbol "MetaIS"@sk ;                    
+                    foaf:homepage "https://metais.vicepremier.gov.sk/" ;
+                    foaf:logo "https://metais.vicepremier.gov.sk/img/logo.png" ;
+                    rdfs:comment "Centrálny metainformačný systém verejnej správy je systémom verejnej správy, prostredníctvom ktorého sa zhromažďujú a sprístupňujú informácie a údaje, najmä o architektúre eGovernmentu, službách, informačných systémoch, číselníkoch, referenčných registroch a referencovateľných identifikátoroch, informačno-komunikačných technológiách, ďalších komponentoch eGovernmentu a o koncepciách rozvoja informačných systémov. Účelom systému je správnosť, kompletnosť a dostupnosť aktuálnych informácií."@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+                    
+<https://data.gov.sk/id/egov/isvs/441> a egov:ISVS ;
+                    dct:title "Štatistický informačný systém"@sk ;
+                    foaf:homepage "https://metais.vicepremier.gov.sk/" ;
+                    foaf:logo "https://metais.vicepremier.gov.sk/img/logo.png" ;
+                    rdfs:comment "Integrovaný štatistický informačný systém (IŠIS) je systém, prostredníctvom ktorého ŠÚ SR poskytuje elektronické služby a podporuje koncepčný prístup pre činnostiach súvisiacich s prácou so štatistickými údajmi."@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .                    
+                    
+<https://data.gov.sk/id/egov/isvs/191> a egov:ISVS ;
+                    dct:title "Register fyzických osôb"@sk ;
+                    skos:symbol "RFO"@sk ;                    
+                    rdfs:comment "Register predstavuje jednotný a dátovo konzistentný zdroj údajov o všetkých fyzických osobách, ktoré prichádzajú do styku s verejnou správou. Sprístupňuje elektronické služby o údajoch fyzických osôb a zabezpečuje ich použiteľnosť na právne úkony, pre ďalšie služby eGovernmentu na úrovni EÚ, t.j. poskytuje elektronické služby informačného systému registra fyzických osôb iným modulom informačných systémov verejnej správy."@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/isvs/192> a egov:ISVS ;
+                    dct:title "Register adries"@sk ;
+                    skos:symbol "RA"@sk ;                    
+                    rdfs:comment "Centrálny register adries je register všetkých existujúcich adries na území Slovenska. Je to zdroj platných údajov, na základe ktorých je možné jednoznačne identifikovať stavebné objekty."@sk ;
+                    foaf:homepage "https://portal.minv.sk/wps/portal/domov/com.ness.ra" ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/isvs/221> a egov:ISVS ;
+                    dct:title "Heraldický register Slovenskej republiky"@sk ;
+                    rdfs:comment "Informačný systém HERALDREG je web aplikácia, kde - editačná (neverejná) časť umožňuje evidovať informácie o erboch a vlajkách, o ich nositeľoch - právnických a fyzických osobách - v centrálnej databáze. Ďalej umožňuje evidovať obrázky erbov a vlajok. Verejná časť je verejne prístupná na Internete a umožňuje prezeranie vybraných informácií o nositeľoch a ich erboch a vlajkách spolu s ich obrázkami."@sk ;    
+                    foaf:homepage "https://ives.minv.sk/heraldreg/" ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .

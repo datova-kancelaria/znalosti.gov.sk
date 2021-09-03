@@ -1,0 +1,35 @@
+@prefix cpov: <http://data.europa.eu/m8g/> .
+@prefix cpsv: <http://purl.org/vocab/cpsv#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix egov: <https://data.gov.sk/def/ontology/egov/> .
+
+
+<https://data.gov.sk/id/egov/public-service/337904> a cpsv:PublicService ;
+                    cpov:hasCompetentAuthority <https://data.gov.sk/id/legal-subject/00166197> ;
+                    skos:prefLabel "Publikovanie otvorených údajov"@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/public-service/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/public-service/336865> a cpsv:PublicService ;
+                    cpov:hasCompetentAuthority <https://data.gov.sk/id/legal-subject/00312037> ;
+                    skos:prefLabel "Poskytovanie údajov v otvorených formátoch"@sk ;
+                    egov:handlesAgenda <https://data.gov.sk/id/egov/agenda/A0003121> ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/public-service/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/public-service/336543> a cpsv:PublicService ;
+                    cpov:hasCompetentAuthority <https://data.gov.sk/id/legal-subject/50349287> ;
+                    skos:prefLabel "Zverejňovanie dát z ITMS OpenData"@sk ;
+                    egov:handlesAgenda <https://data.gov.sk/id/egov/agenda/A0002735> ;
+                    rdfs:comment "Zverejňované dát o alokácii finančných prostriedkov v jednotlivých operačných programoch, o kontrahovaní, o čerpaní."@sk ;                    
+                    foaf:homepage <https://opendata.itms2014.sk/swagger/?url=%2Fv2%2Fswagger.json> ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/public-service/2021-MM-DD> .

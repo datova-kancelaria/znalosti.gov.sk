@@ -1,0 +1,25 @@
+@prefix cpov: <http://data.europa.eu/m8g/> .
+@prefix cpsv: <http://purl.org/vocab/cpsv#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix egov: <https://data.gov.sk/def/ontology/egov/> .
+
+<https://data.gov.sk/id/egov/agenda/A0002735> a egov:Agenda ;
+                    cpov:hasCompetentAuthority <https://data.gov.sk/id/legal-subject/50349287> ;
+                    skos:prefLabel "Úlohy spojené s odborným, organizačným a technickým zabezpečovaním činnosti vlády"@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/agenda/2021-MM-DD> .
+
+<https://data.gov.sk/id/egov/agenda/A0003121> a egov:Agenda ;
+                    cpov:hasCompetentAuthority <https://data.gov.sk/id/legal-subject/50349287> ;
+                    skos:prefLabel "Poskytovanie potrebných údajov obce pre jednotlivé evidencie vedené orgánmi štátu"@sk ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/agenda/2021-MM-DD> .

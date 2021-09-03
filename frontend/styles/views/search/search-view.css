@@ -1,0 +1,20 @@
+#search-view {
+  display: block;
+  padding: 1em;
+}
+
+:host {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.grid3-wrapper {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}

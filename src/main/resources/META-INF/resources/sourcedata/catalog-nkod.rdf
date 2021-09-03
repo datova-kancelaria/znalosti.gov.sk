@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+]>
+
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dct="http://purl.org/dc/terms/"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:adms="http://www.w3.org/ns/adms#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+   xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:schema="http://schema.org/"
+   xmlns:res="https://data.gov.sk/def/ontology/resource/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+   xmlns:dcat="http://www.w3.org/ns/dcat#">
+
+  
+  <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // NKOD (OpenData2.0)
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+  --> 
+  
+ <dcat:Catalog rdf:about="https://data.gov.sk/set/catalog/nkod">
+    <dct:issued rdf:datatype="&xsd;dateTime">2021-MM-DDT00:00:00Z</dct:issued>
+    <dct:modified rdf:datatype="&xsd;dateTime">2021-MM-DDT00:00:00Z</dct:modified>
+    <dct:title xml:lang="sk">Národný katalóg otvorených dát</dct:title>
+    <dct:title xml:lang="en">National Catalog Of Open Data</dct:title>
+    <skos:altLabel xml:lang="sk">Portál otvorených údajov 2.0</skos:altLabel>    
+    <skos:altLabel xml:lang="en">Open Data Portal 2.0</skos:altLabel>
+    <rdfs:comment xml:lang="sk">Národný katalóg otvorených dát (NKOD) predstavuje upgrade súčasných metadát o otvorených údajov z data.gov.sk do novej štruktúry (aj databázy) podľa štandardu DCAT. DCAT reprezentácia metadát prepojených údajov je vhodná pre ich dopytovanie prostredníctvom SPARQL dopytovacieho endpointu, ktorý nie je pre súčasný portál dostupný (možný).</rdfs:comment>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-organizacna-struktura"/>
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20"/>
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-uradne-hodiny-2021-04-20"/>
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-strategicke-dokumenty-2021-04-20"/>
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-podriadene-organizacie-2021-04-20"/>   
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-naziadanejsie-otvorene-udaje-ovm-2021-05-11"/>
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-prijate-ziadosti-podla-infozakona-2021-05-13"/>
+    <dcat:dataset rdf:resource="https://data.gov.sk/dataset/datovi-kuratori-uoss-2021-08-18"/>
+</dcat:Catalog>
+
+<!-- MIRRI Organizačná štruktúra (2021-04-20) --> 
+
+ <dcat:Dataset rdf:about="https://data.gov.sk/dataset/mirri-organizacna-struktura">
+    <dct:title xml:lang="sk">MIRRI Organizačná štruktúra (2021-04-20)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-04-20</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-organizacna-struktura/resource/d21d5a57-4d68-4986-bdb7-d243a979468e"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-organizacna-struktura/resource/574989e0-2d66-49f8-a0f6-819e5f4db5d5"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-organizacna-struktura/resource/6582ef53-5b65-438e-9e7f-5c5a24a323f4"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-organizacna-struktura/resource/c3a6bb1e-0b35-45dd-9395-41a8d97d59e7"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/mirri-organizacna-struktura"/>
+ </dcat:Dataset>
+ 
+ 
+ <!-- MIRRI Kontaktné miesta (2021-04-20) --> 
+
+ <dcat:Dataset rdf:about="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20">
+    <dct:title xml:lang="sk">MIRRI Kontaktné miesta (2021-04-20)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-04-20</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20/resource/55a77c2f-32b7-4a47-bc65-82c5ebba6c6d"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20/resource/5f5c24ca-215a-417f-8426-2a4f587f09ca"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20/resource/fbd67722-85ed-4fd4-a08f-b569fac90fc0"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20/resource/6dc47986-5e4c-4468-a86f-abbd564841f4"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20"/>    
+ </dcat:Dataset>
+ 
+ 
+<!-- MIRRI Úradné hodiny (2021-04-20) --> 
+
+ <dcat:Dataset rdf:about="https://data.gov.sk/dataset/mirri-uradne-hodiny-2021-04-20">
+    <dct:title xml:lang="sk">MIRRI Úradné hodiny (2021-04-20)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-04-20</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-uradne-hodiny-2021-04-20/resource/8848869e-941a-4a37-9c48-b68c8f8b14a0"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-uradne-hodiny-2021-04-20/resource/f310ceba-8b70-40be-97d7-b7f875570a9e"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-uradne-hodiny-2021-04-20/resource/751fb8e3-9842-4966-908b-dd1d902d310b"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-uradne-hodiny-2021-04-20/resource/bad51789-e608-4d5e-b0bf-7e41de107d7e"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/mirri-uradne-hodiny-2021-04-20"/>
+ </dcat:Dataset>
+ 
+ 
+ <!-- MIRRI Strategické dokumenty (2021-04-20) --> 
+
+ <dcat:Dataset rdf:about="https://data.gov.sk/dataset/mirri-strategicke-dokumenty-2021-04-20">
+    <dct:title xml:lang="sk">MIRRI Strategické dokumenty (2021-04-20)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-04-20</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-strategicke-dokumenty-2021-04-20/resource/f6fa2e6f-6dda-47a2-931d-b30bf3553876"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-strategicke-dokumenty-2021-04-20/resource/a364214d-ee07-46d2-b1a6-3a999266c3bb"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-strategicke-dokumenty-2021-04-20/resource/77ee733d-a704-4a69-b8a1-30b0a2913f0e"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-strategicke-dokumenty-2021-04-20/resource/e618e2e2-0b42-463a-81c8-effb3d202909"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/mirri-strategicke-dokumenty-2021-04-20"/>
+ </dcat:Dataset>
+ 
+ <!-- MIRRI Podriadené organizácie (2021-04-20) --> 
+
+ <dcat:Dataset rdf:about="https://data.gov.sk/dataset/mirri-podriadene-organizacie-2021-04-20">
+    <dct:title xml:lang="sk">MIRRI Podriadené organizácie (2021-04-20)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-04-20</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-podriadene-organizacie-2021-04-20/resource/8e2a85c6-2186-40fc-9925-1873b9f0de0c"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-podriadene-organizacie-2021-04-20/resource/4399cd48-9d26-479d-9b0d-3a722076a5f9"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-podriadene-organizacie-2021-04-20/resource/23333602-e245-4af7-92a3-8506df0ecf51"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-podriadene-organizacie-2021-04-20/resource/d4a891af-cbee-45e6-b7de-271c02fe0052"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/mirri-podriadene-organizacie-2021-04-20"/>
+ </dcat:Dataset>
+  
+  <!-- MIRRI Najžiadanejšie otvorené údaje (2021-05-11) --> 
+
+ <dcat:Dataset rdf:about="https://data.gov.sk/dataset/mirri-naziadanejsie-otvorene-udaje-ovm-2021-05-11">
+    <dct:title xml:lang="sk">MIRRI Najžiadanejšie otvorené údaje (2021-05-11)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-05-11</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-naziadanejsie-otvorene-udaje-ovm-2021-05-11/resource/e9ddea81-cdc6-4f78-84ff-9ddfb8fa80de"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-naziadanejsie-otvorene-udaje-ovm-2021-05-11/resource/f41dabf6-42e4-41ab-826f-7be482e93e86"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-naziadanejsie-otvorene-udaje-ovm-2021-05-11/resource/f6de8cfb-55fa-41b2-97bb-3c4326b934d2"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-naziadanejsie-otvorene-udaje-ovm-2021-05-11/resource/e53d7c96-20b6-4df6-9f40-21297094b858"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/mirri-naziadanejsie-otvorene-udaje-ovm-2021-05-11"/>
+ </dcat:Dataset>
+ 
+ 
+  <!-- MIRRI Prijaté žiadosti podľa infozákona (2021-05-13) --> 
+
+  <dcat:Dataset rdf:about="https://data.gov.sk/dataset/mirri-prijate-ziadosti-podla-infozakona-2021-05-13">
+    <dct:title xml:lang="sk">MIRRI Prijaté žiadosti podľa infozákona (2021-05-13)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-05-13</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-prijate-ziadosti-podla-infozakona-2021-05-13/resource/a665c0f5-0094-470c-8bc1-90058140b7a2"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-prijate-ziadosti-podla-infozakona-2021-05-13/resource/80e62cc9-c7b9-4f9d-ba64-e86e6c637b2b"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-prijate-ziadosti-podla-infozakona-2021-05-13/resource/bb95393f-45b7-4fa2-a30a-16b23c4e35a1"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/mirri-prijate-ziadosti-podla-infozakona-2021-05-13/resource/80f7969f-838e-48e9-b2cc-3e5231d2e26c"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/mirri-prijate-ziadosti-podla-infozakona-2021-05-13"/>
+ </dcat:Dataset>
+ 
+ 
+ <!-- Dátoví kurátori ÚOŠS (2021-08-18) --> 
+
+  <dcat:Dataset rdf:about="https://data.gov.sk/dataset/datovi-kuratori-uoss-2021-08-18">
+    <dct:title xml:lang="sk">Dátoví kurátori ÚOŠS (2021-08-18)</dct:title>
+    <dcat:version rdf:datatype="&xsd;string">2021-08-18</dcat:version>    
+    <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
+    <dcat:theme rdf:resource="http://publications.europa.eu/resource/authority/data-theme/GOVE"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/datovi-kuratori-uoss-2021-08-18/resource/9d9c5736-78f9-4c96-a426-869b59941312"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/datovi-kuratori-uoss-2021-08-18/resource/6b3880f8-84b0-48c6-aad4-d465eb883e6a"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/datovi-kuratori-uoss-2021-08-18/resource/3e14da18-7362-4bf1-b6d1-436ab8048fce"/>
+    <dcat:distribution rdf:resource="https://data.gov.sk/dataset/datovi-kuratori-uoss-2021-08-18/resource/d4b32bb2-872f-447b-99ab-a9816c2446b3"/>
+    <dcat:landingPage rdf:resource="https://data.gov.sk/dataset/datovi-kuratori-uoss-2021-08-18"/>
+ </dcat:Dataset>
+ 
+ 
+ 
+</rdf:RDF>
+

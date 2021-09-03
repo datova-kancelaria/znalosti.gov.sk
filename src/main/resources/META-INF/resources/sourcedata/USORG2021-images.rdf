@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151513">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.vlada.gov.sk/images/uvsr/logo-uvsr.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151742">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.mfsr.sk/templates/mfsrweb/assets/images/logo.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>    
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00151866">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.minv.sk/swift_data/source/images/logominv.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>    
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00156621">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.mpsr.sk/img/logo_sk.gif"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>    
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00164381">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.minedu.sk/assets/default/img/logo-minedu-sk.svg"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00165182">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://data.gov.sk/en/organization/285b795d-faba-49b6-96da-e3150fbf84a6"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00165565">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.health.gov.sk/App_Themes/Default/logo-mzsr.gif"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00166073">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.justice.gov.sk/Style%20Library/MSSR/Images/LogoMSSR.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00681156">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.employment.gov.sk/images/css/bg-logo.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00686832">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.mhsr.sk/images/mhsr-logo-sk.svg"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00699021">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://mzv.sk/MzvTema/images/logo_MZVaEZ_SR_SK.svg"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/00699063">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.antimon.gov.sk/data/files/665_logo-sk.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30416094">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.mindop.sk/bundles/app/images/logo_small.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30810710">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.unms.sk/swift_data/source/images/logoUNMS.jpg"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30810787">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.indprop.gov.sk/swift_data/source/images/logo.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30844363">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.reserves.gov.sk/wp-content/uploads/2018/02/SSHR3-2.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30845572">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.mosr.sk/assets/default/img/logo-mosr-sk.svg"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/31797903">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.uvo.gov.sk/img/logo.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/30844185">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.ujd.gov.sk/ujd/www1.nsf/UJD_sk.jpg"/>
+    <isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/36061701">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.nbu.gov.sk/wp-content/themes/nbu/assets/img/nbusr.png"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/42181810">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.minzp.sk/images/ministerstvo-zivotneho-prostredia.svg"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="https://data.gov.sk/id/legal-subject/50349287">
+    <logo xmlns="http://xmlns.com/foaf/0.1/" rdf:resource="https://www.mirri.gov.sk/wp-content/uploads/2020/06/logo-miiri-farebne-sk-01-2.svg"/>
+   	<isDefinedBy xmlns="http://www.w3.org/2000/01/rdf-schema#" rdf:resource="https://data.gov.sk/set/data/usorg-images/2021-MM-DD"/>
+</rdf:Description>
+
+
+</rdf:RDF>

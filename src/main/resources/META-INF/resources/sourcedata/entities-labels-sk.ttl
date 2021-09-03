@@ -1,0 +1,46 @@
+@prefix cpov: <http://data.europa.eu/m8g/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+
+dcat:Catalog rdfs:label "Katalóg"@sk .
+dcat:Dataset rdfs:label "Dataset"@sk .
+dcat:Distribution rdfs:label "Distribúcia"@sk .
+
+skos:Concept rdfs:label "Koncept"@sk ;
+             skos:altLabel "Položka číselníka"@sk .
+             
+skos:ConceptScheme rdfs:label "Schéma konceptov"@sk ;
+                   skos:altLabel "Číselník"@sk , "Taxonómia"@sk .
+                   
+owl:Class rdfs:label "Trieda"@sk ;
+          skos:altLabel "Dátový prvok - Trieda"@sk .
+                                                    
+owl:ObjectProperty rdfs:label "Objektová vlastnosť"@sk ;
+                   skos:altLabel "Dátový prvok - Relácia medzi objektmi"@sk .                                                 
+
+owl:DatatypeProperty rdfs:label "Objektová vlastnosť"@sk ;
+                     skos:altLabel "Dátový prvok - Relácia objektu a hodnoty"@sk .
+            
+cpov:PublicAuthority rdfs:label "Orgán verejnej moci"@sk ;
+                     skos:altLabel "OVM"@sk .
+                     
+cpov:ContactPoint rdfs:label "Kontaktné miesto"@sk .
+
+org:OrganizationUnit rdfs:label "Organizačná jednotka"@sk .
+
+schema:OpeningHoursSpecification rdfs:label "Špecifikácia úradných hodín"@sk .
+                     
+foaf:Person rdfs:label "Osoba"@sk .
+foaf:Document rdfs:label "Dokument"@sk .
+
+adms:Identifier rdfs:label "Identifikátor"@sk .
