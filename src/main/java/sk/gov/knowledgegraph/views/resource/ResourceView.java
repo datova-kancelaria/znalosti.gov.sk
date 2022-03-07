@@ -12,6 +12,7 @@ import javax.xml.transform.TransformerException;
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.*;
@@ -24,6 +25,8 @@ import sk.gov.knowledgegraph.data.entity.Resource;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
@@ -43,20 +46,38 @@ import org.vaadin.artur.helpers.CrudServiceDataProvider;
 import sk.gov.knowledgegraph.rest.ResourceAPI;
 import sk.gov.knowledgegraph.views.main.MainView;
 import com.vaadin.flow.component.textfield.TextField;
+import org.springframework.beans.factory.annotation.Value;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Route(value = "resource", layout = MainView.class)
-@PageTitle("Resource")
+@PageTitle("URI Zdroj")
+@CssImport("./styles/idsk-frontend-2.8.0.min.css")
 @CssImport("./styles/views/resource/resource-view.css")
+//@NpmPackage(value="@id-sk/frontend", version = "2.8.0")
+//@JsModule("/home/liskam/eclipse-workspace/znalosti.gov.sk/node_modules/@id-sk/frontend/idsk/all.js")
 
 public class ResourceView extends Div
 {
-
     private Grid<Resource> grid = new Grid<>(Resource.class, false);
 
     public ResourceView(@Autowired ResourceAPI resourceService)  {
         setId("resource-view");
+        
+        addClassName("govuk-width-container");
+
+        Main main = new Main();
+        main.addClassName("govuk-main-wrapper");
+        main.setId("main-content");
+        add(main);
+        
+        Div whiteSpace = new Div();
+        whiteSpace.addClassName("app-whitespace-highlight");
+        main.add(whiteSpace);
+        
+        Div dataResults = new Div();
+        dataResults.addClassName("govuk-grid-column-full");
+        whiteSpace.add(dataResults);
         
     	String uriString = VaadinService.getCurrent().getCurrentRequest().getParameter("uri");      
         String prefLabel = "";
@@ -65,10 +86,8 @@ public class ResourceView extends Div
     	
     	Resource res = new Resource();        
 
-        
         try {
             res = resourceService.getBaseProperties(uriString);
-
                      
            if(res.getPrefLabel()!=null)
         	   prefLabel=res.getPrefLabel();
@@ -83,7 +102,7 @@ public class ResourceView extends Div
 
            if(prefLabel!="")
            {	   
-        	   add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>&nbsp;&nbsp;znalosti o:&nbsp;</b></font></td><td><font size=5><b>"+prefLabel+"</b></font>&nbsp;<a href=http://localhost:8080/resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></td></tr><tr><td></td><td><font size=4><b>"+uriString+"</b></font></td></tr></table></div>"));
+        	   add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>"+prefLabel+"</b></font>&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></td></tr><tr><td><font size=4><b>"+uriString+"</b></font></td></tr></table></div>"));
            
            }
            else
@@ -91,7 +110,7 @@ public class ResourceView extends Div
         	   if (type!="")
         	     	   add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>"+uriString+"</div>"));
         	   else
-    	     	   		add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>"+uriString+"&nbsp;<a href=http://localhost:8080/resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></div>"));
+    	     	   		add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>"+uriString+"&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></div>"));
            }
         
         }
@@ -100,14 +119,27 @@ public class ResourceView extends Div
         	add(e.toString());
         }        
         
+        grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
+        grid.setColumnReorderingAllowed(true);
+
+        grid.setHeightByRows(true);
+        
+   //     grid.setHeightFull();
+        grid.setSelectionMode(Grid.SelectionMode.NONE);
+   //     grid.setVerticalScrollingEnabled(false);
+  //      grid.setHeightByRows(true);        
+        grid.removeAllColumns(); 
+        
         try {
         	
         	
         	add(new Html("<br>"));
         	
+
         	grid.setItems(resourceService.uri(uriString));
-            grid.setHeightFull();
-            grid.setSelectionMode(Grid.SelectionMode.NONE);
+            grid.setHeightByRows(true);        
+            
+            
           //  grid.setWidth("80%");
             
             // grid.getColumns().forEach(col -> col.setAutoWidth(true));           
@@ -118,14 +150,14 @@ public class ResourceView extends Div
             	
                 if(resource.getIsInverse().contains("false"))
                 {
-                	return new Html("<div><b><a href=http://localhost:8080/resource?uri="+resource.getPredicate().replace("#","%23")+">"+resource.getPredicateShort()+"</b></a>"+resource.getResourceIcon(resource.getPredicateShort()));
+                	return new Html("<div><b><a href=resource?uri="+resource.getPredicate().replace("#","%23")+">"+resource.getPredicateShort()+"</b></a>"+resource.getResourceIcon(resource.getPredicateShort()));
                 
                     //Image logo = new Image("images/logo.png", "SKKnowledgeGraph logo");
                 	//	return new Image("dede.jpg", "resource");
                 
                 }
                 else
-                    return new Html("<div><b>is <a href=http://localhost:8080/resource?uri="+resource.getPredicate().replace("#","%23")+">"+resource.getPredicateShort()+"</a> of</b>"+resource.getResourceIcon(resource.getPredicateShort())+"</div>");
+                    return new Html("<div><b>is <a href=resource?uri="+resource.getPredicate().replace("#","%23")+">"+resource.getPredicateShort()+"</a> of</b>"+resource.getResourceIcon(resource.getPredicateShort())+"</div>");
             })).setWidth("15%")
                .setHeader(new Html("<b>Vlastnosť</b>"));
                 
@@ -136,7 +168,7 @@ public class ResourceView extends Div
             	String linkBase = "";
             	String targetWindowString = "";
 
-            	linkBase = resource.getLinkBaseUrl("http://localhost:8080/resource?uri=" , resource.getPredicateShort());
+            	linkBase = resource.getLinkBaseUrl("resource?uri=" , resource.getPredicateShort());
             	
             	if(linkBase=="")
             		targetWindowString = "target=new";
@@ -170,9 +202,9 @@ public class ResourceView extends Div
                 else if(resource.getIsInverse().contains("true") && resource.getObject().contains("http"))
                    
                 	 if (resource.getSubjectShort()!=null)
-                		 return new Html("<div><a href=http://localhost:8080/resource?uri="+resource.getSubject().replace("#","%23")+">"+resource.getSubjectShort()+"</a>");
+                		 return new Html("<div><a href=resource?uri="+resource.getSubject().replace("#","%23")+">"+resource.getSubjectShort()+"</a>");
                 	 else
-                		 return new Html("<div><a href=http://localhost:8080/resource?uri="+resource.getSubject().replace("#","%23")+">"+resource.getSubject()+"</a>");
+                		 return new Html("<div><a href=resource?uri="+resource.getSubject().replace("#","%23")+">"+resource.getSubject()+"</a>");
 
                 // inverse value
 
@@ -186,17 +218,17 @@ public class ResourceView extends Div
                .setHeader(new Html("<b>Hodnota</b>"));
                 
             
-            
-      
+          
             
             
             grid.addColumn(TemplateRenderer
-                    .<Resource>of("<a href=http://localhost:8080/resource?uri=[[item.graph]]>[[item.graphName]]</a>")
+                    .<Resource>of("<a href=resource?uri=[[item.graph]]>[[item.graphName]]</a>")
                     .withProperty("graph", Resource::getGraph)
                     .withProperty("graphName", Resource::getGraphName)
             ).setWidth("20%")
              .setHeader(new Html("<b>Graf</b>"));
-                     
+        
+          
             
             
           //  add(grid);

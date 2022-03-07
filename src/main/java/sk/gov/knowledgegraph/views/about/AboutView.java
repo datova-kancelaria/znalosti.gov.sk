@@ -2,9 +2,14 @@ package sk.gov.knowledgegraph.views.about;
 
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.splitlayout.SplitLayout;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
@@ -16,7 +21,11 @@ import sk.gov.knowledgegraph.rest.SearchAPI;
 import sk.gov.knowledgegraph.views.main.MainView;
 
 @Route(value = "about", layout = MainView.class)
-@PageTitle("About")
+@PageTitle("O portáli")
+@CssImport("./styles/idsk-frontend-2.8.0.min.css")
+//@NpmPackage(value="@id-sk/frontend", version = "2.8.0")
+//@JsModule("/home/liskam/eclipse-workspace/znalosti.gov.sk/node_modules/@id-sk/frontend/idsk/all.js")
+
 public class AboutView extends Div {
 
     private Grid<Result> grid4 = new Grid<>(Result.class, false);
@@ -24,9 +33,35 @@ public class AboutView extends Div {
     public AboutView(@Autowired SearchAPI searchService) {
         setId("about-view");
 
-        add(new Html("<div><h3>&nbsp;&nbsp;Informácie</h3></div>"));
+        addClassName("govuk-width-container");
+
+        Main main = new Main();
+        main.addClassName("govuk-main-wrapper");
+        main.setId("main-content");
+        add(main);
         
-        add(new Html("<div>&nbsp;&nbsp;Projekt znalosti.gov.sk poskytuje otvorené údaje verejnej správy Slovenskej republiky vo forme prepojených údajov (linkeddata). "
+        Div whiteSpace = new Div();
+        whiteSpace.addClassName("app-whitespace-highlight");
+        main.add(whiteSpace);
+     
+        
+        Div dataResults = new Div();
+        dataResults.addClassName("govuk-grid-column-full");
+        whiteSpace.add(dataResults);
+
+        H1 h1 = new H1();
+        h1.addClassName("idsk-search-results__title");
+        h1.add(new Html("<div>\n"
+        		+ "    Informácie o portáli\n"
+        		+ "  </div>"));
+        
+//        main.add(h1);
+        
+        whiteSpace.add(h1);
+        
+        //add(new Html("<div><h3>&nbsp;&nbsp;Informácie</h3></div>"));
+        
+        add(new Html("<div>Projekt znalosti.gov.sk poskytuje otvorené údaje verejnej správy Slovenskej republiky vo forme prepojených údajov (linkeddata). "
         		+ "Sústreďuje sa reprezentáciu štrukturálnych metadát do formy prepojených údajov, akými je napr. Centrálny model údajov verejnej správy, tj. množina ontológií údajov v základných registroch spolu so všetkými číselníkmi reprezentovanými ako sémantickými hierarchickými taxonómiami. Uvedená množina prepojených metadát predstavuje tzv. základný znalostný graf (Knowledge Graph) údajov verejnej správy.</div>"));
         
         }

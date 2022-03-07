@@ -5,11 +5,11 @@ Centrálny portál strojovo-spracovateľných znalostí pre informačné systém
 
 Projekt je v súčasnosti v testovacom režime vývíjaný a poskytovaný ako otvorený [Dátovou kanceláriou](https://datalab.digital) MIRRI. V súčasnosti prebieha jeho nasadenie do vládneho cloudu.
 
-## Spustenie portálu na vlastnom serveri 
+## Postup nasadenia 
 
-1. Najskôr je nutné mať naištalovanú RDF databázu. Počas implementácie prvotnej verzie portálu znalosti.gov.sk bola použitá otvorená databáza [RDF4J Server](https://rdf4j.org/documentation/tools/server-workbench/)
+1.Najskôr je nutné mať naištalovanú RDF databázu. Počas implementácie prvotnej verzie portálu znalosti.gov.sk bola použitá otvorená databáza [RDF4J Server](https://rdf4j.org/documentation/tools/server-workbench/)
 
-2. Následne je do nej potrebné nahrať aktuálnu verziu DB (0.5), ktorá bola vytvorená jednak z množiny základných štrukturálnych metadát , tj. Centrálny model údajov verejnej správy + vybrané základné číselníky vo formáte RDF, spolu s množinou datasetov obsahujúcich vybrané inštančné dáta (organizácie, adresy, územná štruktúra BSK, publikačné minimum MIRRI a podobne).  
+2.Následne je do nej potrebné nahrať aktuálnu verziu DB (0.5), ktorá bola vytvorená jednak z množiny základných štrukturálnych metadát , tj. Centrálny model údajov verejnej správy + vybrané základné číselníky vo formáte RDF, spolu s množinou datasetov obsahujúcich vybrané inštančné dáta (organizácie, adresy, územná štruktúra BSK, publikačné minimum MIRRI a podobne).  
 
    Pripravené dáta na loadnutie do databázy sú dostupné
 
@@ -20,4 +20,15 @@ Projekt je v súčasnosti v testovacom režime vývíjaný a poskytovaný ako ot
     `src/main/resources/META-INF/resources/pipelines` .
 
 
-3. Po príprave databázy je možné použiť maven na zbuildovanie samotného portálu, ktorý je nutné pripojiť na vytvorenú RDF databázu (súbor application.properties)
+3.Po príprave databázy je možné použiť maven na zbuildovanie samotného portálu, ktorý je nutné pripojiť na vytvorenú RDF databázu (súbor application.properties)
+
+## Screenshots
+
+Vyhľadávanie
+![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-vyhladavanie.png)
+
+Znalosti o Bratislave Staré Mesto
+![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-o-ba-stare-mesto.png)
+
+Znalosti o MIRRI
+![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-o-mirri.png)

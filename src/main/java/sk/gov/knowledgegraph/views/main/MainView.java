@@ -2,17 +2,26 @@ package sk.gov.knowledgegraph.views.main;
 
 import java.util.Optional;
 import com.vaadin.flow.component.Html;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dependency.JavaScript;
 import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.html.ListItem;
+import com.vaadin.flow.component.html.Main;
+import com.vaadin.flow.component.html.UnorderedList;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.Inline;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.TabVariant;
 import com.vaadin.flow.component.tabs.Tabs;
@@ -24,96 +33,69 @@ import sk.gov.knowledgegraph.views.search.SearchView;
 import sk.gov.knowledgegraph.views.data.DataView;
 import sk.gov.knowledgegraph.views.resource.ResourceView;
 import sk.gov.knowledgegraph.views.about.AboutView;
+import sk.gov.idsk4j.IDSKHeaderWeb;
+import sk.gov.idsk4j.IDSKHeaderWebMain;
+import sk.gov.idsk4j.IDSKHeaderWebNav;
+import org.springframework.beans.factory.annotation.Value;
+
 
 /**
  * The main view is a top-level placeholder for other views.
  */
-@CssImport(value = "./styles/views/main/main-view.css", themeFor = "vaadin-app-layout")
-@CssImport("./styles/views/main/main-view.css")
-@PWA(name = "SKKnowledgeGraph", shortName = "SKKnowledgeGraph", enableInstallPrompt = false)
-@JsModule("./styles/shared-styles.js")
-public class MainView extends AppLayout {
 
+@CssImport("./styles/idsk-frontend-2.8.0.min.css")
+//@CssImport(value = "./styles/views/main/main-view.css", themeFor = "vaadin-app-layout")
+//@CssImport("./styles/views/main/main-view.css")
+@PWA(name = "znalosti.gov.sk", shortName = "znalosti", enableInstallPrompt = false)
+//@JsModule("./styles/shared-styles.js")
+//@JsModule("./styles/idsk-frontend-2.8.0.min.js")
+@JsModule("./styles/all.js")
+//@NpmPackage(value="@id-sk/frontend", version = "2.8.0")
+//@JsModule("/home/liskam/eclipse-workspace/znalosti.gov.sk/node_modules/@id-sk/frontend/idsk/all.js")
+//@JavaScript("./styles/all.js")
+
+
+public class MainView extends  AppLayout {
+	@Value("${server.url}")
+    private String serverUrl;
+	
     private final Tabs menu;
-
+    
     public MainView() {
-        HorizontalLayout header = createHeader();
-        menu = createMenuTabs();
-        addToNavbar(createTopBar(header, menu));
+
+    	menu = null; //createMenuTabs();  
+    	
+    	// Menu
+    	
+      	 UnorderedList ulMenu = new UnorderedList();
+      	 ulMenu.addClassName("idsk-header-web__nav-list");
+	     
+	     ListItem li1 = new ListItem();
+	     li1.addClassName("idsk-header-web__nav-list-item");
+	     li1.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/search\" title=\"Vyhľadávanie\">\n"
+	     		+ "                    Vyhľadávanie\n"
+	     		+ "                  </a>"));
+	     
+	     ListItem li2 = new ListItem();
+	     li2.addClassName("idsk-header-web__nav-list-item");
+	     li2.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/data\" title=\"Datasety\">\n"
+	     		+ "                    Datasety\n"
+	     		+ "                  </a>"));
+	    
+	     ListItem li3 = new ListItem();
+	     li3.addClassName("idsk-header-web__nav-list-item");
+	     li3.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/about\" title=\"O portáli\">\n"
+	     		+ "                    O portáli\n"
+	     		+ "                  </a>"));
+	  	     
+	     ulMenu.add(li1, li2, li3);
+
+     	IDSKHeaderWebNav headerWebNav = new IDSKHeaderWebNav(ulMenu);
+       	IDSKHeaderWebMain headerWebMain = new IDSKHeaderWebMain("images/znalosti-logo1.svg", null, "Znalostný graf údajov verejnej správy");
+    	IDSKHeaderWeb headerWeb = new IDSKHeaderWeb("znalosti.gov.sk", serverUrl);
+
+        addToNavbar((headerWeb.create(headerWebMain.create(), headerWebNav.create())));
+                  
     }
 
-    private VerticalLayout createTopBar(HorizontalLayout header, Tabs menu) {
-        VerticalLayout layout = new VerticalLayout();
-        layout.getThemeList().add("dark");
-        layout.setWidthFull();
-        layout.setSpacing(false);
-        layout.setPadding(false);
-        layout.setAlignItems(FlexComponent.Alignment.CENTER);
-        layout.add(header, menu);
-        return layout;
-    }
-
-    private HorizontalLayout createHeader() {
-        HorizontalLayout header = new HorizontalLayout();
-        header.setPadding(false);
-        header.setSpacing(false);
-        header.setWidthFull();
-        header.setAlignItems(FlexComponent.Alignment.CENTER);
-        header.setId("header");
-        
-        header.add(new Html("<table width=\"100%\"><tr><td align=left width=\"50%\"><a href=\"search\"><img height=\"35px\" src=\"images/logo.png\"></a>&nbsp;<font size=\"6\">znalosti.gov.sk</font></td><td align=right><a target=new href=\"http://datalab.digital\"><img height=\"50px\" src=\"images/dtlb.png\"></a></td></tr></table"));
-
-        
-       // header.add(new Html("<div><a href=\"search\"><img height=\"50px\" src=\"images/logo.png\"/>&nbsp;</div"));
-        
-               
-       
-     //   Image dtlb = new Image("images/dtlb.png", "Dátová kancelária");
-     //   dtlb.setId("dtlb");
-
-        
-       // Avatar avatar = new Avatar();
-       // avatar.setId("avatar");
-     //   header.add(new H1("znalosti.gov.sk"));
-//        header.add(dtlb);
-
-       // header.add(avatar);
-        
-        
-        return header;
-    }
-
-    private static Tabs createMenuTabs() {
-        final Tabs tabs = new Tabs();
-        tabs.getStyle().set("max-width", "100%");
-        tabs.add(getAvailableTabs());
-        return tabs;
-    }
-
-    private static Tab[] getAvailableTabs() {
-        //return new Tab[]{createTab("Search", SearchView.class), createTab("Data", DataView.class),
-        //        createTab("Resource", ResourceView.class), createTab("About", AboutView.class)};
-
-        return new Tab[]{createTab("Hľadaj", SearchView.class), createTab("Datasety", DataView.class),
-            createTab("Informácie", AboutView.class)};
-}
-
-    private static Tab createTab(String text, Class<? extends Component> navigationTarget) {
-        final Tab tab = new Tab();
-        tab.addThemeVariants(TabVariant.LUMO_ICON_ON_TOP);
-        tab.add(new RouterLink(text, navigationTarget));
-        ComponentUtil.setData(tab, Class.class, navigationTarget);
-        return tab;
-    }
-
-    @Override
-    protected void afterNavigation() {
-        super.afterNavigation();
-        getTabForComponent(getContent()).ifPresent(menu::setSelectedTab);
-    }
-
-    private Optional<Tab> getTabForComponent(Component component) {
-        return menu.getChildren().filter(tab -> ComponentUtil.getData(tab, Class.class).equals(component.getClass()))
-                .findFirst().map(Tab.class::cast);
-    }
 }

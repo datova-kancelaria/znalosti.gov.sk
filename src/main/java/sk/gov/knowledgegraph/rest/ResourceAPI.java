@@ -33,7 +33,6 @@ public class ResourceAPI {
     
 	private final TreeMap<Integer, Resource> resourceTreeMap = new TreeMap<>();
 
-
 	@GetMapping("/api/describeResource")
 	public List<Resource> uri(String uri) throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
 
@@ -117,12 +116,11 @@ public class ResourceAPI {
 	//	resourceTreeMap.clear();
 
 		Model model = new TreeModel();
-		Repository repo = new HTTPRepository("http://localhost:9090/rdf4j-server", "znalosti.gov.sk-test");
 		Resource resource = new Resource();
 
 		int i=0;
 
-		try (RepositoryConnection conn = repo.getConnection()) {
+		try (RepositoryConnection conn = repository.getConnection()) {
 					
 			String queryString = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
 					+ "prefix dcat: <http://www.w3.org/ns/dcat#> prefix dct: <http://purl.org/dc/terms/>\n"
@@ -132,8 +130,7 @@ public class ResourceAPI {
 					+ "{  <"+uri+"> rdf:type ?type .   \n"
 					+ "       graph ?q {\n"
 					+ "       ?type rdfs:label ?typeLabel .\n"
-					+ "       filter langMatches( lang(?typeLabel), \"sk\" ) }\n"				
-					
+					+ "       filter langMatches( lang(?typeLabel), \"sk\" ) }\n"
 					+ " graph ?g { {\n"
 					+ "    <"+uri+"> skos:prefLabel ?prefLabel .\n"
 					+ "     bind (1 as ?score)\n"

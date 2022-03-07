@@ -48,20 +48,6 @@ public class SearchAPI {
 
 		try (RepositoryConnection conn = repository.getConnection()) {
 			
-			/*
-			String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n	" +
-					"prefix dcat: <http://www.w3.org/ns/dcat#>\n" +
-					"prefix dct: <http://purl.org/dc/terms/>\n" +
-					"prefix skos: <http://www.w3.org/2004/02/skos/core#>\n" +
-					"select distinct ?subject ?property ?object ?graph ?graphName where\n" +
-					"{ graph ?graph {\n" +					
-					"    ?subject ?property ?object .\n" +					
-					"    filter regex(?object,\""+searchString+"\", \"i\" )\n" +
-					"    filter (lang(?object)=\"sk\") \n" +
-					" }   ?graph dct:title ?graphName  .\n" +
-					" filter (lang(?graphName)=\"sk\") \n" +
-					" } limit 100";
-			 */
 			
 			String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n	" +
 					"prefix dcat: <http://www.w3.org/ns/dcat#>\n" +
@@ -125,10 +111,9 @@ public class SearchAPI {
 
 		int count = 0;
 		
-		Repository repo = new HTTPRepository("http://localhost:9090/rdf4j-server", "znalosti.gov.sk-test");
 		int i=0;
 
-		try (RepositoryConnection conn = repo.getConnection()) {
+		try (RepositoryConnection conn = repository.getConnection()) {
 			String queryString = "SELECT (COUNT(*) as ?count) WHERE { ?s ?p ?o}";
 
 			TupleQuery tupleQuery = conn.prepareTupleQuery(queryString);
@@ -150,10 +135,9 @@ public class SearchAPI {
 
 		int count = 0;
 		
-		Repository repo = new HTTPRepository("http://localhost:9090/rdf4j-server", "znalosti.gov.sk-test");
 		int i=0;
 
-		try (RepositoryConnection conn = repo.getConnection()) {
+		try (RepositoryConnection conn = repository.getConnection()) {
 			String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>\n"
 					+ "prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
 					+ "select distinct (COUNT(?dataset) as ?count)"
@@ -193,10 +177,9 @@ public class SearchAPI {
 
 		int count = 0;
 		
-		Repository repo = new HTTPRepository("http://localhost:9090/rdf4j-server", "znalosti.gov.sk-test");
 		int i=0;
 
-		try (RepositoryConnection conn = repo.getConnection()) {
+		try (RepositoryConnection conn = repository.getConnection()) {
 			String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>\n"
 					+ "SELECT (COUNT(*) as ?count) WHERE { ?s rdf:type dcat:Catalog}";
 
