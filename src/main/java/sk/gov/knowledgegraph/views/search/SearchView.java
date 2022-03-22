@@ -44,6 +44,8 @@ import sk.gov.knowledgegraph.rest.SearchAPI;
 import sk.gov.knowledgegraph.views.main.MainView;
 import com.vaadin.flow.router.RouteAlias;
 
+// import com.vaadin.event.ShortcutListener;
+
 @Route(value = "search", layout = MainView.class)
 @RouteAlias(value = "", layout = MainView.class)
 @PageTitle("Vyhľadávanie")
@@ -66,6 +68,14 @@ public class SearchView extends Div {
         setId("search-view");
         
         addClassName("govuk-width-container");
+        
+        /*
+        ShortcutListener shortcut = new ShortcutListener("Shortcut Name", ShortcutAction.KeyCode.ENTER, null) {
+    		@Override
+    		public void handleAction(Object sender, Object target) {
+    			startSearch();
+    		}
+        */
         
         Main main = new Main();
         main.addClassName("govuk-main-wrapper");
@@ -95,6 +105,22 @@ public class SearchView extends Div {
                
         searchResults.add(h1);
        
+        
+        
+        
+        int getAllTriplesCount = 0;
+        int datasetsCount = 0;
+        int catalogCount = 0;
+        
+        getAllTriplesCount = searchService.getAllTriplesCount();
+        datasetsCount = searchService.getDatasetsCount();
+        catalogCount = searchService.getCatalogsCount();
+        
+        searchResults.add(new Html("<div>"+datasetsCount+" datasetov, "+catalogCount+" katalógy, <b>"+getAllTriplesCount+"</b> tripletov (znalostí)</div>"));
+        
+        
+        
+        
         Div searchBar = new Div();
         searchBar.addClassName("govuk-grid-column-full");
         searchBar.addClassName("idsk-search-results__search-bar");
@@ -108,11 +134,26 @@ public class SearchView extends Div {
         		+ "  </label>"));
       
         Input input = new Input();
+        
+       // TextField input = new TextField();
+        
         input.addClassName("govuk-input");
         input.addClassName("govuk-input--width-30");
         input.addClassName("idsk-search-component__input");
         input.setId("search-results-input");
-        input.setType("text");
+        
+    //    input.setType("text");
+
+        /*
+        input.setImmedate(true);
+        OnEnterKeyHandler onEnterHandler=new OnEnterKeyHandler(){
+            @Override
+            public void onEnterKeyPressed() {
+                Notification.show("Voight Kampff Test",
+                    Notification.Type.HUMANIZED_MESSAGE);
+            }
+        };
+        */
         
          // TextField searchText = new TextField();
          // searchComponent.add(new Html("<input class=\"govuk-input govuk-input--width-30 idsk-search-component__input \" id=\"search-results-input\" name=\"search\" type=\"text\">"));
@@ -138,7 +179,7 @@ public class SearchView extends Div {
         grid5.setHeightFull();
         grid5.setSelectionMode(Grid.SelectionMode.NONE);
         
-            btnSearch2.addClickListener(e -> {
+        btnSearch2.addClickListener(e -> {
 
             try {
 
@@ -151,13 +192,11 @@ public class SearchView extends Div {
             			"<div><font size=3><b><a href=resource?uri="+result.getSubject().replace("#","%23")+">"+result.getObject()+"</a></b></font></br>" +
             			"<font size=2 color=grey>"+result.getSubject()+"</font></br>" +
             			"<font size=1 color=grey>"+result.getGraphName()+"</font>" +
-            			"<br /></div>"
-            					);
+            			"<br /></div>");
                        }));
   
            idskSearchResultsDiv.add(idskSearchResultsContent.create(grid5));
            
-            
         }
         catch (Exception ee)
         {
@@ -165,6 +204,19 @@ public class SearchView extends Div {
         }
         });
         
+        
+       /*  
+        
+        input.addShortcutListener(new ShortcutListener("Shortcut Name", ShortcutAction.KeyCode.ENTER, null) {
+        	@Override
+        	public void handleAction(Object sender, Object target) {
+        		// your code here
+        	}
+        });
+            
+       */    
+            
+            
     }
 
 }

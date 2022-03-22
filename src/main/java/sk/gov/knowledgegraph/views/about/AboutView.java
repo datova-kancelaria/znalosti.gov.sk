@@ -62,8 +62,9 @@ public class AboutView extends Div {
         //add(new Html("<div><h3>&nbsp;&nbsp;Informácie</h3></div>"));
         
         add(new Html("<div>Projekt znalosti.gov.sk poskytuje otvorené údaje verejnej správy Slovenskej republiky vo forme prepojených údajov (linkeddata). "
-        		+ "Sústreďuje sa reprezentáciu štrukturálnych metadát do formy prepojených údajov, akými je napr. Centrálny model údajov verejnej správy, tj. množina ontológií údajov v základných registroch spolu so všetkými číselníkmi reprezentovanými ako sémantickými hierarchickými taxonómiami. Uvedená množina prepojených metadát predstavuje tzv. základný znalostný graf (Knowledge Graph) údajov verejnej správy.</div>"));
-        
+        		+ "Sústreďuje sa reprezentáciu štrukturálnych metadát do formy prepojených údajov, akými je napr. Centrálny model údajov verejnej správy, tj. množina ontológií údajov v základných registroch spolu so všetkými číselníkmi reprezentovanými ako sémantickými hierarchickými taxonómiami. Uvedená množina prepojených metadát predstavuje tzv. základný znalostný graf (Knowledge Graph) údajov verejnej správy."
+        		+ "<br><br>Projekt bol vyvinutý interne v Dátovej kancelárii <a href=https://mirri.gov.sk target=\"_blank\">Ministerstva investícií, regionálneho rozvoja a informatizácie Slovenskej republiky</a>. Vaše pripomienky posielajte prosím na <a href=mailto:miroslav.liska@mirri.gov.sk>miroslav.liska@mirri.gov.sk</a>, resp. <a href=mailto:viktoria.sunderlikova@mirri.gov.sk>viktoria.sunderlikova@mirri.gov.sk</a> ."
+        		+ "<br><br>Zdrojový kód portálu je dostupný na adrese: <a href=https://github.com/datova-kancelaria/znalosti.gov.sk target=\"_blank\">https://github.com/datova-kancelaria/znalosti.gov.sk</a> pod licenciou <a href=https://eur-lex.europa.eu/legal-content/SK/TXT/HTML/?uri=CELEX:32017D0863&from=SK target=\"_blank\">EUPL</a>.</div>"));
         }
     private void createGridLayout(SplitLayout splitLayout) {
         Div wrapper = new Div();

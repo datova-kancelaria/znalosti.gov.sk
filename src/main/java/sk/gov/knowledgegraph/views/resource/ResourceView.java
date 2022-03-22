@@ -102,7 +102,7 @@ public class ResourceView extends Div
 
            if(prefLabel!="")
            {	   
-        	   add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>"+prefLabel+"</b></font>&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></td></tr><tr><td><font size=4><b>"+uriString+"</b></font></td></tr></table></div>"));
+        	   add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>"+prefLabel+"</b></font>&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></td></tr><tr><td><font size=4 color=DarkBlue><b>"+uriString+"</b></font></td></tr></table></div>"));
            
            }
            else

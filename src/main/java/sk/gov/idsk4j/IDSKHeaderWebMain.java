@@ -8,7 +8,7 @@ public class IDSKHeaderWebMain {
 	
 	private Div main = new Div();
 	private String siteSVGBanner;
-	private String siteLogo;
+	private String siteName;
 	private String siteTitle;
 	
 	public String getSiteSVGBanner() {
@@ -19,12 +19,12 @@ public class IDSKHeaderWebMain {
 		this.siteSVGBanner = siteSVGBanner;
 	}
 
-	public String getSiteLogo() {
-		return siteLogo;
+	public String getSiteName() {
+		return siteName;
 	}
 
-	public void setSiteLogo(String siteLogo) {
-		this.siteLogo = siteLogo;
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
 	}
 
 	public String getSiteTitle() {
@@ -35,10 +35,10 @@ public class IDSKHeaderWebMain {
 		this.siteTitle = siteTitle;
 	}
 	
-	public IDSKHeaderWebMain(String siteSVGBanner, String siteLogo, String siteTitle)
+	public IDSKHeaderWebMain(String siteSVGBanner, String siteName, String siteTitle)
 	{
 		this.siteSVGBanner = siteSVGBanner;
-		this.siteLogo = siteLogo;
+		this.siteName = siteName;
 		this.siteTitle = siteTitle;	
 	}
 	
@@ -56,7 +56,9 @@ public class IDSKHeaderWebMain {
 	     container.add(gridRow);
 	     
 	     Div columnOneThird = new Div();
-	     columnOneThird.addClassName("govuk-grid-column-one-third-from-desktop"); 
+	     //columnOneThird.addClassName("govuk-grid-column-one-third-from-desktop"); 
+	     
+	     columnOneThird.addClassName("govuk-grid-column-full"); 
 	     
 	     gridRow.add(columnOneThird);
 	     
@@ -97,7 +99,7 @@ public class IDSKHeaderWebMain {
 	     */
 	     
 	     mainHeadline.add(new Html("<a href=\"/\" title=\"Odkaz na úvodnú stránku\">\n"
-		     		+ "                <img src=\""+getSiteSVGBanner()+"\" alt=\"ID-SK Frontend\" class=\"idsk-header-web__main-headline-logo\">\n"
+		     		+ "          <img src=\""+getSiteSVGBanner()+"\" alt=\"ID-SK Frontend\" class=\"idsk-header-web__main-headline-logo\"> <h2 class=\"govuk-heading-m\">"+getSiteTitle()+"</h2> "
 		     		+ "          </a>"));
 		 
 	     

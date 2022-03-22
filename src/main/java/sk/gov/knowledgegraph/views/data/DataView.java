@@ -51,19 +51,7 @@ public class DataView extends Div {
         whiteSpace.add(dataResults);
 
         
-        /*
-      
-        int getAllTriplesCount = 0;
-        int datasetsCount = 0;
-        int catalogCount = 0;
         
-        getAllTriplesCount = searchService.getAllTriplesCount();
-        datasetsCount = searchService.getDatasetsCount();
-        catalogCount = searchService.getCatalogsCount();
-        
-        add(new Html("<div align=center>"+datasetsCount+" datasetov, "+catalogCount+" katalógy, <b>"+getAllTriplesCount+"</b> tripletov (znalostí)</div>"));
-        
-         */
       
         //add(new Html("<h3>&nbsp;&nbsp;SKKnowledgeGraph Data</h3>"));
 

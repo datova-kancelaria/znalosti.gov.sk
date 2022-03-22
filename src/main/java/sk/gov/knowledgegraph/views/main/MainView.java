@@ -78,20 +78,26 @@ public class MainView extends  AppLayout {
 	     
 	     ListItem li2 = new ListItem();
 	     li2.addClassName("idsk-header-web__nav-list-item");
-	     li2.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/data\" title=\"Datasety\">\n"
-	     		+ "                    Datasety\n"
+	     li2.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/data\" title=\"Data\">\n"
+	     		+ "                    Data\n"
 	     		+ "                  </a>"));
-	    
+	  
 	     ListItem li3 = new ListItem();
+	     li3.addClassName("idsk-header-web__nav-list-item");
+	     li3.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/api\" title=\"API\">\n"
+	     		+ "                    API\n"
+	     		+ "                  </a>"));
+	 
+	     ListItem li4 = new ListItem();
 	     li3.addClassName("idsk-header-web__nav-list-item");
 	     li3.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/about\" title=\"O portáli\">\n"
 	     		+ "                    O portáli\n"
 	     		+ "                  </a>"));
 	  	     
-	     ulMenu.add(li1, li2, li3);
+	     ulMenu.add(li1, li2, li3, li4);
 
      	IDSKHeaderWebNav headerWebNav = new IDSKHeaderWebNav(ulMenu);
-       	IDSKHeaderWebMain headerWebMain = new IDSKHeaderWebMain("images/znalosti-logo1.svg", null, "Znalostný graf údajov verejnej správy");
+       	IDSKHeaderWebMain headerWebMain = new IDSKHeaderWebMain("images/znalosti-logo3.svg", "znalosti.gov.sk", "Znalostný graf údajov verejnej správy");
     	IDSKHeaderWeb headerWeb = new IDSKHeaderWeb("znalosti.gov.sk", serverUrl);
 
         addToNavbar((headerWeb.create(headerWebMain.create(), headerWebNav.create())));
