@@ -32,3 +32,10 @@ Znalosti o Bratislave Staré Mesto
 
 Znalosti o MIRRI
 ![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-o-mirri.png)
+
+Znalosti API
+![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-api-doc.png)
+
+Znalosti API - Príklad
+(http://localhost:8080/api/search?searchString=Brati)
+![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-api-response.png)

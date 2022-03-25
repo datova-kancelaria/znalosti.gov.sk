@@ -1,4 +1,4 @@
-package sk.gov.knowledgegraph.views.about;
+package sk.gov.knowledgegraph.views.api;
 
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.Text;
