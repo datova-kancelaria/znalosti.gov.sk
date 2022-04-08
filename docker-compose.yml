@@ -1,0 +1,59 @@
+version: "3.6"
+
+services:
+  rdf-server:
+    image: eclipse/rdf4j-workbench:latest
+    ports:
+      - "8080:8080"
+    volumes:
+       - db-data:/var/rdf4j
+    networks:
+      - net
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 768M
+        reservations:
+          memory: 256M
+
+  znalosti:
+    image: docker.datalab.digital/semweb/znalosti:1.0-SNAPSHOT
+    ports:
+      - "9090:8080"
+    depends_on:
+      - rdf-server
+    environment:
+      SPRING_PROFILES_ACTIVATE: 
+      DATABASE_URL: http://rdf-server:8080/rdf4j-server
+      JDK_JAVA_OPTIONS: "-XX:MaxRAMPercentage=75"
+      TZ: "Europe/Bratislava"
+    networks:
+      - net
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 768M
+        reservations:
+          memory: 512M
+  
+  znalosti-proxy:
+    image: docker.datalab.digital/semweb/znalosti-proxy:1.0-SNAPSHOT
+    ports:
+      - "81:80"
+    networks:
+      - net
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 128M
+        reservations:
+          memory: 96M
+
+volumes:
+  db-data:
+  
+networks:
+  net:
