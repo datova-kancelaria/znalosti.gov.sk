@@ -84,7 +84,7 @@ public class MainView extends  AppLayout {
 	  
 	     ListItem li3 = new ListItem();
 	     li3.addClassName("idsk-header-web__nav-list-item");
-	     li3.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/sparql\" title=\"SPARQL Endpoint\">\n"
+	     li3.add(new Html("<a class=\"govuk-link idsk-header-web__nav-list-item-link\" href=\"/sparqlView\" title=\"SPARQL Endpoint\">\n"
 	     		+ "                    SPARQL\n"
 	     		+ "                  </a>"));
 	 
@@ -100,7 +100,10 @@ public class MainView extends  AppLayout {
 	     		+ "                    O portáli\n"
 	     		+ "                  </a>"));
 	  	     
+	     
 	     ulMenu.add(li1, li2, li3, li4, li5);
+	     //ulMenu.add(li1, li2, li4, li5);
+	     
 
      	IDSKHeaderWebNav headerWebNav = new IDSKHeaderWebNav(ulMenu);
        	IDSKHeaderWebMain headerWebMain = new IDSKHeaderWebMain("images/znalosti-logo3.svg", "znalosti.gov.sk", "Znalostný graf údajov verejnej správy");

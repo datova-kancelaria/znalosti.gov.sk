@@ -24,7 +24,7 @@ public class DatabaseConnection {
     public void initRepository() {
         repositoryManager = new RemoteRepositoryManager(dbUrl);
      //   repositoryManager.setUsernameAndPassword(dbUser, dbPassword );
-        repositoryManager.initialize();
+        repositoryManager.init();
         repository = repositoryManager.getRepository(dbRepository);
     }
 

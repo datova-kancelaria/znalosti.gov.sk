@@ -100,17 +100,21 @@ public class ResourceView extends Div
           
            String imageString ="";
 
+        //   String jsonLDIconString =  "<a><img src=json-ld-data-32.png></a>";
+           String jsonLDIconString =  "<a target=new href=api/resource?uri="+uriString+"><img src=images/json-ld-data-32.png valign=bottom></a>";
+           
+           
            if(prefLabel!="")
            {	   
-        	   add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>"+prefLabel+"</b></font>&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></td></tr><tr><td><font size=4 color=DarkBlue><b>"+uriString+"</b></font></td></tr></table></div>"));
+        	   add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>"+prefLabel+"</b></font>&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></td></tr><tr><td><font size=4 color=DarkBlue><b>"+uriString+" "+jsonLDIconString+"</b></font>&nbsp;<img src=></td></tr></table></div>"));
            
            }
            else
            {        	
         	   if (type!="")
-        	     	   add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>"+uriString+"</div>"));
+        	     	   add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>"+uriString+jsonLDIconString+"aaaaa"+"</div>"));
         	   else
-    	     	   		add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>"+uriString+"&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a></div>"));
+    	     	   		add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>"+uriString+"&nbsp;<a href=resource?uri="+type+"><font size=5 color=gray>"+typeLabel+"</font></a> "+jsonLDIconString+"</div>"));
            }
         
         }
@@ -193,8 +197,13 @@ public class ResourceView extends Div
              // resource is value
                 
                 else if (resource.getIsInverse().contains("false") && !resource.getObject().contains("http"))
-                    return new Label(resource.getObject());
+                    // return new Label(resource.getObject());
 
+                	if (resource.getLanguage()!=null)
+       			      return new Html("<div>"+resource.getLanguageIcon(resource.getLanguage()) + " " + resource.getObject().toString());
+                	else
+                        return new Label(resource.getObject());
+                
              
              // inverse resource
                 
@@ -217,10 +226,7 @@ public class ResourceView extends Div
             })).setWidth("45%")
                .setHeader(new Html("<b>Hodnota</b>"));
                 
-            
-          
-            
-            
+       
             grid.addColumn(TemplateRenderer
                     .<Resource>of("<a href=resource?uri=[[item.graph]]>[[item.graphName]]</a>")
                     .withProperty("graph", Resource::getGraph)
@@ -228,8 +234,6 @@ public class ResourceView extends Div
             ).setWidth("20%")
              .setHeader(new Html("<b>Graf</b>"));
         
-          
-            
             
           //  add(grid);
           //  dataLayout.setAlignItems(Alignment.CENTER);

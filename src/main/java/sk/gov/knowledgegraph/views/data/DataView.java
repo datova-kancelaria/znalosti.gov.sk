@@ -66,6 +66,9 @@ public class DataView extends Div {
         
         whiteSpace.add(h1);
    
+        // Div idskDatasetsDiv = new Div();
+
+        
         
         grid2.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid2.setHeightFull();
@@ -96,8 +99,22 @@ public class DataView extends Div {
     ).setWidth("25%")
         .setHeader(new Html("<b>Dataset</b>"));
 
-        
+        grid2.addColumn(TemplateRenderer
+                .<Dataset>of("<a href=http://localhost:8080/resource?uri=[[item.publisher]]>[[item.publisherName]]</a>")
+                .withProperty("publisherName", Dataset::getPublisherName)
+                .withProperty("publisher", Dataset::getPublisher)
+        	    ).setWidth("30%")
+        .setHeader(new Html("<b>Vydavateľ</b>"));
+      
         /*
+        grid2.addColumn(TemplateRenderer
+                .<Dataset>of("<a href=http://localhost:8080/resource?uri=[[item.catalog]]>[[item.catalogTitle]]</a>")
+                .withProperty("catalogTitle", Dataset::getCatalogTitle)
+                .withProperty("catalog", Dataset::getCatalog)
+       ).setWidth("20%")
+        .setHeader(new Html("<b>Katalóg</b>"));
+        
+      
         grid2.addColumn(TemplateRenderer
                 .<Dataset>of("[[item.version]]")
                 .withProperty("version", Dataset::getVersion)
@@ -131,20 +148,10 @@ public class DataView extends Div {
             System.out.println(e.toString());
         }
 
-        add(grid2);
+        whiteSpace.add(grid2);
+        
+       // add(grid2);
 
     }
 
-    private void createGridLayout(SplitLayout splitLayout) {
-        Div wrapper = new Div();
-        wrapper.setId("grid2-wrapper");
-        wrapper.setWidthFull();
-        splitLayout.addToPrimary(wrapper);
-        wrapper.add(grid2);
-    }
-
-    private void refreshGrid() {
-        grid2.select(null);
-        grid2.getDataProvider().refreshAll();
-    }
 }

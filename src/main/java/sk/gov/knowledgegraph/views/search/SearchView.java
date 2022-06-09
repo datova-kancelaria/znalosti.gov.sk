@@ -60,7 +60,7 @@ public class SearchView extends Div {
     private Button btnSearch;
    
     //@Id("search-results-input")
-    //TextField searchInput = new TextField();
+    //TextField searchInput = new TextField(); 
 
     private Grid<Result> grid5 = new Grid<>(Result.class, false);
 
@@ -107,18 +107,19 @@ public class SearchView extends Div {
        
         
         
-        
-        int getAllTriplesCount = 0;
+        int getAllTriplesCount = 0;        
+        int getAllNamedGraphsCount = 0;
         int datasetsCount = 0;
         int catalogCount = 0;
         
+        getAllNamedGraphsCount = searchService.getAllNamedGraphsCount();
         getAllTriplesCount = searchService.getAllTriplesCount();
         datasetsCount = searchService.getDatasetsCount();
         catalogCount = searchService.getCatalogsCount();
         
-        searchResults.add(new Html("<div>"+datasetsCount+" datasetov, "+catalogCount+" katalógy, <b>"+getAllTriplesCount+"</b> tripletov (znalostí)</div>"));
-        
-        
+   //     searchResults.add(new Html("<div>"+datasetsCount+" datasetov, "+catalogCount+" katalógy, <b>"+getAllTriplesCount+"</b> tripletov (znalostí)</div>"));
+        searchResults.add(new Html("<div>"+datasetsCount+" datasetov, "+getAllNamedGraphsCount+" grafov (isvs), <b>"+getAllTriplesCount+"</b> tripletov (znalostí)</div>"));
+           
         
         
         Div searchBar = new Div();
@@ -142,6 +143,23 @@ public class SearchView extends Div {
         input.addClassName("idsk-search-component__input");
         input.setId("search-results-input");
         
+        /*
+        ShortcutListener enter = new ShortcutListener("Enter", KeyCode.ENTER, null) {
+
+            @Override
+            public void handleAction(Object sender, Object target) {
+                // Do nice stuff
+                log.info("Enter pressed");
+            }
+        };
+        
+        
+                input.addShorcutListener(enter);
+
+
+        */
+                
+        
     //    input.setType("text");
 
         /*
@@ -161,6 +179,8 @@ public class SearchView extends Div {
         searchComponent.add(input);
        
         Button btnSearch2 = new Button();
+        btnSearch2.addClickShortcut(Key.ENTER); // .setClickShortcut(KeyCode.ENTER);
+        
         btnSearch2.addClassName("idsk-button");
         btnSearch2.addClassName("idsk-search-component__button");
         
