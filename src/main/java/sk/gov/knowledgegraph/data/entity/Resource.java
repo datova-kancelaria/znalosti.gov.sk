@@ -42,7 +42,16 @@ public class Resource extends AbstractEntity {
 	private String isInverse;
 	private String graph;
 	private String graphName;
+	private String language;
 	
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+		
 	public String getSubjectShort() {
 		return subjectShort;
 	}
@@ -50,8 +59,8 @@ public class Resource extends AbstractEntity {
 	public void setSubjectShort(String subjectShort) {
 		this.subjectShort = subjectShort;
 	}
-	private String subjectShort;
 	
+	private String subjectShort;
 	
 	
 	public String getUriShort() {
@@ -245,5 +254,41 @@ public class Resource extends AbstractEntity {
 		
 				else
 					return linkBase;
+	}
+	
+	public String getLanguageIcon(String uri)
+	{
+		
+		if(uri.contains("sk"))
+			return "&nbsp;<img src=/icons/sk.png height=20 width=20>";
+		else if(uri.contains("en"))
+			return "&nbsp;<img src=/icons/en.png height=20 width=20>";	
+		else if(uri.contains("de"))
+			return "&nbsp;<img src=/icons/de.png height=20 width=20>";
+		else if(uri.contains("cs"))
+			return "&nbsp;<img src=/icons/cs.png height=20 width=20>";
+		else if(uri.contains("it"))
+			return "&nbsp;<img src=/icons/it.png height=20 width=20>";
+		else if(uri.contains("pl"))
+			return "&nbsp;<img src=/icons/pl.png height=20 width=20>";
+		else if(uri.contains("hu"))
+			return "&nbsp;<img src=/icons/hu.png height=20 width=20>";
+		else if(uri.contains("fi"))
+			return "&nbsp;<img src=/icons/fi.png height=20 width=20>";
+		else if(uri.contains("ua"))
+			return "&nbsp;<img src=/icons/ua.png height=20 width=20>";
+		else if(uri.contains("es"))
+			return "&nbsp;<img src=/icons/es.png height=20 width=20>";
+		else if(uri.contains("el"))
+			return "&nbsp;<img src=/icons/el.png height=20 width=20>";
+		else if(uri.contains("fr"))
+			return "&nbsp;<img src=/icons/fr.png height=20 width=20>";
+		else if(uri.contains("nl"))
+			return "&nbsp;<img src=/icons/nl.png height=20 width=20>";
+		else if(uri.contains("da"))
+			return "&nbsp;<img src=/icons/da.png height=20 width=20>";
+		
+				else
+					return "";
 	}
 }

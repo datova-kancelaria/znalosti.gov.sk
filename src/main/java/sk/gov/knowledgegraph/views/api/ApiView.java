@@ -62,9 +62,17 @@ public class ApiView extends Div {
         
       //  add(new Html("<div class=govuk-heading-m>API systému znalosti.gov.sk</div>"));
         
+
+        add(new Html("<div class=govuk-heading-m>SPARQL Enpoint</div>"));
+        add(new Html("<div class=govuk-link>/sparql?query=SPARQLQuery</div>"));
+           
+        add(new Html("<div class=govuk-link><br></div>"));
+        add(new Html("<div class=govuk-link><br></div>"));
+
+        
   
         add(new Html("<div class=govuk-heading-m>Vráť všetky znalosti o URI</div>"));
-        add(new Html("<div class=govuk-link>/api/describeResource?uri=URI</div>"));
+        add(new Html("<div class=govuk-link>/api/resource?uri=URI</div>"));
            
         add(new Html("<div class=govuk-link><br></div>"));
         add(new Html("<div class=govuk-link><br></div>"));
@@ -87,6 +95,11 @@ public class ApiView extends Div {
         add(new Html("<div class=govuk-heading-m>Vráť zoznam nahratých RDF datasetov</div>"));
         add(new Html("<div class=govuk-link>/api/dcat</div>"));
         
+        add(new Html("<div class=govuk-link><br></div>"));
+        add(new Html("<div class=govuk-link><br></div>"));
+ 
+        add(new Html("<div class=govuk-heading-m>Vráť celkový počet grafov</div>"));
+        add(new Html("<div class=govuk-link>/api/stat/getAllNamedGraphsCount</div>"));
       
         add(new Html("<div class=govuk-link><br></div>"));
         add(new Html("<div class=govuk-link><br></div>"));
@@ -99,7 +112,6 @@ public class ApiView extends Div {
  
         add(new Html("<div class=govuk-heading-m>Vráť celkový počet datasetov</div>"));
         add(new Html("<div class=govuk-link>/api/stat/getDatasetsCount</div>"));
-        
         
         add(new Html("<div class=govuk-link><br></div>"));
         add(new Html("<div class=govuk-link><br></div>"));

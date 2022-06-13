@@ -130,6 +130,40 @@ public class SearchAPI {
 		return count;
 	}
 	
+
+	
+	
+	
+	
+	@GetMapping("/api/stat/getAllNamedGraphsCount")
+	public int getAllNamedGraphsCount() throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
+
+		int count = 0;
+		
+		int i=0;
+
+		try (RepositoryConnection conn = repository.getConnection()) {
+			String queryString = "SELECT (count (distinct ?g) as ?count) WHERE { GRAPH ?g { ?s ?p ?o } }";
+
+			TupleQuery tupleQuery = conn.prepareTupleQuery(queryString);
+			try (TupleQueryResult result = tupleQuery.evaluate()) {
+				while (result.hasNext()) {  // iterate over the result
+					BindingSet bindingSet = result.next();
+
+					Value countBind = bindingSet.getValue("count");
+					count = Integer.parseInt(countBind.stringValue());
+				}
+			}
+		}
+
+		return count;
+	}
+
+	
+	
+	
+	
+	
 	@GetMapping("/api/stat/getDatasetsCount")
 	public int getDatasetsCount() throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
 
