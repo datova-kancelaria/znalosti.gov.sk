@@ -1,4 +1,4 @@
-package sk.gov.knowledgegraph.views.main;
+package sk.gov.knowledgegraph.views;
 
 import java.util.Optional;
 import com.vaadin.flow.component.Html;
@@ -28,11 +28,8 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
-import sk.gov.knowledgegraph.views.main.MainView;
-import sk.gov.knowledgegraph.views.search.SearchView;
-import sk.gov.knowledgegraph.views.data.DataView;
-import sk.gov.knowledgegraph.views.resource.ResourceView;
-import sk.gov.knowledgegraph.views.about.AboutView;
+
+import sk.gov.knowledgegraph.views.MainView;
 import sk.gov.idsk4j.IDSKHeaderWeb;
 import sk.gov.idsk4j.IDSKHeaderWebMain;
 import sk.gov.idsk4j.IDSKHeaderWebNav;

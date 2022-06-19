@@ -1,8 +1,6 @@
 package sk.gov.idsk4j;
 
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Html;
-import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Header;
 
