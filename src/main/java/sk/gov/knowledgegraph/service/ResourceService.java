@@ -20,12 +20,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
 import sk.gov.knowledgegraph.model.entity.Resource;
 
 @Service
+@Slf4j
 public class ResourceService {
-
-    private static Logger logger = LoggerFactory.getLogger(ResourceService.class);
 
     @Autowired
     private Repository repository;
@@ -52,7 +52,7 @@ public class ResourceService {
 
                     + "    } }\n" + "      ?graph dct:title ?graphName .\n" + "     filter langMatches( lang(?graphName), \"sk\" ) }";
 
-            logger.info(queryString);
+            log.info(queryString);
 
             TupleQuery tupleQuery = conn.prepareTupleQuery(queryString);
             try (TupleQueryResult result = tupleQuery.evaluate()) {
@@ -95,8 +95,7 @@ public class ResourceService {
     }
 
 
-    public Resource getBaseProperties(String uri)
-            throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
+    public Resource getBaseProperties(String uri) {
 
         try (RepositoryConnection conn = repository.getConnection()) {
 

@@ -1,7 +1,5 @@
 package sk.gov.knowledgegraph;
 
-import javax.annotation.PostConstruct;
-
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,19 +15,11 @@ public class DatabaseConfiguration {
     @Value("${database.repository}")
     private String dbRepository;
 
-    private Repository repository = null;
-
-    @PostConstruct
-    public void initRepository() {
+    @Bean
+    public Repository getRepository() {
         RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
         //   repositoryManager.setUsernameAndPassword(dbUser, dbPassword );
         repositoryManager.init();
-        repository = repositoryManager.getRepository(dbRepository);
-    }
-
-
-    @Bean
-    public Repository getRepository() {
-        return repository;
+        return repositoryManager.getRepository(dbRepository);
     }
 }

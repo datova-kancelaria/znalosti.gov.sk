@@ -1,7 +1,11 @@
 package sk.gov.knowledgegraph.model.entity;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import sk.gov.knowledgegraph.model.AbstractEntity;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class Resource extends AbstractEntity {
 
     private String prefLabel;
@@ -19,209 +23,48 @@ public class Resource extends AbstractEntity {
     private String predicateShort;
     private String objectShort;
 
-    public String getPrefLabel() {
-        return prefLabel;
-    }
-
-
-    public void setPrefLabel(String prefLabel) {
-        this.prefLabel = prefLabel;
-    }
-
-
-    public String getType() {
-        return type;
-    }
-
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-
-    public String getTypeLabel() {
-        return typeLabel;
-    }
-
-
-    public void setTypeLabel(String typeLabel) {
-        this.typeLabel = typeLabel;
-    }
-
-
-    public String getLanguage() {
-        return language;
-    }
-
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-
-    public String getSubjectShort() {
-        return subjectShort;
-    }
-
-
-    public void setSubjectShort(String subjectShort) {
-        this.subjectShort = subjectShort;
-    }
-
     private String subjectShort;
-
-    public String getUriShort() {
-        return uriShort;
-    }
-
-
-    public void setUriShort(String uriShort) {
-        this.uriShort = uriShort;
-    }
-
-
-    public String getPredicateShort() {
-        return predicateShort;
-    }
-
-
-    public void setPredicateShort(String predicateShort) {
-        this.predicateShort = predicateShort;
-    }
-
-
-    public String getObjectShort() {
-        return objectShort;
-    }
-
-
-    public void setObjectShort(String objectShort) {
-        this.objectShort = objectShort;
-    }
-
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-
-    public String getUri() {
-        return uri;
-    }
-
-
-    public String getSubject() {
-        return subject;
-    }
-
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-
-    public String getPredicate() {
-        return predicate;
-    }
-
-
-    public void setPredicate(String predicate) {
-        this.predicate = predicate;
-    }
-
-
-    public String getObject() {
-        return object;
-    }
-
-
-    public void setObject(String object) {
-        this.object = object;
-    }
-
-
-    public String getIsInverse() {
-        return isInverse;
-    }
-
-
-    public void setIsInverse(String isInverse) {
-        this.isInverse = isInverse;
-    }
-
-
-    public String getGraph() {
-        return graph;
-    }
-
-
-    public void setGraph(String graph) {
-        this.graph = graph;
-    }
-
-
-    public String getGraphName() {
-        return graphName;
-    }
-
-
-    public void setGraphName(String graphName) {
-        this.graphName = graphName;
-    }
-
 
     public String shortenUri(String uri) {
         // CORE Ontologie
 
-        if (uri.contains("http://www.w3.org/1999/02/22-rdf-syntax-ns#"))
+        if (uri.contains("http://www.w3.org/1999/02/22-rdf-syntax-ns#")) {
             return uri.replaceAll("http://www.w3.org/1999/02/22-rdf-syntax-ns#", "rdf:");
-
-        else if (uri.contains("http://www.w3.org/2000/01/rdf-schema#"))
+        } else if (uri.contains("http://www.w3.org/2000/01/rdf-schema#")) {
             return uri.replaceAll("http://www.w3.org/2000/01/rdf-schema#", "rdfs:");
-
-        else if (uri.contains("http://www.w3.org/2002/07/owl#"))
+        } else if (uri.contains("http://www.w3.org/2002/07/owl#")) {
             return uri.replaceAll("http://www.w3.org/2002/07/owl#", "owl:");
-
-        else if (uri.contains("http://www.w3.org/2001/XMLSchema#"))
+        } else if (uri.contains("http://www.w3.org/2001/XMLSchema#")) {
             return uri.replaceAll("http://www.w3.org/2001/XMLSchema#", "xsd:");
-
-        else if (uri.contains("http://www.w3.org/2004/02/skos/core#"))
+        } else if (uri.contains("http://www.w3.org/2004/02/skos/core#")) {
             return uri.replaceAll("http://www.w3.org/2004/02/skos/core#", "skos:");
-
-        else if (uri.contains("http://www.w3.org/ns/dcat#"))
+        } else if (uri.contains("http://www.w3.org/ns/dcat#")) {
             return uri.replaceAll("http://www.w3.org/ns/dcat#", "dcat:");
-
-        else if (uri.contains("http://schema.org/"))
+        } else if (uri.contains("http://schema.org/")) {
             return uri.replaceAll("http://schema.org/", "schema:");
-
-        else if (uri.contains("http://purl.org/dc/terms/"))
+        } else if (uri.contains("http://purl.org/dc/terms/")) {
             return uri.replaceAll("http://purl.org/dc/terms/", "dct:");
-
-        else if (uri.contains("http://www.w3.org/ns/adms#"))
+        } else if (uri.contains("http://www.w3.org/ns/adms#")) {
             return uri.replaceAll("http://www.w3.org/ns/adms#", "adms:");
-
-        else if (uri.contains("http://www.w3.org/ns/org#"))
+        } else if (uri.contains("http://www.w3.org/ns/org#")) {
             return uri.replaceAll("http://www.w3.org/ns/org#", "org:");
-
-        else if (uri.contains("http://www.w3.org/ns/regorg#"))
+        } else if (uri.contains("http://www.w3.org/ns/regorg#")) {
             return uri.replaceAll("http://www.w3.org/ns/regorg# ", "rov:");
-
-        else if (uri.contains("http://www.w3.org/ns/shacl#"))
+        } else if (uri.contains("http://www.w3.org/ns/shacl#")) {
             return uri.replaceAll("http://www.w3.org/ns/shacl#", "sh:");
-
-        else if (uri.contains("http://xmlns.com/foaf/0.1/"))
+        } else if (uri.contains("http://xmlns.com/foaf/0.1/")) {
             return uri.replaceAll("http://xmlns.com/foaf/0.1/", "foaf:");
+        }
 
         // EÚ Ontologie
 
-        else if (uri.contains("http://data.europa.eu/m8g/"))
+        else if (uri.contains("http://data.europa.eu/m8g/")) {
             return uri.replaceAll("http://data.europa.eu/m8g/", "cpov:");
-
-        else if (uri.contains("http://www.w3.org/ns/locn#"))
+        } else if (uri.contains("http://www.w3.org/ns/locn#")) {
             return uri.replaceAll("http://www.w3.org/ns/locn#", "locn:");
-
-        else if (uri.contains("http://purl.org/vocab/cpsv#"))
+        } else if (uri.contains("http://purl.org/vocab/cpsv#")) {
             return uri.replaceAll("http://purl.org/vocab/cpsv#", "cpsv:");
+        }
 
         // Národné ontológie
 

@@ -21,8 +21,7 @@ public class StatisticsService {
     @Autowired
     private Repository repository;
 
-    public int getAllTriplesCount()
-            throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
+    public int getAllTriplesCount() {
         try (RepositoryConnection conn = repository.getConnection()) {
             String queryString = "SELECT (COUNT(*) as ?count) WHERE { ?s ?p ?o}";
 
@@ -38,8 +37,7 @@ public class StatisticsService {
     }
 
 
-    public int getAllNamedGraphsCount()
-            throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
+    public int getAllNamedGraphsCount() {
 
         try (RepositoryConnection conn = repository.getConnection()) {
             String queryString = "SELECT (count (distinct ?g) as ?count) WHERE { GRAPH ?g { ?s ?p ?o } }";
@@ -57,7 +55,7 @@ public class StatisticsService {
     }
 
 
-    public int getDatasetsCount() throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
+    public int getDatasetsCount() {
 
         try (RepositoryConnection conn = repository.getConnection()) {
             String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>\n"
@@ -82,7 +80,7 @@ public class StatisticsService {
     }
 
 
-    public int getCatalogsCount() throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
+    public int getCatalogsCount() {
         try (RepositoryConnection conn = repository.getConnection()) {
             String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>\n"
                     + "SELECT (COUNT(*) as ?count) WHERE { ?s rdf:type dcat:Catalog}";

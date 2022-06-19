@@ -43,56 +43,57 @@ public class ApiView extends Div {
 
         //  add(new Html("<div class=govuk-heading-m>API systému znalosti.gov.sk</div>"));
 
-        add(new Html("<div class=govuk-heading-m>SPARQL Enpoint</div>"));
-        add(new Html("<div class=govuk-link>/sparql?query=SPARQLQuery</div>"));
+        add(new Html("<div class=govuk-heading-m>POST SPARQL Enpoint</div>"));
+        add(new Html("<div class=govuk-link>POST /api/sparql?q={query}&default-graph-uri={default-graph-uri}&named-graph-uri={named-graph-uri}</div>"));
 
         add(new Html("<div class=govuk-link><br></div>"));
         add(new Html("<div class=govuk-link><br></div>"));
 
         add(new Html("<div class=govuk-heading-m>Vráť všetky znalosti o URI</div>"));
-        add(new Html("<div class=govuk-link>/api/resource?uri=URI</div>"));
+        add(new Html("<div class=govuk-link>GET /api/resource?uri={URI}&content-type={contentType}</div>"));
+        add(new Html("<div class=govuk-link>POST /api/resource?uri={URI}</div>"));
 
         add(new Html("<div class=govuk-link><br></div>"));
         add(new Html("<div class=govuk-link><br></div>"));
 
-        add(new Html("<div class=govuk-heading-m>Vráť základné vlastnosti URI</div>"));
-        add(new Html("<div class=govuk-link>/api/getBaseProperties?uri=URI</div>"));
-
-        add(new Html("<div class=govuk-link><br></div>"));
-        add(new Html("<div class=govuk-link><br></div>"));
+        //        add(new Html("<div class=govuk-heading-m>Vráť základné vlastnosti URI</div>"));
+        //        add(new Html("<div class=govuk-link>/api/getBaseProperties?uri=URI</div>"));
+        //
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //        add(new Html("<div class=govuk-link><br></div>"));
 
         add(new Html("<div class=govuk-heading-m>Vyhľadávaj v znalostiach</div>"));
-        add(new Html("<div class=govuk-link>/api/search?searchString=searchString</div>"));
+        add(new Html("<div class=govuk-link>/api/search?q={searchString}</div>"));
 
         add(new Html("<div class=govuk-link><br></div>"));
         add(new Html("<div class=govuk-link><br></div>"));
 
-        add(new Html("<div class=govuk-heading-m>Vráť zoznam nahratých RDF datasetov</div>"));
-        add(new Html("<div class=govuk-link>/api/dcat</div>"));
-
-        add(new Html("<div class=govuk-link><br></div>"));
-        add(new Html("<div class=govuk-link><br></div>"));
-
-        add(new Html("<div class=govuk-heading-m>Vráť celkový počet grafov</div>"));
-        add(new Html("<div class=govuk-link>/api/stat/getAllNamedGraphsCount</div>"));
-
-        add(new Html("<div class=govuk-link><br></div>"));
-        add(new Html("<div class=govuk-link><br></div>"));
-
-        add(new Html("<div class=govuk-heading-m>Vráť celkový počet tripletov</div>"));
-        add(new Html("<div class=govuk-link>/api/stat/getAllTriplesCount</div>"));
-
-        add(new Html("<div class=govuk-link><br></div>"));
-        add(new Html("<div class=govuk-link><br></div>"));
-
-        add(new Html("<div class=govuk-heading-m>Vráť celkový počet datasetov</div>"));
-        add(new Html("<div class=govuk-link>/api/stat/getDatasetsCount</div>"));
-
-        add(new Html("<div class=govuk-link><br></div>"));
-        add(new Html("<div class=govuk-link><br></div>"));
-
-        add(new Html("<div class=govuk-heading-m>Vráť celkový počet katalógov</div>"));
-        add(new Html("<div class=govuk-link>/api/stat/getCatalogsCount</div>"));
+        //        add(new Html("<div class=govuk-heading-m>Vráť zoznam nahratých RDF datasetov</div>"));
+        //        add(new Html("<div class=govuk-link>/api/dcat</div>"));
+        //
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //
+        //        add(new Html("<div class=govuk-heading-m>Vráť celkový počet grafov</div>"));
+        //        add(new Html("<div class=govuk-link>/api/stat/getAllNamedGraphsCount</div>"));
+        //
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //
+        //        add(new Html("<div class=govuk-heading-m>Vráť celkový počet tripletov</div>"));
+        //        add(new Html("<div class=govuk-link>/api/stat/getAllTriplesCount</div>"));
+        //
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //
+        //        add(new Html("<div class=govuk-heading-m>Vráť celkový počet datasetov</div>"));
+        //        add(new Html("<div class=govuk-link>/api/stat/getDatasetsCount</div>"));
+        //
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //        add(new Html("<div class=govuk-link><br></div>"));
+        //
+        //        add(new Html("<div class=govuk-heading-m>Vráť celkový počet katalógov</div>"));
+        //        add(new Html("<div class=govuk-link>/api/stat/getCatalogsCount</div>"));
 
     }
 

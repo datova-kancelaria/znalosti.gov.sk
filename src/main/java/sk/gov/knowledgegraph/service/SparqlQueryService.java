@@ -54,10 +54,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Service
-public class SparqlQueryService {
+import lombok.extern.slf4j.Slf4j;
 
-    private static Logger logger = LoggerFactory.getLogger(SparqlQueryService.class);
+@Service
+@Slf4j
+public class SparqlQueryService {
 
     /**
      * The repository that is being served.
@@ -65,50 +66,8 @@ public class SparqlQueryService {
     @Autowired
     private Repository repository;
 
-    @RequestMapping(value = "/sparql", method = RequestMethod.POST, consumes = APPLICATION_FORM_URLENCODED_VALUE)
-    public void sparqlPostURLencoded(@RequestParam(value = "default-graph-uri", required = false) String defaultGraphUri,
-            @RequestParam(value = "named-graph-uri", required = false) String namedGraphUri, @RequestParam(value = "query") String query,
-            @RequestHeader(ACCEPT) String acceptHeader, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        doSparql(request, query, acceptHeader, defaultGraphUri, namedGraphUri, response);
-    }
-
-
-    @RequestMapping(value = "/sparql", method = RequestMethod.GET)
-    public void sparqlGet(@RequestParam(value = "default-graph-uri", required = false) String defaultGraphUri,
-            @RequestParam(value = "named-graph-uri", required = false) String namedGraphUri, @RequestParam(value = "query") String query,
-            @RequestHeader(ACCEPT) String acceptHeader, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        doSparql(request, query, acceptHeader, defaultGraphUri, namedGraphUri, response);
-    }
-
-
-    private void doSparql(HttpServletRequest request, String query, String acceptHeader, String defaultGraphUri, String namedGraphUri,
-            HttpServletResponse response) throws IOException {
-
-        // logger.debug("Debug log message");
-        logger.info("myAcceptHeader" + acceptHeader);
-        logger.info("query" + query);
-        logger.info(response.toString());
-
-        //logger.error("Error log message");
-
-        try (RepositoryConnection connection = repository.getConnection()) {
-            Query preparedQuery = connection.prepareQuery(QueryLanguage.SPARQL, query);
-            setQueryDataSet(preparedQuery, defaultGraphUri, namedGraphUri, connection);
-            for (QueryTypes qt : QueryTypes.values()) {
-                if (qt.accepts(preparedQuery, acceptHeader)) {
-                    qt.evaluate(preparedQuery, acceptHeader, response, defaultGraphUri, namedGraphUri);
-                }
-            }
-        } catch (MalformedQueryException | MismatchingAcceptHeaderException mqe) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
-        } catch (IllegalArgumentException e) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Bad IRI for default or namedGraphIri");
-        }
-    }
-
-
     public String getTupleQueryResultHtml(String query) {
-        logger.info("setTupleQueryResultHtml");
+        log.info("setTupleQueryResultHtml");
 
         String resultHtml = "<table class=\"govuk-table\"><thead class=\"govuk-table__head\">";
 
@@ -141,7 +100,7 @@ public class SparqlQueryService {
 
 
     public String getGraphQueryResultHtml(String query) {
-        logger.info("setGraphQueryResultHtml");
+        log.info("setGraphQueryResultHtml");
 
         String resultHtml = "<table class=\"govuk-table\"><thead class=\"govuk-table__head\"><tr class=\"govuk-table__row\"><th scope=\"col\" class=\"govuk-table__header\">?subject</th><th scope=\"col\" class=\"govuk-table__header\">?predicate</th><th scope=\"col\" class=\"govuk-table__header\">?object</th></tr></thead>";
         resultHtml = resultHtml + "<tbody class=\"govuk-table__body\">";
@@ -166,7 +125,7 @@ public class SparqlQueryService {
 
 
     public String getBooleanQueryResultHtml(String query) {
-        logger.info("setBooleanQueryResultHtml");
+        log.info("setBooleanQueryResultHtml");
 
         String resultHtml = "<table class=\"govuk-table\"><thead class=\"govuk-table__head\"><tr class=\"govuk-table__row\"><th scope=\"col\" class=\"govuk-table__header\">Je to pravda?</th></tr></thead>";
         resultHtml = resultHtml + "<tbody class=\"govuk-table__body\">";
@@ -181,7 +140,7 @@ public class SparqlQueryService {
 
             resultHtml = resultHtml + "</tbody></table>";
         } catch (Exception e) {
-            logger.warn(e.getMessage(), e);
+            log.warn(e.getMessage(), e);
         }
         return resultHtml;
     }
@@ -203,7 +162,7 @@ public class SparqlQueryService {
      * @param namedGraphUri
      * @param connection
      */
-    private void setQueryDataSet(Query q, String defaultGraphUri, String namedGraphUri, RepositoryConnection connection) {
+    public void setQueryDataSet(Query q, String defaultGraphUri, String namedGraphUri, RepositoryConnection connection) {
         if (defaultGraphUri != null || namedGraphUri != null) {
             SimpleDataset dataset = new SimpleDataset();
 
@@ -220,130 +179,4 @@ public class SparqlQueryService {
         }
     }
 
-    private enum QueryTypes {
-
-        CONSTRUCT_OR_DESCRIBE(q -> q instanceof GraphQuery, RDFFormat.TURTLE, RDFFormat.NTRIPLES, RDFFormat.JSONLD, RDFFormat.RDFXML) {
-
-            @Override
-            protected void evaluate(Query q, String acceptHeader, HttpServletResponse response, String defaultGraphUri, String namedGraphUri)
-                    throws QueryEvaluationException, RDFHandlerException, UnsupportedRDFormatException, IOException {
-                GraphQuery gq = (GraphQuery) q;
-
-                //RDFFormat format = (RDFFormat) bestFormat(acceptHeader);
-
-                RDFFormat format = (RDFFormat) RDFFormat.JSONLD;
-
-                response.setContentType(format.getDefaultMIMEType());
-                gq.evaluate(Rio.createWriter(format, response.getOutputStream()));
-            }
-        },
-        SELECT(q -> q instanceof TupleQuery, TupleQueryResultFormat.JSON, TupleQueryResultFormat.SPARQL, TupleQueryResultFormat.CSV,
-                TupleQueryResultFormat.TSV) {
-
-            @Override
-            protected void evaluate(Query q, String acceptHeader, HttpServletResponse response, String defaultGraphUri, String namedGraphUri)
-                    throws QueryEvaluationException, RDFHandlerException, UnsupportedRDFormatException, IOException {
-
-                TupleQuery tq = (TupleQuery) q;
-                //QueryResultFormat format = (QueryResultFormat) bestFormat(acceptHeader);
-                //	
-                TupleQueryResultFormat format = (TupleQueryResultFormat) TupleQueryResultFormat.CSV;
-                //	TupleQueryResultFormat format = (TupleQueryResultFormat) TupleQueryResultFormat.SPARQL;
-
-                response.setContentType(format.getDefaultMIMEType());
-                //tq.evaluate(QueryResultIO.createTupleWriter(format, response.getOutputStream()));
-
-                tq.evaluate(QueryResultIO.createTupleWriter(format, response.getOutputStream()));
-
-            }
-        },
-
-        ASK(q -> q instanceof BooleanQuery, BooleanQueryResultFormat.TEXT, BooleanQueryResultFormat.JSON, BooleanQueryResultFormat.SPARQL) {
-
-            @Override
-            protected void evaluate(Query q, String acceptHeader, HttpServletResponse response, String defaultGraphUri, String namedGraphUri)
-                    throws QueryEvaluationException, RDFHandlerException, UnsupportedRDFormatException, IOException {
-                BooleanQuery bq = (BooleanQuery) q;
-
-                // QueryResultFormat format = (QueryResultFormat) bestFormat(acceptHeader);
-                QueryResultFormat format = (QueryResultFormat) BooleanQueryResultFormat.TEXT;
-
-                response.setContentType(format.getDefaultMIMEType());
-                final Optional<BooleanQueryResultWriterFactory> optional = BooleanQueryResultWriterRegistry.getInstance().get(format);
-                if (optional.isPresent()) {
-
-                    BooleanQueryResultWriter writer = optional.get().getWriter(response.getOutputStream());
-                    writer.handleBoolean(bq.evaluate());
-                }
-
-            }
-        };
-
-        private final FileFormat[] formats;
-        private final Predicate<Query> typeChecker;
-
-        QueryTypes(Predicate<Query> typeChecker, FileFormat... formats) {
-            this.typeChecker = typeChecker;
-            this.formats = formats;
-        }
-
-
-        /**
-         * Test if the query is of a type that can be answered. And that the accept headers allow for the response to be
-         * send.
-         * 
-         * @param  preparedQuery
-         * @param  acceptHeader
-         * @return                                  true if the query is of the right type and acceptHeaders are acceptable.
-         * @throws MismatchingAcceptHeaderException
-         */
-        protected boolean accepts(Query preparedQuery, String acceptHeader) throws MismatchingAcceptHeaderException {
-            if (accepts(preparedQuery)) {
-                if (acceptHeader == null || acceptHeader.isEmpty()) {
-                    return true;
-                } else {
-                    for (FileFormat format : formats) {
-                        for (String mimeType : format.getMIMETypes()) {
-                            if (acceptHeader.contains(mimeType))
-                                return true;
-                        }
-                    }
-                }
-                throw new MismatchingAcceptHeaderException();
-            }
-            return false;
-        }
-
-
-        protected abstract void evaluate(Query q, String acceptHeader, HttpServletResponse response, String defaultGraphUri, String namedGraphUri)
-                throws QueryEvaluationException, RDFHandlerException, UnsupportedRDFormatException, IOException;
-
-
-        protected boolean accepts(Query q) {
-            return typeChecker.test(q);
-        };
-
-
-        protected FileFormat bestFormat(String acceptHeader) {
-            if (acceptHeader == null || acceptHeader.isEmpty()) {
-                return formats[0];
-
-            } else {
-                for (FileFormat format : formats) {
-                    for (String mimeType : format.getMIMETypes()) {
-                        if (acceptHeader.contains(mimeType))
-                            return format;
-                    }
-                }
-            }
-            return formats[0];
-        }
-    }
-
-
-    private static class MismatchingAcceptHeaderException extends Exception {
-
-        private static final long serialVersionUID = 1L;
-
-    }
 }

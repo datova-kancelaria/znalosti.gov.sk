@@ -17,15 +17,17 @@ import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
 import sk.gov.knowledgegraph.model.entity.Dataset;
 
 @Service
+@Slf4j
 public class DatasetService {
 
     @Autowired
     private Repository repository;
 
-    public List<Dataset> listDcatDatasets() throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
+    public List<Dataset> listDcatDatasets() {
         List<Dataset> list = new ArrayList<>();
 
         try (RepositoryConnection conn = repository.getConnection()) {
@@ -55,7 +57,11 @@ public class DatasetService {
                     dataset.setVersion(bindingSet.getValue("version").stringValue());
                     list.add(dataset);
                 }
+            } catch (Exception e) {
+                log.warn(e.getMessage(), e);
             }
+        } catch (Exception e) {
+            log.warn(e.getMessage(), e);
         }
 
         return list;
