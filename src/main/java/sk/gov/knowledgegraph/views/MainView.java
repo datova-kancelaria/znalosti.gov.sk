@@ -1,39 +1,19 @@
 package sk.gov.knowledgegraph.views;
 
-import java.util.Optional;
-import com.vaadin.flow.component.Html;
-import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.Component;
-import com.vaadin.flow.component.ComponentUtil;
-import com.vaadin.flow.component.applayout.AppLayout;
-import com.vaadin.flow.component.avatar.Avatar;
-import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.dependency.JavaScript;
-import com.vaadin.flow.component.dependency.JsModule;
-import com.vaadin.flow.component.dependency.NpmPackage;
-import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.html.Header;
-import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.ListItem;
-import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.component.html.UnorderedList;
-import com.vaadin.flow.component.orderedlayout.FlexComponent;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.Inline;
-import com.vaadin.flow.component.tabs.Tab;
-import com.vaadin.flow.component.tabs.TabVariant;
-import com.vaadin.flow.component.tabs.Tabs;
-import com.vaadin.flow.router.RouterLink;
-import com.vaadin.flow.server.PWA;
-import com.vaadin.flow.theme.Theme;
+import org.springframework.beans.factory.annotation.Value;
 
-import sk.gov.knowledgegraph.views.MainView;
+import com.vaadin.flow.component.Html;
+import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.dependency.JsModule;
+import com.vaadin.flow.component.html.ListItem;
+import com.vaadin.flow.component.html.UnorderedList;
+import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.server.PWA;
+
 import sk.gov.idsk4j.IDSKHeaderWeb;
 import sk.gov.idsk4j.IDSKHeaderWebMain;
 import sk.gov.idsk4j.IDSKHeaderWebNav;
-import org.springframework.beans.factory.annotation.Value;
 
 
 /**
@@ -43,7 +23,7 @@ import org.springframework.beans.factory.annotation.Value;
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 //@CssImport(value = "./styles/views/main/main-view.css", themeFor = "vaadin-app-layout")
 //@CssImport("./styles/views/main/main-view.css")
-@PWA(name = "znalosti.gov.sk", shortName = "znalosti", enableInstallPrompt = false)
+//@PWA(name = "znalosti.gov.sk", shortName = "znalosti")
 //@JsModule("./styles/shared-styles.js")
 //@JsModule("./styles/idsk-frontend-2.8.0.min.js")
 @JsModule("./styles/all.js")

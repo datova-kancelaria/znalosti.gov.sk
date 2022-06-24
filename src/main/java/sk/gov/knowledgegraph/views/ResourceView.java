@@ -2,6 +2,8 @@ package sk.gov.knowledgegraph.views;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +20,12 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.renderer.TemplateRenderer;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.OptionalParameter;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.QueryParameters;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.VaadinService;
 
 import sk.gov.knowledgegraph.model.entity.Resource;
 import sk.gov.knowledgegraph.service.ResourceService;
@@ -29,15 +34,17 @@ import sk.gov.knowledgegraph.service.ResourceService;
 @PageTitle("URI Zdroj")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 @CssImport("./styles/views/resource/resource-view.css")
-public class ResourceView extends Div {
+public class ResourceView extends Div implements HasUrlParameter<String> {
 
     private static Logger logger = LoggerFactory.getLogger(ResourceView.class);
 
     private Grid<Resource> grid = new Grid<>(Resource.class, false);
+    private ResourceService resourceService;
 
     public ResourceView(@Autowired ResourceService resourceService) {
-        setId("resource-view");
+        this.resourceService = resourceService;
 
+        setId("resource-view");
         addClassName("govuk-width-container");
 
         Main main = new Main();
@@ -53,7 +60,21 @@ public class ResourceView extends Div {
         dataResults.addClassName("govuk-grid-column-full");
         whiteSpace.add(dataResults);
 
-        String uriString = VaadinService.getCurrent().getCurrentRequest().getParameter("uri");
+    }
+
+
+    @Override
+    public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
+        QueryParameters queryParameters = event.getLocation().getQueryParameters();
+
+        Map<String, List<String>> parametersMap = queryParameters.getParameters();
+        if (parametersMap.get("uri") != null) {
+            showResource(parametersMap.get("uri").get(0));
+        }
+    }
+
+
+    private void showResource(String uriString) {
         String prefLabel = "";
         String type = "";
         String typeLabel = "";
@@ -126,7 +147,7 @@ public class ResourceView extends Div {
                             + "</b></a>" + resource.getResourceIcon(resource.getPredicateShort()));
 
                     //Image logo = new Image("images/logo.png", "SKKnowledgeGraph logo");
-                    //	return new Image("dede.jpg", "resource");
+                    //  return new Image("dede.jpg", "resource");
 
                 } else
                     return new Html("<div><b>is <a href=resource?uri=" + resource.getPredicate().replace("#", "%23") + ">" + resource.getPredicateShort()
@@ -149,7 +170,7 @@ public class ResourceView extends Div {
                     if (resource.getPredicate().contains("logo") || resource.getPredicate().contains("img"))
 
                         return new Html("<div height=\10px\"><img  style=\"display:block;\"  height=\"100px\"  src=" + resource.getObject() + ">");
-                    //	 return new Image(resource.getObject(), resource.getObject());
+                    //   return new Image(resource.getObject(), resource.getObject());
                     else
 
                     if (resource.getObjectShort() != null)

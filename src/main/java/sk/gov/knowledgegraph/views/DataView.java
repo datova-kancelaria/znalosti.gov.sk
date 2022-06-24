@@ -15,7 +15,6 @@ import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import sk.gov.knowledgegraph.controller.ResourceController;
 import sk.gov.knowledgegraph.model.entity.Dataset;
 import sk.gov.knowledgegraph.service.DatasetService;
 
@@ -83,7 +82,7 @@ public class DataView extends Div {
                     .withProperty("datasetTitle", Dataset::getDatasetTitle).withProperty("dataset", Dataset::getDataset)).setWidth("25%")
                     .setHeader(new Html("<b>Dataset</b>"));
 
-            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=http://localhost:8080/resource?uri=[[item.publisher]]>[[item.publisherName]]</a>")
+            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.publisher]]>[[item.publisherName]]</a>")
                     .withProperty("publisherName", Dataset::getPublisherName).withProperty("publisher", Dataset::getPublisher)).setWidth("30%")
                     .setHeader(new Html("<b>Vydavateľ</b>"));
 
