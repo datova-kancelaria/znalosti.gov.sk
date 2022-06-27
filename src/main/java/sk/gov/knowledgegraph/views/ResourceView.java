@@ -27,16 +27,16 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.QueryParameters;
 import com.vaadin.flow.router.Route;
 
+import lombok.extern.slf4j.Slf4j;
 import sk.gov.knowledgegraph.model.entity.Resource;
 import sk.gov.knowledgegraph.service.ResourceService;
 
+@Slf4j
 @Route(value = "resource", layout = MainView.class)
 @PageTitle("URI Zdroj")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 @CssImport("./styles/views/resource/resource-view.css")
 public class ResourceView extends Div implements HasUrlParameter<String> {
-
-    private static Logger logger = LoggerFactory.getLogger(ResourceView.class);
 
     private Grid<Resource> grid = new Grid<>(Resource.class, false);
     private ResourceService resourceService;
@@ -115,7 +115,7 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
             }
 
         } catch (Exception e) {
-            add(e.toString());
+            log.warn(e.getMessage(), e);
         }
 
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
@@ -213,22 +213,13 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
                     .withProperty("graph", Resource::getGraph).withProperty("graphName", Resource::getGraphName)).setWidth("20%")
                     .setHeader(new Html("<b>Graf</b>"));
 
-            //  add(grid);
-            //  dataLayout.setAlignItems(Alignment.CENTER);
-
-            // add(dataLayout, grid);
-
             HorizontalLayout dataLayout = new HorizontalLayout();
             dataLayout.setWidth("80%");
             dataLayout.add(grid);
             dataLayout.setAlignItems(Alignment.CENTER);
             add(dataLayout, grid);
-
-            //setContent(dataLayout);
-
         } catch (Exception e) {
-            logger.warn(e.getMessage(), e);
-            add(e.toString());
+            log.warn(e.getMessage(), e);
         }
     }
 

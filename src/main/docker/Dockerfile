@@ -1,10 +1,10 @@
-FROM openjdk:11-jre-slim as builder
+FROM openjdk:17-slim as builder
 COPY maven/assembly/ /app
 # extract
 WORKDIR /app
 RUN java -Djarmode=layertools -jar sk-gov-knowledgegraph-1.0-SNAPSHOT.jar extract
 
-FROM openjdk:11-jre-slim
+FROM openjdk:17-slim
 LABEL author="marek.surek@gmail.com"
 EXPOSE 8080
 # healthcheck

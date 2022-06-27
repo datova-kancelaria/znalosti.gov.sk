@@ -23,18 +23,18 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import lombok.extern.slf4j.Slf4j;
 import sk.gov.idsk4j.IDSKSearchResultsContent;
 import sk.gov.idsk4j.IDSKSearchResultsFilter;
 import sk.gov.knowledgegraph.service.SparqlQueryService;
 
+@Slf4j
 @Route(value = "sparqlView", layout = MainView.class)
 @PageTitle("SPARQL Endpoint")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 public class SparqlView extends Div {
 
     public String acceptHeader = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
-
-    private static Logger logger = LoggerFactory.getLogger(SparqlView.class);
 
     public SparqlView(@Autowired SparqlQueryService sparqlService)
             throws UnsupportedRDFormatException, FileNotFoundException, IOException, ParserConfigurationException, TransformerException {
@@ -126,7 +126,7 @@ public class SparqlView extends Div {
                 resultsDiv.add(resultHtmlDiv);
 
             } catch (Exception ee) {
-                logger.warn(ee.getMessage(), ee);
+                log.warn(ee.getMessage(), ee);
             }
         });
 
@@ -137,7 +137,7 @@ public class SparqlView extends Div {
                 UI.getCurrent().getPage().executeJs("window.open('/sparql?query=" + encodedQuery + "', '_blank')");
 
             } catch (Exception ee) {
-                logger.info(ee.getMessage().toString());
+                log.warn(ee.getMessage().toString());
             }
 
         });

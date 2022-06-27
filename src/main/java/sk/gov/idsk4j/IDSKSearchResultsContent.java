@@ -5,28 +5,25 @@ import com.vaadin.flow.component.html.Div;
 
 public class IDSKSearchResultsContent {
 
-    private Div searchResultsContent = new Div();
 
     public Div create() {
-
-        this.searchResultsContent.addClassName("idsk-search-results__content");
+        Div searchResultsContent = new Div();
+        searchResultsContent.addClassName("idsk-search-results__content");
         //		this.searchResultsContent.addClassName("govuk-grid-column-three-quarters");
 
-        this.searchResultsContent.addClassName("govuk-grid-column-full");
+        searchResultsContent.addClassName("govuk-grid-column-full");
 
-        return this.searchResultsContent;
+        return searchResultsContent;
     }
 
 
     public Div create(Grid grid) {
+        Div searchResultsContent = new Div();
+        searchResultsContent.addClassName("idsk-search-results__content");
+        searchResultsContent.addClassName("govuk-grid-column-full");
+        searchResultsContent.add(grid);
 
-        this.searchResultsContent.addClassName("idsk-search-results__content");
-        //		this.searchResultsContent.addClassName("govuk-grid-column-three-quarters");
-
-        this.searchResultsContent.addClassName("govuk-grid-column-full");
-        this.searchResultsContent.add(grid);
-
-        return this.searchResultsContent;
+        return searchResultsContent;
     }
 
 }

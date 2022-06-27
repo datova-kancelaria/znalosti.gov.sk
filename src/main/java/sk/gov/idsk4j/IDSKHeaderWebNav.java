@@ -6,13 +6,7 @@ import com.vaadin.flow.component.html.UnorderedList;
 
 public class IDSKHeaderWebNav {
 
-    private Div divNav = new Div();
     private UnorderedList menu;
-
-    public IDSKHeaderWebNav() {
-        this.divNav = new Div();
-    }
-
 
     public IDSKHeaderWebNav(UnorderedList menu) {
         this.menu = menu;
@@ -20,11 +14,14 @@ public class IDSKHeaderWebNav {
 
 
     public Div create() {
-        this.divNav.addClassName("idsk-header-web__nav");
+        
+        Div divNav = new Div();
+
+        divNav.addClassName("idsk-header-web__nav");
 
         Div container = new Div();
         container.addClassName("govuk-width-container");
-        this.divNav.add(container);
+        divNav.add(container);
 
         Div gridRow = new Div();
         gridRow.addClassName("govuk-grid-row");
@@ -44,6 +41,6 @@ public class IDSKHeaderWebNav {
 
         gridRow.add(columnFull1, columnFull2);
 
-        return this.divNav;
+        return divNav;
     }
 }

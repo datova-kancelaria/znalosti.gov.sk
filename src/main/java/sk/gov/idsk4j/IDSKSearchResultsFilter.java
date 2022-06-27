@@ -7,12 +7,11 @@ import com.vaadin.flow.component.html.Label;
 
 public class IDSKSearchResultsFilter {
 
-    private Div searchResultsFilter = new Div();
-
     public Div create() {
+        Div searchResultsFilter = new Div();
 
-        this.searchResultsFilter.addClassName("idsk-search-results__filter");
-        this.searchResultsFilter.addClassName("govuk-grid-column-one-quarter");
+        searchResultsFilter.addClassName("idsk-search-results__filter");
+        searchResultsFilter.addClassName("govuk-grid-column-one-quarter");
 
         Div searchResultsLinkPanel1 = new Div();
 
@@ -60,7 +59,7 @@ public class IDSKSearchResultsFilter {
 
         searchResultsFilter.add(searchResultsLinkPanel1);
 
-        return this.searchResultsFilter;
+        return searchResultsFilter;
     }
 
 }

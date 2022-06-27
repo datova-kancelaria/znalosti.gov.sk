@@ -8,7 +8,6 @@ import javax.xml.transform.TransformerException;
 
 import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.Key;
@@ -26,40 +25,24 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
+import lombok.extern.slf4j.Slf4j;
 import sk.gov.idsk4j.IDSKSearchResultsContent;
-import sk.gov.idsk4j.IDSKSearchResultsFilter;
 import sk.gov.knowledgegraph.model.entity.Result;
 import sk.gov.knowledgegraph.service.SearchService;
 import sk.gov.knowledgegraph.service.StatisticsService;
 
-@Route(value = "search", layout = MainView.class)
-@RouteAlias(value = "", layout = MainView.class)
+@Route(value = "", layout = MainView.class)
+@RouteAlias(value = "search", layout = MainView.class)
 @PageTitle("Vyhľadávanie")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
+@Slf4j
 public class SearchView extends Div {
-
-    //private TextField searchText;
-    private Button btnSearch;
-
-    //@Id("search-results-input")
-    //TextField searchInput = new TextField(); 
-
-    private Grid<Result> grid5 = new Grid<>(Result.class, false);
 
     public SearchView(@Autowired SearchService searchService, @Autowired StatisticsService statisticsService)
             throws UnsupportedRDFormatException, FileNotFoundException, IOException, ParserConfigurationException, TransformerException {
         setId("search-view");
 
         addClassName("govuk-width-container");
-
-        /*
-         * ShortcutListener shortcut = new ShortcutListener("Shortcut Name", ShortcutAction.KeyCode.ENTER, null) {
-         * 
-         * @Override
-         * public void handleAction(Object sender, Object target) {
-         * startSearch();
-         * }
-         */
 
         Main main = new Main();
         main.addClassName("govuk-main-wrapper");
@@ -119,39 +102,6 @@ public class SearchView extends Div {
         input.addClassName("idsk-search-component__input");
         input.setId("search-results-input");
 
-        /*
-         * ShortcutListener enter = new ShortcutListener("Enter", KeyCode.ENTER, null) {
-         * 
-         * @Override
-         * public void handleAction(Object sender, Object target) {
-         * // Do nice stuff
-         * log.info("Enter pressed");
-         * }
-         * };
-         * 
-         * 
-         * input.addShorcutListener(enter);
-         * 
-         * 
-         */
-
-        //    input.setType("text");
-
-        /*
-         * input.setImmedate(true);
-         * OnEnterKeyHandler onEnterHandler=new OnEnterKeyHandler(){
-         * 
-         * @Override
-         * public void onEnterKeyPressed() {
-         * Notification.show("Voight Kampff Test",
-         * Notification.Type.HUMANIZED_MESSAGE);
-         * }
-         * };
-         */
-
-        // TextField searchText = new TextField();
-        // searchComponent.add(new Html("<input class=\"govuk-input govuk-input--width-30 idsk-search-component__input \" id=\"search-results-input\" name=\"search\" type=\"text\">"));
-
         searchComponent.add(input);
 
         Button btnSearch2 = new Button();
@@ -166,9 +116,8 @@ public class SearchView extends Div {
         searchComponent.add(btnSearch2);
         idskSearchResultsDiv.add(searchBar);
 
-        IDSKSearchResultsFilter idskSearchResultsFilter = new IDSKSearchResultsFilter();
-        //idskSearchResultsDiv.add(idskSearchResultsFilter.create());
         IDSKSearchResultsContent idskSearchResultsContent = new IDSKSearchResultsContent();
+        Grid<Result> grid5 = new Grid<>(Result.class, false);
 
         grid5.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid5.setHeightFull();
@@ -191,21 +140,9 @@ public class SearchView extends Div {
                 idskSearchResultsDiv.add(idskSearchResultsContent.create(grid5));
 
             } catch (Exception ee) {
-                System.out.println(ee.toString());
+                log.warn(ee.getMessage(), ee);
             }
         });
-
-        /*
-         * 
-         * input.addShortcutListener(new ShortcutListener("Shortcut Name", ShortcutAction.KeyCode.ENTER, null) {
-         * 
-         * @Override
-         * public void handleAction(Object sender, Object target) {
-         * // your code here
-         * }
-         * });
-         * 
-         */
 
     }
 

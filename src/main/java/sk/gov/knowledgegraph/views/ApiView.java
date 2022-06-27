@@ -39,10 +39,6 @@ public class ApiView extends Div {
 
         whiteSpace.add(h1);
 
-        //add(new Html("<div><h3>&nbsp;&nbsp;Informácie</h3></div>"));
-
-        //  add(new Html("<div class=govuk-heading-m>API systému znalosti.gov.sk</div>"));
-
         add(new Html("<div class=govuk-heading-m>POST SPARQL Enpoint</div>"));
         add(new Html("<div class=govuk-link>POST /api/sparql?q={query}&default-graph-uri={default-graph-uri}&named-graph-uri={named-graph-uri}</div>"));
 

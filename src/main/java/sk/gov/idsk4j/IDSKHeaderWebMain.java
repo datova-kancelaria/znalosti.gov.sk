@@ -5,7 +5,6 @@ import com.vaadin.flow.component.html.Div;
 
 public class IDSKHeaderWebMain {
 
-    private Div main = new Div();
     private String siteSVGBanner;
     private String siteName;
     private String siteTitle;
@@ -48,11 +47,13 @@ public class IDSKHeaderWebMain {
 
 
     public Div create() {
-        this.main.addClassName("idsk-header-web__main");
+        Div main = new Div();
+
+        main.addClassName("idsk-header-web__main");
 
         Div container = new Div();
         container.addClassName("govuk-width-container");
-        this.main.add(container);
+        main.add(container);
 
         Div gridRow = new Div();
         gridRow.addClassName("govuk-grid-row");
@@ -109,6 +110,6 @@ public class IDSKHeaderWebMain {
 
         columnOneThird.add(mainHeadline);
 
-        return this.main;
+        return main;
     }
 }

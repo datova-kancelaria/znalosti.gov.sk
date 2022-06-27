@@ -1,7 +1,9 @@
 package sk.gov.knowledgegraph.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.query.BindingSet;
@@ -11,6 +13,11 @@ import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.vaadin.flow.server.RequestHandler;
+import com.vaadin.flow.server.VaadinRequest;
+import com.vaadin.flow.server.VaadinResponse;
+import com.vaadin.flow.server.VaadinSession;
 
 import lombok.extern.slf4j.Slf4j;
 import sk.gov.knowledgegraph.model.entity.Result;

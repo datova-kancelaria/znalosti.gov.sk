@@ -5,6 +5,7 @@ import org.eclipse.rdf4j.repository.manager.RemoteRepositoryManager;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
 @Configuration
 public class DatabaseConfiguration {
@@ -22,4 +23,5 @@ public class DatabaseConfiguration {
         repositoryManager.init();
         return repositoryManager.getRepository(dbRepository);
     }
+
 }
