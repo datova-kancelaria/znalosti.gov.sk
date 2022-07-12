@@ -28,9 +28,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
@@ -45,6 +47,7 @@ import sk.gov.knowledgegraph.service.SparqlQueryService;
 @Slf4j
 @RestController
 @Validated
+@RequestMapping("/api")
 public class ResourceController {
 
     @Autowired
@@ -60,27 +63,28 @@ public class ResourceController {
             TupleQueryResultFormat.TSV);
     private final List<BooleanQueryResultFormat> supportedBooleanRDFFormates = List.of(BooleanQueryResultFormat.JSON, BooleanQueryResultFormat.TEXT);
 
-    @GetMapping(value = "/api/resource")
+    @CrossOrigin
+    @GetMapping(value = "/resource")
     public StreamingResponseBody resource(@RequestParam(value = "uri") String uri, @RequestParam(value = "content-type", required = false) String contentType,
             @RequestHeader(value = HttpHeaders.ACCEPT, required = false) String acceptHeader) throws KnowledgeGraphException {
         return getResourceStreamForURI(uri, contentType, acceptHeader);
     }
 
-
-    @PostMapping(value = "/api/resource", produces = { "application/ld+json", "application/rdf+xml" })
+    @CrossOrigin
+    @PostMapping(value = "/resource", produces = { "application/ld+json", "application/rdf+xml" })
     public StreamingResponseBody resourceByPost(@RequestParam(value = "uri") String uri,
             @RequestHeader(value = HttpHeaders.CONTENT_TYPE, required = true) String contentType) throws KnowledgeGraphException {
         return getResourceStreamForURI(uri, contentType, null);
     }
 
 
-    @GetMapping(value = "/api/search", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/search", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Result> search(@RequestParam(value = "q") String searchString) throws KnowledgeGraphException {
         return searchService.search(searchString);
     }
 
 
-    @PostMapping(value = "/api/sparql")
+    @PostMapping(value = "/sparql")
     public StreamingResponseBody sparqlPostURLencoded(@RequestParam(value = "default-graph-uri", required = false) String defaultGraphUri,
             @RequestParam(value = "named-graph-uri", required = false) String namedGraphUri, @NotBlank @RequestParam(value = "q") String query,
             @RequestHeader(ACCEPT) String acceptHeader, @RequestHeader(value = HttpHeaders.CONTENT_TYPE, required = false) String contentType)
