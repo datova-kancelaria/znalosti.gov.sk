@@ -15,6 +15,7 @@ import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import sk.gov.knowledgegraph.controller.ResourceController;
 import sk.gov.knowledgegraph.model.entity.Dataset;
 import sk.gov.knowledgegraph.service.DatasetService;
 
@@ -49,7 +50,7 @@ public class DataView extends Div {
 
         H1 h1 = new H1();
         h1.addClassName("idsk-search-results__title");
-        h1.add(new Html("<div>\n" + "    Datasety\n" + "  </div>"));
+        h1.add(new Html("<div>\n" + "    Príklady dát\n" + "  </div>"));
 
         //        main.add(h1);
 
@@ -65,7 +66,7 @@ public class DataView extends Div {
 
         try {
 
-            grid2.setItems(datasetService.listDcatDatasets());
+            grid2.setItems(datasetService.listData());
             grid2.setHeightByRows(true);
 
             /*
@@ -79,11 +80,20 @@ public class DataView extends Div {
              */
 
             grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.dataset]]>[[item.datasetTitle]]</a>")
-                    .withProperty("datasetTitle", Dataset::getDatasetTitle).withProperty("dataset", Dataset::getDataset)).setWidth("25%")
+                    .withProperty("datasetTitle", Dataset::getDatasetTitle).withProperty("dataset", Dataset::getDataset)).setWidth("40%")
                     .setHeader(new Html("<b>Dataset</b>"));
-
+            
+            
+            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.datasetType]]>[[item.datasetTypeLabel]]</a>")
+                    .withProperty("datasetTypeLabel", Dataset::getDatasetTypeLabel).withProperty("datasetType", Dataset::getDatasetType)).setWidth("10%")
+                    .setHeader(new Html("<b>Typ</b>"));
+            
+            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.wasDerivedFrom]]>[[item.wasDerivedFromTitle]]</a>")
+                    .withProperty("wasDerivedFromTitle", Dataset::getWasDerivedFromTitle).withProperty("wasDerivedFrom", Dataset::getWasDerivedFrom)).setWidth("25%")
+                    .setHeader(new Html("<b>Zdrojový ISVS</b>"));
+            
             grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.publisher]]>[[item.publisherName]]</a>")
-                    .withProperty("publisherName", Dataset::getPublisherName).withProperty("publisher", Dataset::getPublisher)).setWidth("30%")
+                    .withProperty("publisherName", Dataset::getPublisherName).withProperty("publisher", Dataset::getPublisher)).setWidth("25%")
                     .setHeader(new Html("<b>Vydavateľ</b>"));
 
             /*

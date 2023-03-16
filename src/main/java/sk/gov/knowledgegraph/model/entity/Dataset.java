@@ -14,6 +14,13 @@ public class Dataset extends AbstractEntity {
     private String datasetTitle;
     private String catalog;
     private String catalogTitle;
+   
+    private String datasetType;
+    private String datasetTypeLabel;
+    
+    private String wasDerivedFrom;
+    private String wasDerivedFromTitle;
+    
     private String theme;
     private String themeLabel;
     private String version;

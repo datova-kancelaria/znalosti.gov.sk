@@ -1,0 +1,13 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>prefix dcat: <http://www.w3.org/ns/dcat#> prefix dct: <http://purl.org/dc/terms/>prefix skos: <http://www.w3.org/2004/02/skos/core#> 
+select distinct ?type ?prefLabel ?title ?label ?typeLabel 
+where
+{ 
+  { graph ?q {       optional {       <http://www.w3.org/2004/02/skos/core#Concept> rdf:type ?type } }}    
+  { graph ?r {       optional {?type rdfs:label ?typeLabel .         filter langMatches( lang(?typeLabel), "sk" )} }}    
+
+  
+  { graph ?s {       optional {<http://www.w3.org/2004/02/skos/core#Concept> skos:prefLabel ?prefLabel .       filter langMatches( lang(?prefLabel), "sk" ) } }}    
+  { graph ?t {       optional {<http://www.w3.org/2004/02/skos/core#Concept> dct:title ?title .       filter langMatches( lang(?title), "sk" ) } }}   
+  
+ 
+  { graph ?u {       optional {<http://www.w3.org/2004/02/skos/core#Concept> rdfs:label ?label .       filter langMatches( lang(?label), "sk" ) } }} }

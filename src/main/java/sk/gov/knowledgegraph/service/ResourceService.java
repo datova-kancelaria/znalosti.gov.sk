@@ -99,7 +99,7 @@ public class ResourceService {
 
         try (RepositoryConnection conn = repository.getConnection()) {
 
-            String queryString = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+            String queryString2 = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
                     + "prefix dcat: <http://www.w3.org/ns/dcat#> prefix dct: <http://purl.org/dc/terms/>\n"
                     + "prefix skos: <http://www.w3.org/2004/02/skos/core#> select distinct ?score ?type ?prefLabel ?title ?label ?typeLabel \n" + "where "
 
@@ -110,10 +110,37 @@ public class ResourceService {
                     + "     <" + uri + "> rdfs:label ?label .\n" + "     bind (3 as ?score)           \n" + "     filter langMatches( lang(?label), \"sk\" ) \n"
                     + "    } } } order by desc(?score) limit 1";
 
+            String queryString = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
+                    + "prefix dcat: <http://www.w3.org/ns/dcat#> prefix dct: <http://purl.org/dc/terms/>"
+                    + "prefix skos: <http://www.w3.org/2004/02/skos/core#> select distinct ?type ?prefLabel ?title ?label ?typeLabel "
+                    + "where { "
+                    + "     { graph ?q {"
+                    + "       optional {"
+                    + "       <" + uri + "> rdf:type ?type } }}"
+              //      + "    { graph ?r {"
+              //      + "       optional {?type rdfs:label ?typeLabel . "
+             //       + "        filter langMatches( lang(?typeLabel), \"sk\" )} }}"
+                    + "    { graph ?s {"
+                    + "       optional {<" + uri + "> skos:prefLabel ?prefLabel ."
+                    + "       filter langMatches( lang(?prefLabel), \"sk\" ) } }}"
+                    + "    { graph ?t {"
+                    + "       optional {<" + uri + "> dct:title ?title ."
+                    + "       filter langMatches( lang(?title), \"sk\" ) } }}"
+                    + "    { graph ?u {"
+                    + "       optional {<" + uri + "> rdfs:label ?label ."
+                    + "       filter langMatches( lang(?label), \"sk\" ) } }} }";
+            
+            
+           log.info(queryString);
+
+            
             TupleQuery tupleQuery = conn.prepareTupleQuery(queryString);
             try (TupleQueryResult result = tupleQuery.evaluate()) {
-                while (result.hasNext()) { // iterate over the result
-                    BindingSet bindingSet = result.next();
+                while (result.hasNext()) { // iterating over results
+
+                    log.info("iterating over results");
+
+                	BindingSet bindingSet = result.next();
 
                     Value typeLabel = bindingSet.getValue("typeLabel");
                     Value prefLabel = bindingSet.getValue("prefLabel");
@@ -121,22 +148,35 @@ public class ResourceService {
                     Value label = bindingSet.getValue("label");
                     Resource resource = new Resource();
                     resource.setUri(uri);
-                    if (prefLabel != null) {
-                        resource.setPrefLabel(prefLabel.stringValue());
-                    } else if (title != null) {
+                  
+                    
+                    log.info("resource exists");
+                    
+                    if (bindingSet.hasBinding("prefLabel")) {
+                        resource.setPrefLabel(prefLabel.stringValue());                        
+                    } else if (bindingSet.hasBinding("title")) {
                         resource.setPrefLabel(title.stringValue());
-                    } else if (label != null) {
+                    } else if (bindingSet.hasBinding("label")) {
                         resource.setPrefLabel(label.stringValue());
                     }
+                    
+                    //} else
+                    //	resource.setPrefLabel("NO LABEL");
+                    
+                    
                     if (bindingSet.hasBinding("type")) {
                         resource.setType(bindingSet.getValue("type").stringValue());
                     }
 
                     if (typeLabel != null) {
-                        resource.setTypeLabel(typeLabel.stringValue());
+                       // resource.setTypeLabel(typeLabel.stringValue());
                     }
                     return resource;
                 }
+            }
+            catch(Exception e)
+            {
+            	log.info(e.toString());
             }
         }
 

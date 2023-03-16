@@ -1,0 +1,16 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>
+prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#>
+select distinct ?subject ?predicate ?object ?isInverse  ?graph ?graphName where
+{ graph ?graph { {
+    <https://data.gov.sk/id/legal-subject/50349287> ?predicate2 ?object .
+      bind (?predicate2 as ?predicate)
+      bind (<https://data.gov.sk/id/legal-subject/50349287> as ?subject)     
+      bind (xsd:boolean(false) as ?isInverse)     
+    } union{
+      ?subject ?predicate3 <https://data.gov.sk/id/legal-subject/50349287>
+      bind (?predicate3 as ?predicate)
+      bind (<https://data.gov.sk/id/legal-subject/50349287> as ?object) 
+      bind (xsd:boolean(true) as ?isInverse)     
+    } }
+      ?graph dct:title ?graphName .
+     filter langMatches( lang(?graphName), "sk" ) }

@@ -1,0 +1,28 @@
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>
+prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#> prefix prov: <http://www.w3.org/ns/prov#>
+select distinct ?dataset ?datasetTitle ?datasetType ?datasetTypeLabel ?wasDerivedFrom ?wasDerivedFromTitle ?publisher ?publisherName ?theme ?themeLabel ?version where {
+?dataset rdf:type dcat:Dataset .
+?dataset dct:type ?datasetType .
+?datasetType skos:prefLabel ?datasetTypeLabel . 
+?dataset dct:title ?datasetTitle .
+?dataset prov:wasDerivedFrom ?wasDerivedFrom .
+?wasDerivedFrom dct:title ?wasDerivedFromTitle .  
+?dataset dcat:version ?version .
+?dataset dct:publisher ?publisher .
+?publisher skos:prefLabel ?publisherName . 
+?dataset dcat:theme ?theme .
+?theme skos:prefLabel ?themeLabel .  
+  
+FILTER ( ?datasetType != <http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY>
+  && ?datasetType != <http://publications.europa.eu/resource/authority/dataset-type/TAXONOMY>
+  && ?datasetType != <http://publications.europa.eu/resource/authority/dataset-type/CODE_LIST>
+  && ?datasetType != <http://publications.europa.eu/resource/authority/dataset-type/DOMAIN_MODEL>
+  && ?datasetType != <http://publications.europa.eu/resource/authority/dataset-type/GLOSSARY>
+  && ?datasetType != <http://publications.europa.eu/resource/authority/dataset-type/THESAURUS>
+  && ?datasetType != <http://publications.europa.eu/resource/authority/dataset-type/SCHEMA>)  
+
+FILTER langMatches( lang(?datasetTypeLabel), "sk")  
+FILTER langMatches( lang(?datasetTitle), "sk")
+FILTER langMatches( lang(?publisherName), "sk" )
+FILTER langMatches( lang(?themeLabel), "sk" )
+} order by asc(?catalogTitle)  asc(?datasetTitle)

@@ -2,10 +2,16 @@ package sk.gov.knowledgegraph.views;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.client.methods.HttpPost;
 import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,18 +29,18 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import lombok.extern.slf4j.Slf4j;
 import sk.gov.idsk4j.IDSKSearchResultsContent;
 import sk.gov.idsk4j.IDSKSearchResultsFilter;
 import sk.gov.knowledgegraph.service.SparqlQueryService;
 
-@Slf4j
 @Route(value = "sparqlView", layout = MainView.class)
 @PageTitle("SPARQL Endpoint")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 public class SparqlView extends Div {
 
     public String acceptHeader = "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+
+    private static Logger logger = LoggerFactory.getLogger(SparqlView.class);
 
     public SparqlView(@Autowired SparqlQueryService sparqlService)
             throws UnsupportedRDFormatException, FileNotFoundException, IOException, ParserConfigurationException, TransformerException {
@@ -126,7 +132,7 @@ public class SparqlView extends Div {
                 resultsDiv.add(resultHtmlDiv);
 
             } catch (Exception ee) {
-                log.warn(ee.getMessage(), ee);
+                logger.warn(ee.getMessage(), ee);
             }
         });
 
@@ -134,10 +140,63 @@ public class SparqlView extends Div {
             try {
 
                 String encodedQuery = UriUtils.encodePath(textarea.getValue(), "UTF-8");
-                UI.getCurrent().getPage().executeJs("window.open('/sparql?query=" + encodedQuery + "', '_blank')");
+               // UI.getCurrent().getPage().executeJs("window.open('/api/sparql?q=" + encodedQuery + "', '_blank')");
 
+                // TODO - nový endpoint
+                
+                /* 1
+                HttpPost post = new HttpPost("http://jakarata.apache.org/");
+                NameValuePair[] data = {
+                		new NameValuePair ("user", "joe"),
+                		new NameValuePair  ("password", "bloggs")
+                };
+                post.setRequestBody(data);
+                */
+                
+                
+                /* 2
+                
+                URL url = new URL("/api/sparql?q="+ encodedQuery);
+                URLConnection con = url.openConnection();
+                HttpURLConnection http = (HttpURLConnection)con;
+                http.setRequestMethod("POST"); // PUT is another valid option
+                http.setDoOutput(true);
+                */
+                
+                
+                
+                logger.info("btnExport.addClickListener");
+                
+                URL obj = new URL("/api/sparql");
+        		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        		con.setRequestMethod("POST");
+        		con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+        		// For POST only - START
+        		con.setDoOutput(true);
+        		OutputStream os = con.getOutputStream();
+        		
+        		String postParams = "q="+ encodedQuery;
+        		
+        		os.write(postParams.getBytes());
+        		os.flush();
+        		os.close();
+        		
+        		int responseCode = con.getResponseCode();
+        		
+        		
+        		// responseCode = 0;
+        		logger.info("POST Response Code :: ");
+        	
+        		logger.info("encodedQuery :: " + encodedQuery);
+                
+        		
+        		
+        		
+        		
+                
             } catch (Exception ee) {
-                log.warn(ee.getMessage().toString());
+                logger.info(ee.getMessage().toString());
             }
 
         });

@@ -40,11 +40,33 @@ public class Resource extends AbstractEntity {
             return uri.replaceAll("http://www.w3.org/2004/02/skos/core#", "skos:");
         } else if (uri.contains("http://www.w3.org/ns/dcat#")) {
             return uri.replaceAll("http://www.w3.org/ns/dcat#", "dcat:");
+            
+            
         } else if (uri.contains("http://schema.org/")) {
             return uri.replaceAll("http://schema.org/", "schema:");
         } else if (uri.contains("http://purl.org/dc/terms/")) {
             return uri.replaceAll("http://purl.org/dc/terms/", "dct:");
-        } else if (uri.contains("http://www.w3.org/ns/adms#")) {
+        
+    
+        // eu authority tables
+        
+    	} else if (uri.contains("http://publications.europa.eu/resource/authority/dataset-type/")) {
+            return uri.replaceAll("http://publications.europa.eu/resource/authority/dataset-type/", "dataset-type:");
+    	} else if (uri.contains("http://publications.europa.eu/resource/authority/data-theme/")) {
+            return uri.replaceAll("http://publications.europa.eu/resource/authority/data-theme/", "data-theme:");
+    	} else if (uri.contains("http://publications.europa.eu/resource/authority/file-type/")) {
+            return uri.replaceAll("http://publications.europa.eu/resource/authority/file-type/", "file-type:");
+    	} else if (uri.contains("http://publications.europa.eu/resource/authority/country/")) {
+            return uri.replaceAll("http://publications.europa.eu/resource/authority/country/", "country:");
+    	} else if (uri.contains("http://publications.europa.eu/resource/authority/continent/")) {
+            return uri.replaceAll("http://publications.europa.eu/resource/authority/continent/", "continent:");
+    	} else if (uri.contains("http://publications.europa.eu/resource/authority/frequency/")) {
+            return uri.replaceAll("http://publications.europa.eu/resource/authority/frequency/", "frequency:");
+            
+   
+    	} else if (uri.contains("http://www.w3.org/ns/prov#")) {
+            return uri.replaceAll("http://www.w3.org/ns/prov#", "prov:");
+    	} else if (uri.contains("http://www.w3.org/ns/adms#")) {
             return uri.replaceAll("http://www.w3.org/ns/adms#", "adms:");
         } else if (uri.contains("http://www.w3.org/ns/org#")) {
             return uri.replaceAll("http://www.w3.org/ns/org#", "org:");

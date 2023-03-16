@@ -15,7 +15,10 @@ import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class StatisticsService {
 
     @Autowired
@@ -60,13 +63,16 @@ public class StatisticsService {
         try (RepositoryConnection conn = repository.getConnection()) {
             String queryString = "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>\n"
                     + "prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
-                    + "select distinct (COUNT(?dataset) as ?count)" + "WHERE {\n" + "?catalog rdf:type dcat:Catalog .\n"
+                    + "select (COUNT(distinct ?dataset) as ?count)" + "WHERE {\n" + "?catalog rdf:type dcat:Catalog .\n"
                     + "?catalog dct:title ?catalogTitle .\n" + "?catalog dcat:dataset ?dataset .\n" + "?dataset rdf:type dcat:Dataset .\n"
                     + "?dataset dct:title ?datasetTitle .\n" + "?dataset dcat:version ?version .\n" + "?dataset dct:publisher ?publisher .\n"
                     + "?publisher skos:prefLabel ?publisherName . \n" + "?dataset dcat:theme ?theme .\n" + "?theme skos:prefLabel ?themeLabel .  \n"
                     + "FILTER langMatches( lang(?catalogTitle), \"sk\" )\n" + "FILTER langMatches( lang(?datasetTitle), \"sk\")\n"
                     + "FILTER langMatches( lang(?publisherName), \"sk\" )\n" + "FILTER langMatches( lang(?themeLabel), \"sk\" )\n" + "}";
 
+            log.info(queryString);
+
+            
             TupleQuery tupleQuery = conn.prepareTupleQuery(queryString);
             try (TupleQueryResult result = tupleQuery.evaluate()) {
                 while (result.hasNext()) { // iterate over the result

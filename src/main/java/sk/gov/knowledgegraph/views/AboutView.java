@@ -2,16 +2,21 @@ package sk.gov.knowledgegraph.views;
 
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.dependency.CssImport;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import sk.gov.knowledgegraph.model.entity.Result;
+
 @Route(value = "about", layout = MainView.class)
 @PageTitle("O portáli")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 public class AboutView extends Div {
+
+    private Grid<Result> grid4 = new Grid<>(Result.class, false);
 
     public AboutView() {
         setId("about-view");
@@ -35,7 +40,11 @@ public class AboutView extends Div {
         h1.addClassName("idsk-search-results__title");
         h1.add(new Html("<div>\n" + "    Informácie o portáli\n" + "  </div>"));
 
+        //        main.add(h1);
+
         whiteSpace.add(h1);
+
+        //add(new Html("<div><h3>&nbsp;&nbsp;Informácie</h3></div>"));
 
         add(new Html(
                 "<div>Projekt znalosti.gov.sk poskytuje elektronické služby dátovej interoperability pre Informačné systémy verejnej správy vo forme prepojených údajov (LinkedData). "
@@ -44,6 +53,7 @@ public class AboutView extends Div {
                         + "<br><br>Zdrojový kód portálu je dostupný na adrese: <a href=https://github.com/datova-kancelaria/znalosti.gov.sk target=\"_blank\">https://github.com/datova-kancelaria/znalosti.gov.sk</a> pod licenciou <a href=https://eur-lex.europa.eu/legal-content/SK/TXT/HTML/?uri=CELEX:32017D0863&from=SK target=\"_blank\">EUPL</a>."
                         + " Nájdené chyby, pripomienky alebo návrhy na zlepšenie môžete zadať priamo tu: <a href=https://github.com/datova-kancelaria/znalosti.gov.sk/issues target=\"_blank\">https://github.com/datova-kancelaria/znalosti.gov.sk/issues</a>.</div>"));
 
+        //  https://github.com/datova-kancelaria/znalosti.gov.sk/issues
     }
 
 }

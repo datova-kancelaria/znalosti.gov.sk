@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:at="http://publications.europa.eu/ontology/authority/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:atold="http://publications.europa.eu/resource/authority/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xml:base="http://publications.europa.eu/resource/authority/dataset-type">
+   <skos:ConceptScheme rdf:about="http://publications.europa.eu/resource/authority/dataset-type"
+                       at:table.id="dataset-type"
+                       at:table.version.number="20220715-0">
+      <at:prefLabel xml:lang="en">Dataset type</at:prefLabel>
+      <rdfs:label xml:lang="en">Dataset type</rdfs:label>
+      <owl:versionInfo>20220715-0</owl:versionInfo>
+      <skos:prefLabel xml:lang="en">Dataset type</skos:prefLabel>
+   </skos:ConceptScheme>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/APROF"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Профил за приложение</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Profil aplikace</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Anvendelsesprofil</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Anwendungsprofil</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Προφίλ εφαρμογής</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Application profile</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Perfil de aplicación</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Rakendusprofiil</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Sovellusprofiili</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Profil d’application</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Próifíl feidhmchláir</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Aplikacijski profil</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Alkalmazásprofil</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Profilo applicazione</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Programos profilis</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Lietotnes profils</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Profil tal-applikazzjoni</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Applikasjonsprofil</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Applicatieprofiel</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Applikasjonsprofil</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Applikasjonsprofil</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Profil aplikacji</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Perfil de aplicação</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Profil aplicație</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Profil aplikácie</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Profil aplikacije</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Applikationsprofil</skos:prefLabel>
+      <at:authority-code>APROF</at:authority-code>
+      <at:op-code>APROF</at:op-code>
+      <at:start.use>2017-10-30</at:start.use>
+      <atold:op-code>APROF</atold:op-code>
+      <dc:identifier>APROF</dc:identifier>
+      <skos:definition xml:lang="en">An application profile is a profile which specifies and describes the metadata used in a particular application.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/ATTO_LEX"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Таблица ATTO – домейн EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Tabulka ATTO – doména EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">ATTO-tabel – Eur-Lex-domæne</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">ATTO-Tabelle – EUR-Lex-Domain</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Πίνακας ATTO – Τομέας EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">ATTO table – EUR-Lex domain</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Cuadro ATTO – dominio EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">ATTO tabel – EUR-Lexi domeen</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">ATTO-taulukko – EUR-Lex-aihealue</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Tableau ATTO – domaine EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Tábla ATTO – fearann EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">ATTO tablica – domena EUR-Lexa</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">ATTO-táblázat – EUR-Lex-tartomány</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Tabella ATTO – dominio EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">ATTO lentelė – „EUR-Lex“ sritis</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">ATTO tabula – “EUR-Lex” domēns</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Tabella ATTO – dominju EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">ATTO-tabell – EUR-Lex-domene</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">ATTO-tabel – EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">ATTO-tabell – EUR-Lex-domene</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">ATTO-tabell – EUR-Lex-domene</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Tablica ATTO – domena EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Tabela ATTO — Domínio EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Tabel ATTO – domeniul EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Tabuľka ATTO – doména EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Tabela ATTO – domena EUR-Lex</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">ATTO-tabell – EUR-Lex-domän</skos:prefLabel>
+      <at:authority-code>ATTO_LEX</at:authority-code>
+      <at:op-code>ATTO_LEX</at:op-code>
+      <at:start.use>2017-10-30</at:start.use>
+      <atold:op-code>ATTO_LEX</atold:op-code>
+      <dc:identifier>ATTO_LEX</dc:identifier>
+      <skos:definition xml:lang="en">Table of EUR-Lex domain in ATTO, internal translation manager application of the Publications Office of the European Union.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/ATTO_PUB"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Таблица ATTO – домейн Публикации</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Tabulka ATTO – doména publikací</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">ATTO-tabel – publikationsdomæne</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">ATTO-Tabelle – Domain „Veröffentlichungen“</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Πίνακας ATTO – Τομέας εκδόσεων</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">ATTO table – Publications domain</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Cuadro ATTO – dominio Publicaciones</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">ATTO tabel – Väljaannete domeen</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">ATTO-taulukko – Julkaisut-aihealue</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Tableau ATTO – domaine Publications</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Tábla ATTO – fearann na bhFoilseachán</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">ATTO tablica – domena publikacija</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">ATTO-táblázat – Kiadványtartomány</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Tabella ATTO – dominio Pubblicazioni</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">ATTO lentelė – leidinių sritis</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">ATTO tabula – “Publikāciju” domēns</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Tabella ATTO – dominju tal-Pubblikazzjonijiet</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">ATTO-tabell – publikasjonsdomene</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">ATTO-tabel – Publicatiedomein</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">ATTO-tabell – publikasjonsdomene</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">ATTO-tabell – publikasjonsdomene</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Tablica ATTO – domena publikacji</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Tabela ATTO — Domínio Publicações</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Tabel ATTO – domeniul Publicații</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Tabuľka ATTO – doména Publikácií</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Tabela ATTO – domena publikacij</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">ATTO-tabell – Publikationsdomän</skos:prefLabel>
+      <at:authority-code>ATTO_PUB</at:authority-code>
+      <at:op-code>ATTO_PUB</at:op-code>
+      <at:start.use>2017-10-30</at:start.use>
+      <atold:op-code>ATTO_PUB</atold:op-code>
+      <dc:identifier>ATTO_PUB</dc:identifier>
+      <skos:definition xml:lang="en">Table of Publications domain in ATTO, internal translation manager application of the Publications Office of the European Union.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/CODE_LIST"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Списък на кодовете</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Seznam kódů</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Kodeliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Codeliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Κατάλογος κωδικών</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Code list</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Lista de códigos</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Koodiloend</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Koodiluettelo</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Liste de codes</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Liosta cód</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Popis kodova</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Kódlista</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Elenco dei codici</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Kodų sąrašas</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Kodu saraksts</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Lista ta’ kodiċijiet</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Kodeliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Codelijst</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Kodeliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Kodeliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Wykaz kodów</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Lista de códigos</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Listă de coduri</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Zoznam kódov</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Seznam kod</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Kodlista</skos:prefLabel>
+      <at:authority-code>CODE_LIST</at:authority-code>
+      <at:op-code>CODE_LIST</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>CODE_LIST</atold:op-code>
+      <dc:identifier>CODE_LIST</dc:identifier>
+      <skos:definition xml:lang="en">A code list is a complete set of data element values of a coded simple data element.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">ISO 9735-1:2002, 4.14</skos:changeNote>
+      <skos:changeNote xml:lang="en">https://www.iso.org/obp/ui#iso:std:iso:9735:-1:ed-2:v1:en</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/CORE_COMP"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Базов елемент</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Základní prvek</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Hovedkomponent</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Kernbestandteil</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Βασικό συστατικό</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Core component</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Componente básico</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Tuumikelement</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Ydinkomponentti</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Composant de base</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Comhpháirt lárnach</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Osnovna komponenta</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Alapkomponens</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Componente centrale</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Pagrindinis komponentas</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Pamatsastāvdaļa</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Komponent ċentrali</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Kjernekomponent</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Kerncomponent</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Kjernekomponent</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Kjernekomponent</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Element podstawowy</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Componente fundamental</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Componentă centrală</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Hlavná zložka</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Osnovna komponenta</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Kärnkomponent</skos:prefLabel>
+      <at:authority-code>CORE_COMP</at:authority-code>
+      <at:op-code>CORE_COMP</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>CORE_COMP</atold:op-code>
+      <dc:identifier>CORE_COMP</dc:identifier>
+      <skos:definition xml:lang="en">A core component is a context-free semantic building block for creating clear and meaningful data models, vocabularies and information exchange packages.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/DIRECTORY"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Директория</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Seznam</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Adresseliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Verzeichnis</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Αποθετήριο</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Directory</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Directorio</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Kataloog</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Hakemisto</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Répertoire</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Eolaire</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Direktorij</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Jegyzék</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Directory</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Žinynas</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Direktorijs</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Direttorju</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Katalog</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Lijst</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Katalog</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Katalog</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Katalog</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Lista</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Anuar</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Adresár</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Register</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Katalog</skos:prefLabel>
+      <at:authority-code>DIRECTORY</at:authority-code>
+      <at:op-code>DIRECTORY</at:op-code>
+      <at:start.use>1981-01-10</at:start.use>
+      <atold:op-code>DIRECTORY</atold:op-code>
+      <dc:identifier>DIRECTORY</dc:identifier>
+      <skos:definition xml:lang="en">A directory contains information about individual entities (e.g. persons) and their (probably) hierarchical organisation and related entities. It is used to browse individuals in their organisational context.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/DOMAIN_MODEL"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Модел на област</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Model domény</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Domænemodel</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Domänenmodell</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Υπόδειγμα πεδίου</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Domain model</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Modelo de dominio</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Domeenimudel</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Käsitemalli</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Modèle de domaine</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Samhail fearainn</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Model domene</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Tartománymodell</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Modello di dominio</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Domeno modelis</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Domēna modelis</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Mudell ta’ dominju</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Domenemodell</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Domeinmodel</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Domenemodell</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Domenemodell</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Model domeny</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Modelo de domínio</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Model de domeniu</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Model domény</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Model domene</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Domänmodell</skos:prefLabel>
+      <at:authority-code>DOMAIN_MODEL</at:authority-code>
+      <at:op-code>DOMAIN_MODEL</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>DOMAIN_MODEL</atold:op-code>
+      <dc:identifier>DOMAIN_MODEL</dc:identifier>
+      <skos:definition xml:lang="en">A domain model is a conceptual view of a system or an information exchange that identifies the entities involved and their relationships.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">NIEM Glossary</skos:changeNote>
+      <skos:changeNote xml:lang="en">https://www.niem.gov/glossary/Pages/Glossary.aspx?alpha=D</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/DSCRP_SERV"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Описание на услуга</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Popis služby</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Beskrivelse af tjenesten</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Dienstbeschreibung</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Περιγραφή υπηρεσίας</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Service description</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Descripción del servicio</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Teenusekirjeldus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Palvelun kuvaus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Description de service</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Tuairisc seirbhíse</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Opis usluge</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Szolgáltatás leírása</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Descrizione del servizio</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Paslaugos aprašas</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Pakalpojuma apraksts</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Deskrizzjoni tas-servizz</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Tjenestebeskrivelse</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Servicebeschrijving</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Tenestebeskriving</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Tjenestebeskrivelse</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Opis usługi</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Descrição do serviço</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Descrierea serviciului</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Schéma služby</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Opis storitve</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Tjänstebeskrivning</skos:prefLabel>
+      <at:authority-code>DSCRP_SERV</at:authority-code>
+      <at:op-code>DSCRP_SERV</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>DSCRP_SERV</atold:op-code>
+      <dc:identifier>DSCRP_SERV</dc:identifier>
+      <skos:definition xml:lang="en">A service description is a set of documents that describe the interface to and semantics of a service.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">W3C WS-GLOSS</skos:changeNote>
+      <skos:changeNote xml:lang="en">http://www.w3.org/TR/ws-gloss/</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/GEOSPATIAL"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Геопространствени данни</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Geoprostorová data</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Geospatiale data</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Geodaten</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Γεωχωρικά δεδομένα</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Geospatial data</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Datos geoespaciales</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Ruumiandmed</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Paikkatiedot</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Données géospatiales</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Sonraí geospásúla</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Geoprostorni podaci</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Térinformatikai adat</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Dati geospaziali</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Geoerdviniai duomenys</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Ģeotelpiskie dati</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Data ġeospazjali</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Geodata</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Georuimtelijke gegevens</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Geodata</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Geodata</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Dane geoprzestrzenne</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Dados geoespaciais</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Date geospațiale</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Geopriestorové údaje</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Geoprostorski podatki</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Geospatiala data</skos:prefLabel>
+      <at:authority-code>GEOSPATIAL</at:authority-code>
+      <at:op-code>GEOSPATIAL</at:op-code>
+      <at:start.use>2019-01-30</at:start.use>
+      <atold:op-code>GEOSPATIAL</atold:op-code>
+      <dc:identifier>GEOSPATIAL</dc:identifier>
+      <skos:definition xml:lang="en">Geospatial data is data that has explicit geographic positioning information included within it in either vector or raster format.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/GLOSSARY"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Речник</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Glosář</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Glossar</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Glossar</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Γλωσσάριο</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Glossary</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Glosario</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Sõnastik</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Sanasto</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Glossaire</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Gluais</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Pojmovnik</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Glosszárium</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Glossario</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Žodynėlis</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Glosārijs</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Glossarju</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Ordliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Woordenlijst</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Ordliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Ordliste</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Glosariusz</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Glossário</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Glosar</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Glosár</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Glosar</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Ordlista</skos:prefLabel>
+      <at:authority-code>GLOSSARY</at:authority-code>
+      <at:op-code>GLOSSARY</at:op-code>
+      <at:start.use>2020-11-25</at:start.use>
+      <atold:op-code>GLOSSARY</atold:op-code>
+      <dc:identifier>GLOSSARY</dc:identifier>
+      <skos:definition xml:lang="en">A glossary is a simple list of terms and their definitions. A glossary focuses on creating a complete list of the terminology of domain-specific terms and acronyms.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/IEPD"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Описание на пакет за обмен на информация</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Popis balíčku pro výměnu informací</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Beskrivelse af informationsudveksling</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Beschreibung des informationsaustauschpakets</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Περιγραφή δέσμης ανταλλαγής πληροφοριών</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Information exchange package description</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Descripción de un paquete de intercambio de información</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Teabevahetuspaketi kirjeldus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Tiedonvaihtopaketin kuvaus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Description de paquet d’échange d’information</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Tuairisc ar mhalartú faisnéise</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Opis paketa informacijske razmjene</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Információcsere-csomag (IEP) leírása</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Descrizione del pacchetto «scambio di informazioni»</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Informacijos mainų paketo aprašas</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Informācijas apmaiņas paketes apraksts</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Deskrizzjoni ta’ pakkett ta’ skambju ta’ informazzjoni</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Beskrivelse av informasjonsutveksling</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Omschrijving informatie-uitwisselingspakket</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Beskriving av informasjonsutvekslingspakke</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Beskrivelse av informasjonsutveksling</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Opis struktury i treści wymiany informacji</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Descrição de pacote de intercâmbio de informação</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Descrierea pachetului de schimb de informații</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Opis balíka výmeny informácií</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Opis paketa za izmenjavo podatkov</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Beskrivning av informationsutbyte</skos:prefLabel>
+      <at:authority-code>IEPD</at:authority-code>
+      <at:op-code>IEPD</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>IEPD</atold:op-code>
+      <dc:identifier>IEPD</dc:identifier>
+      <skos:definition xml:lang="en">An information exchange package (IEP) description is a collection of artefacts that define and describe the structure and content of an IEP. An Information Exchange Package Documentation has a specific information exchange context and may refer to other semantic assets.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">NIEM Glossary</skos:changeNote>
+      <skos:changeNote xml:lang="en">https://www.niem.gov/glossary/Pages/Glossary.aspx?alpha=I</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/MAPPING"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Карта на връзките</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Mapování</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Tilknytning</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Mapping</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Αντιστοιχία</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Mapping</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Correspondencia</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Vastendus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Mappaus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Mappage</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Mapáil</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Mapiranje</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Megfeleltetés</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Mappatura</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Priskyrimas</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Kartēšana</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Immappjar</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Mapping</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Mapping</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Mapping</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Mapping</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Mapowanie</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Mapeamento</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Cartografiere</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Priradenie</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Evidenca</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Mappning</skos:prefLabel>
+      <at:authority-code>MAPPING</at:authority-code>
+      <at:op-code>MAPPING</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>MAPPING</atold:op-code>
+      <dc:identifier>MAPPING</dc:identifier>
+      <skos:definition xml:lang="en">A mapping is a relationship between a concept in one vocabulary and one or more concepts in another.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">ISO/DIS 25964-2</skos:changeNote>
+      <skos:changeNote xml:lang="en">https://www.iso.org/obp/ui/#iso:std:iso:25964:-2:ed-1:v1:en</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/NAL"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Проверен списък с имена</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Seznam názvů orgánů</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Liste over myndighedsnavne</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Liste zugelassener Namen</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Κατάλογος εγκεκριμένων ονομάτων</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Name authority list</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Lista autorizada de nombres</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Lubatud nimede loend</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Hyväksyttyjen nimien luettelo</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Liste d’autorité de noms</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Liosta ainmneacha údaraithe</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Popis zadanih naziva</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Jóváhagyott névlista</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Elenco dei nomi autorizzati</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Institucijų pavadinimų sąrašas</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Vārdu un nosaukumu saraksts</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Lista ta’ ismijiet awtorizzati</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Autoritetsliste for entitetsnavn</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Standaardnamenlijst</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Autoritetsliste for entitetsnamn</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Autoritetsliste for entitetsnavn</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Wykaz nazw organów</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Lista autorizada de nomes</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Listă cu numele autorităților</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Zoznam názvov orgánov</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Seznam imen organov</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Auktoritetsregister</skos:prefLabel>
+      <at:authority-code>NAL</at:authority-code>
+      <at:op-code>NAL</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>NAL</atold:op-code>
+      <dc:identifier>NAL</dc:identifier>
+      <skos:definition xml:lang="en">A name authority list is a controlled vocabulary for use in naming particular entities consistently.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">ISO/DIS 25964-2</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Онтология</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Ontologie</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Ontologi</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Ontologie</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Οντολογία</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Ontology</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Ontología</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Ontoloogia</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Ontologia</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Ontologie</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Ointeolaíocht</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Ontologija</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Ontológia</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Ontologia</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Ontologija</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Ontoloģija</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Ontoloġija</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Ontologi</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Ontologie</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Ontologi</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Ontologi</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Struktura pojęciowa</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Ontologia</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Ontologie</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Ontológia</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Ontologija</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Ontologi</skos:prefLabel>
+      <at:authority-code>ONTOLOGY</at:authority-code>
+      <at:op-code>ONTOLOGY</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>ONTOLOGY</atold:op-code>
+      <dc:identifier>ONTOLOGY</dc:identifier>
+      <skos:definition xml:lang="en">An ontology is a formal, explicit specification of a shared conceptualisation.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">ISO/DIS 25964-2</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/OP_DATPRO"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Неокончателни данни</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Předběžné údaje</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Midlertidige data</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Vorläufige Daten</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Προσωρινά δεδομένα</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Provisional data</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Datos provisionales</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Esialgsed andmed</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Alustavat tiedot</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Données provisoires</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Sonraí sealadacha</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Privremeni podaci</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Ideiglenes adatok</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Dati provvisori</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Laikinieji duomenys</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Provizoriski dati</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Dejta provviżorja</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Voorlopige gegevens</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Dane tymczasowe</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Dados provisórios</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Date provizorii</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Predbežné údaje</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Začasni podatki</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Tillfälliga uppgifter</skos:prefLabel>
+      <at:authority-code>OP_DATPRO</at:authority-code>
+      <at:op-code>OP_DATPRO</at:op-code>
+      <at:start.use>1952-07-23</at:start.use>
+      <atold:op-code>OP_DATPRO</atold:op-code>
+      <dc:identifier>OP_DATPRO</dc:identifier>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/SCHEMA"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Схема</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Schéma</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Skema</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Schema</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Σύστημα</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Schema</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Esquema</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Skeem</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Skeema</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Schéma</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Scéimre</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Nacrt</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Séma</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Schema</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Schema</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Shēma</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Skema</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Skjema</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Schema</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Skjema</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Skjema</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Schemat</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Esquema</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Schemă</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Schéma</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Shema</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Schema</skos:prefLabel>
+      <at:authority-code>SCHEMA</at:authority-code>
+      <at:op-code>SCHEMA</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>SCHEMA</atold:op-code>
+      <dc:identifier>SCHEMA</dc:identifier>
+      <skos:definition xml:lang="en">A schema is a concrete view on a system or information exchange, describing the structure, content and semantics of data.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Статистически данни</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Statistické údaje</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Statistiske data</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Statistische Daten</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Στατιστικά δεδομένα</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Statistical data</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Datos estadísticos</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Statistilised andmed</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Tilastotiedot</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Données statistiques</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Sonraí staidrimh</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Statistički podaci</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Statisztikai adat</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Dati statistici</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Statistiniai duomenys</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Statistikas dati</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Data dwar l-istatistika</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Statistisk data</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Statistische gegevens</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Statistisk data</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Statistisk data</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Dane statystyczne</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Dados estatísticos</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Date statistice</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Štatistické údaje</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Statistični podatki</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Statistiska data</skos:prefLabel>
+      <at:authority-code>STATISTICAL</at:authority-code>
+      <at:op-code>STATISTICAL</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>STATISTICAL</atold:op-code>
+      <dc:identifier>STATISTICAL</dc:identifier>
+      <skos:definition xml:lang="en">Statistical data is data which holds information that is of a statistical nature.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/STYLES"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Набори от стилове</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Pravidla pro úpravu</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Standardformularer</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Formatvorlagen</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Φύλλα στυλ</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Style sheets</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Hojas de estilo</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Laadilehed</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Tyyliohjeet</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Feuilles de style</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Stílbhileoga</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Stilski obrasci</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Stíluslapok</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Fogli di stile</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Stilių aprašai</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Stila lapas</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Style sheets</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Stilark</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Opmaakmodellen</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Stilark</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Stilark</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Arkusze stylów</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Folhas de estilo</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Foi de stil</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Listy so štýlmi</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Slogovne datoteke</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Formatmallar</skos:prefLabel>
+      <at:authority-code>STYLES</at:authority-code>
+      <at:op-code>STYLES</at:op-code>
+      <at:start.use>2017-10-30</at:start.use>
+      <atold:op-code>STYLES</atold:op-code>
+      <dc:identifier>STYLES</dc:identifier>
+      <skos:definition xml:lang="en">Style sheets are a set of rules which describes the presentation of a document written in a markup language.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/SYNTAX_ECD_SCHEME"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Схема на кодиране със синтаксис</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Kódovací schéma skladby</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Kodeskema for syntaks</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Codierungssystem mit Syntax</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Σύστημα συντακτικής κωδικοποίησης</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Syntax encoding scheme</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Esquema de codificación sintáctica</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Süntaktiline kodeerimisskeem</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Syntaktinen koodausskeema</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Schème d’encodage de syntaxe</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Scéim ionchódaithe comhréire</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Zadana pravila kodiranja</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Szintaxiskódolási séma</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Sistema di codifica basato sulla sintassi</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Sintaksės kodavimo schema</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Sintakses kodējumu shēma</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Skema ta’ konverżjoni tas-sintassi</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Kodeskjema for syntaks</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Syntaxiscoderingsschema</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Kodeskjema for syntaks</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Kodeskjema for syntaks</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">System kodowania składniowego</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Esquema de codificação sintática</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Sistem de codificare a sintaxei</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Syntaktická schéma kódovania</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Shema kodiranja sintakse</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Syntaxschema</skos:prefLabel>
+      <at:authority-code>SYNTAX_ECD_SCHEME</at:authority-code>
+      <at:op-code>SYNTAX_ECD_SCHEME</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>SYNTAX_ECD_SCHEME</atold:op-code>
+      <dc:identifier>SYNTAX_ECD_SCHEME</dc:identifier>
+      <skos:definition xml:lang="en">Syntax Encoding Schemes indicate that the value is a string formatted in accordance with a formal notation, such as "2000-01-01" as the standard expression of a date.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">DCMI Glossary</skos:changeNote>
+      <skos:changeNote xml:lang="en">The glossary was last updated on 23 April 2004.</skos:changeNote>
+      <skos:changeNote xml:lang="en">http://dublincore.org/documents/usageguide/glossary.shtml#S</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/SYNTHETIC_DATA"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Синтетични данни</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Syntetická data</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Syntetiske data</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Synthetische Daten</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Συνθετικά δεδομένα</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Synthetic data</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Datos sintéticos</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Sünteetilised andmed</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Synteettiset tiedot</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Données synthétiques</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Sonraí sintéiseacha</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Sintetički podaci</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Szintetikus adat</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Dati sintetici</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Dirbtiniai duomenys</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Sintētiskie dati</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Data sintetika</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Kunstig data</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Synthetische gegevens</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Kunstig data</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Kunstig data</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Dane syntetyczne</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Dados sintéticos</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Date sintetice</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Syntetické údaje</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Sintetični podatki</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Syntetiska data</skos:prefLabel>
+      <at:authority-code>SYNTHETIC_DATA</at:authority-code>
+      <at:op-code>SYNTHETIC_DATA</at:op-code>
+      <at:start.use>2020-05-19</at:start.use>
+      <atold:op-code>SYNTHETIC_DATA</atold:op-code>
+      <dc:identifier>SYNTHETIC_DATA</dc:identifier>
+      <skos:definition xml:lang="en">Synthetic data is data which is (artificially) created entirely or partially for use in tests, and to meet specific needs or conditions in the real-world that (existing) real-world data may not represent, e.g. anonymised datasets, typically used for proof of concept or simulation.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/TAXONOMY"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Таксономия</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Taxonomie</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Taksonomi</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Taxonomie</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Ταξονομία</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Taxonomy</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Taxonomía</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Taksonoomia</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Taksonomia</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Taxonomie</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Tacsanomaíocht</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Taksonomija</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Taxonómia</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Tassonomia</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Sistematika</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Taksonomija</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Tassonomija</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Taksonomi</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Taxonomie</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Taksonomi</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Taksonomi</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Klasyfikacja</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Taxonomia</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Taxonomie</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Taxonómia</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Taksonomija</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Taxonomi</skos:prefLabel>
+      <at:authority-code>TAXONOMY</at:authority-code>
+      <at:op-code>TAXONOMY</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>TAXONOMY</atold:op-code>
+      <dc:identifier>TAXONOMY</dc:identifier>
+      <skos:definition xml:lang="en">A taxonomy is a scheme of categories and subcategories that can be used to sort and otherwise organise items of knowledge or information.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">ISO/DIS 25964-2</skos:changeNote>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/TEST_DATA"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="bg">Данни от изпитването</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Testovací data</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Testdata</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Testdaten</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Δεδομένα δοκιμής</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Test data</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Datos de prueba</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Testandmed</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Testitiedot</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Données d’essai</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Sonraí tástála</skos:prefLabel>
+      <skos:prefLabel xml:lang="hr">Ispitni podaci</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Tesztadat</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Dati di prova</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Bandymo duomenys</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Dati testēšanai</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Data tal-ittestjar</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Testdata</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Testgegevens</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Testdata</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Testdata</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Dane testowe</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Dados de testes</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Date test</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Fiktívne údaje na účely skúšok</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Podatki o preskusu</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Testdata</skos:prefLabel>
+      <at:authority-code>TEST_DATA</at:authority-code>
+      <at:op-code>TEST_DATA</at:op-code>
+      <at:start.use>2020-05-19</at:start.use>
+      <atold:op-code>TEST_DATA</atold:op-code>
+      <dc:identifier>TEST_DATA</dc:identifier>
+      <skos:definition xml:lang="en">Test data is data which is created for use in tests, which should be syntactically correct but which may not necessarily represent any real-world phenomena, e.g. datasets with ‘dummy data’, typically used in system integration.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+   </skos:Concept>
+   <skos:Concept rdf:about="http://publications.europa.eu/resource/authority/dataset-type/THESAURUS"
+                 at:deprecated="false">
+      <skos:prefLabel xml:lang="hr">Pojmovnik</skos:prefLabel>
+      <skos:prefLabel xml:lang="bg">Тезаурус</skos:prefLabel>
+      <skos:prefLabel xml:lang="cs">Tezaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="da">Tesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="de">Thesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="el">Θησαυρός</skos:prefLabel>
+      <skos:prefLabel xml:lang="en">Thesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="es">Tesauro</skos:prefLabel>
+      <skos:prefLabel xml:lang="et">Tesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fi">Tesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="fr">Thésaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="ga">Teasáras</skos:prefLabel>
+      <skos:prefLabel xml:lang="hu">Tezaurusz</skos:prefLabel>
+      <skos:prefLabel xml:lang="it">Tesauro</skos:prefLabel>
+      <skos:prefLabel xml:lang="lt">Tezauras</skos:prefLabel>
+      <skos:prefLabel xml:lang="lv">Tēzaurs</skos:prefLabel>
+      <skos:prefLabel xml:lang="mt">Teżawru</skos:prefLabel>
+      <skos:prefLabel xml:lang="nb">Tesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="nl">Thesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="nn">Tesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="no">Tesaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="pl">Tezaurus</skos:prefLabel>
+      <skos:prefLabel xml:lang="pt">Tesauro</skos:prefLabel>
+      <skos:prefLabel xml:lang="ro">Tezaur</skos:prefLabel>
+      <skos:prefLabel xml:lang="sk">Synonymický slovník</skos:prefLabel>
+      <skos:prefLabel xml:lang="sl">Tezaver</skos:prefLabel>
+      <skos:prefLabel xml:lang="sv">Tesaurus</skos:prefLabel>
+      <at:authority-code>THESAURUS</at:authority-code>
+      <at:op-code>THESAURUS</at:op-code>
+      <at:start.use>2013-01-01</at:start.use>
+      <atold:op-code>THESAURUS</atold:op-code>
+      <dc:identifier>THESAURUS</dc:identifier>
+      <skos:definition xml:lang="en">A thesaurus is a controlled and structured vocabulary in which concepts are represented by terms, organised so that relationships between concepts are made explicit, and preferred terms are accompanied by lead-in entries for synonyms or quasi-synonyms.</skos:definition>
+      <skos:inScheme rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:topConceptOf rdf:resource="http://publications.europa.eu/resource/authority/dataset-type"/>
+      <skos:changeNote xml:lang="en">ISO 25964-1:2011</skos:changeNote>
+      <skos:changeNote xml:lang="en">http://www.iso.org/iso/catalogue_detail.htm?csnumber=53657</skos:changeNote>
+   </skos:Concept>
+</rdf:RDF>

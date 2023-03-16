@@ -69,14 +69,7 @@
                     foaf:homepage "https://metais.vicepremier.gov.sk/" ;
                     foaf:logo "https://metais.vicepremier.gov.sk/img/logo.png" ;
                     rdfs:comment "Centrálny metainformačný systém verejnej správy je systémom verejnej správy, prostredníctvom ktorého sa zhromažďujú a sprístupňujú informácie a údaje, najmä o architektúre eGovernmentu, službách, informačných systémoch, číselníkoch, referenčných registroch a referencovateľných identifikátoroch, informačno-komunikačných technológiách, ďalších komponentoch eGovernmentu a o koncepciách rozvoja informačných systémov. Účelom systému je správnosť, kompletnosť a dostupnosť aktuálnych informácií."@sk ;
-                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
-                    
-<https://data.gov.sk/id/egov/isvs/441> a egov:ISVS ;
-                    dct:title "Štatistický informačný systém"@sk ;
-                    foaf:homepage "https://metais.vicepremier.gov.sk/" ;
-                    foaf:logo "https://metais.vicepremier.gov.sk/img/logo.png" ;
-                    rdfs:comment "Integrovaný štatistický informačný systém (IŠIS) je systém, prostredníctvom ktorého ŠÚ SR poskytuje elektronické služby a podporuje koncepčný prístup pre činnostiach súvisiacich s prácou so štatistickými údajmi."@sk ;
-                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .                    
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .                   
                     
 <https://data.gov.sk/id/egov/isvs/191> a egov:ISVS ;
                     dct:title "Register fyzických osôb"@sk ;
@@ -96,3 +89,21 @@
                     rdfs:comment "Informačný systém HERALDREG je web aplikácia, kde - editačná (neverejná) časť umožňuje evidovať informácie o erboch a vlajkách, o ich nositeľoch - právnických a fyzických osobách - v centrálnej databáze. Ďalej umožňuje evidovať obrázky erbov a vlajok. Verejná časť je verejne prístupná na Internete a umožňuje prezeranie vybraných informácií o nositeľoch a ich erboch a vlajkách spolu s ich obrázkami."@sk ;    
                     foaf:homepage "https://ives.minv.sk/heraldreg/" ;
                     rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+                    
+<https://data.gov.sk/id/egov/isvs/11325> a egov:ISVS ;
+                    skos:symbol "znalosti"@sk ;                    
+                    dct:title "Znalostný graf pre ISVS"@sk ;
+                    foaf:homepage "https://znalosti.gov.sk/" ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .
+                    
+<https://data.gov.sk/id/egov/isvs/9184> a egov:ISVS ;
+                    skos:symbol "OD2.0"@sk ;                   
+                    dct:title "Otvorené údaje 2.0"@sk ;
+                    foaf:homepage "https://data.gov.sk/" ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> .      
+
+<https://data.gov.sk/id/egov/isvs/411> a egov:ISVS ;
+                    skos:symbol "Integrovaný štatistický informačný systém"@sk ;                   
+                    dct:title "Integrovaný štatistický informačný systém"@sk ;
+                    foaf:homepage "https://statistics.gov.sk/" ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/data/isvs/2021-MM-DD> . 

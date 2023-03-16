@@ -4,11 +4,9 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
@@ -23,21 +21,23 @@ import com.vaadin.flow.data.renderer.TemplateRenderer;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
-import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.QueryParameters;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-
+import com.vaadin.flow.server.VaadinService;
 import lombok.extern.slf4j.Slf4j;
 import sk.gov.knowledgegraph.model.entity.Resource;
 import sk.gov.knowledgegraph.service.ResourceService;
 
-@Slf4j
 @Route(value = "resource", layout = MainView.class)
 @PageTitle("URI Zdroj")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 @CssImport("./styles/views/resource/resource-view.css")
+
 public class ResourceView extends Div implements HasUrlParameter<String> {
 
+
+    private static Logger logger = LoggerFactory.getLogger(ResourceView.class);
     private Grid<Resource> grid = new Grid<>(Resource.class, false);
     private ResourceService resourceService;
 
@@ -59,7 +59,6 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
         Div dataResults = new Div();
         dataResults.addClassName("govuk-grid-column-full");
         whiteSpace.add(dataResults);
-
     }
 
 
@@ -75,47 +74,92 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
 
 
     private void showResource(String uriString) {
+          
         String prefLabel = "";
         String type = "";
         String typeLabel = "";
 
         Resource res = new Resource();
 
+        logger.info("uriString"+uriString);
+        
         try {
-            res = resourceService.getBaseProperties(uriString);
 
-            if (res.getPrefLabel() != null)
-                prefLabel = res.getPrefLabel();
-
-            if (res.getType() != null)
-                type = res.getType();
-
-            if (res.getTypeLabel() != null)
-                typeLabel = "(" + res.getTypeLabel() + ")";
-
-            String imageString = "";
-
-            //   String jsonLDIconString =  "<a><img src=json-ld-data-32.png></a>";
-            String jsonLDIconString = "<a target=new href=api/resource?uri=" + uriString + "&content-type="
+        	String jsonLDIconString = "<a target=new href=api/resource?uri=" + uriString + "&content-type="
                     + URLEncoder.encode("application/ld+json", StandardCharsets.UTF_8.toString()) + "><img src=images/json-ld-data-32.png valign=bottom></a>";
 
+        	res = resourceService.getBaseProperties(uriString);
+            
+            logger.info("res"+res);
+
+            //if (res.getType() != null)
+            	
+            if (res != null)	
+            {
+            	if (res.getPrefLabel()!= null)
+                    prefLabel = res.getPrefLabel();
+           	 
+            	if (res.getType()!= null)
+            		type = res.getType();
+             
+            	if (res.getTypeLabel() != null)
+                       typeLabel = "(" + res.getTypeLabel() + ")";
+            }
+            else
+            	logger.warn("res == null");
+     
+            
+        	logger.info("uriString:"+uriString);
+        	logger.info("prefLabel:"+prefLabel);
+        	logger.info("type:"+type);
+        	logger.info("typeLabel:"+typeLabel);
+
+    
+            String imageString = "";
+            
+            
             if (prefLabel != "") {
+            	
+            	logger.info("type2"+type);
+            	
                 add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>" + prefLabel
                         + "</b></font>&nbsp;<a href=resource?uri=" + type + "><font size=5 color=gray>" + typeLabel
                         + "</font></a></td></tr><tr><td><font size=4 color=DarkBlue><b>" + uriString + " " + jsonLDIconString
                         + "</b></font>&nbsp;<img src=></td></tr></table></div>"));
 
-            } else {
-                if (type != "")
-                    add(new Html(
-                            "<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>" + uriString + jsonLDIconString + "aaaaa" + "</div>"));
+            }            
+            else {
+            	
+            	
+            	/*
+              //  if (type.length()>0)
+            	  if (type != null)
+                {
+                	logger.info("type3"+type);
+
+                	add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>" + uriString + jsonLDIconString + "aaaaa" + "</div>"));
+                	
+                }
                 else
-                    add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>" + uriString + "&nbsp;<a href=resource?uri=" + type
+               
+                    add(new Html("<div><font size=5 color=DarkBlue><b>znalosti o:</b></font><br>" + uriString + "&nbsp;<a href=resource?uri=" + type
                             + "><font size=5 color=gray>" + typeLabel + "</font></a> " + jsonLDIconString + "</div>"));
+                */   
+                    
+            	add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br</tr><tr><td><font size=4 color=DarkBlue><b>" + uriString + " " + jsonLDIconString
+                        + "</b></font>&nbsp;<img src=></td></tr></table></div>"));
+
+            	
             }
+            
+            
+            
+           
+            
+            
 
         } catch (Exception e) {
-            log.warn(e.getMessage(), e);
+            add(e.toString());
         }
 
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
@@ -147,7 +191,7 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
                             + "</b></a>" + resource.getResourceIcon(resource.getPredicateShort()));
 
                     //Image logo = new Image("images/logo.png", "SKKnowledgeGraph logo");
-                    //  return new Image("dede.jpg", "resource");
+                    //	return new Image("dede.jpg", "resource");
 
                 } else
                     return new Html("<div><b>is <a href=resource?uri=" + resource.getPredicate().replace("#", "%23") + ">" + resource.getPredicateShort()
@@ -170,7 +214,7 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
                     if (resource.getPredicate().contains("logo") || resource.getPredicate().contains("img"))
 
                         return new Html("<div height=\10px\"><img  style=\"display:block;\"  height=\"100px\"  src=" + resource.getObject() + ">");
-                    //   return new Image(resource.getObject(), resource.getObject());
+                    //	 return new Image(resource.getObject(), resource.getObject());
                     else
 
                     if (resource.getObjectShort() != null)
@@ -213,13 +257,22 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
                     .withProperty("graph", Resource::getGraph).withProperty("graphName", Resource::getGraphName)).setWidth("20%")
                     .setHeader(new Html("<b>Graf</b>"));
 
+            //  add(grid);
+            //  dataLayout.setAlignItems(Alignment.CENTER);
+
+            // add(dataLayout, grid);
+
             HorizontalLayout dataLayout = new HorizontalLayout();
             dataLayout.setWidth("80%");
             dataLayout.add(grid);
             dataLayout.setAlignItems(Alignment.CENTER);
             add(dataLayout, grid);
+
+            //setContent(dataLayout);
+
         } catch (Exception e) {
-            log.warn(e.getMessage(), e);
+            logger.warn(e.getMessage(), e);
+            add(e.toString());
         }
     }
 
