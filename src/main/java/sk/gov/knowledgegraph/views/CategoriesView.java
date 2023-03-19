@@ -19,17 +19,17 @@ import sk.gov.knowledgegraph.controller.ResourceController;
 import sk.gov.knowledgegraph.model.entity.Dataset;
 import sk.gov.knowledgegraph.service.DatasetService;
 
-@Route(value = "data", layout = MainView.class)
-@PageTitle("Datasety")
+@Route(value = "categories", layout = MainView.class)
+@PageTitle("Kategórie")
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 @CssImport("./styles/views/data/data-view.css")
-public class DataView extends Div {
+public class CategoriesView extends Div {
 
     private static Logger logger = LoggerFactory.getLogger(DataView.class);
 
-    public DataView(@Autowired DatasetService datasetService) {
+    public CategoriesView(@Autowired DatasetService datasetService) {
         Grid<Dataset> grid2 = new Grid<>(Dataset.class, false);
-        setId("data-view");
+        setId("categories-view");
 
         addClassName("govuk-width-container");
 
@@ -50,7 +50,7 @@ public class DataView extends Div {
 
         H1 h1 = new H1();
         h1.addClassName("idsk-search-results__title");
-        h1.add(new Html("<div>\n" + "    Príklady dát\n" + "  </div>"));
+        h1.add(new Html("<div>\n" + "    Kategórie \n" + "  </div>"));
 
         //        main.add(h1);
 
@@ -66,16 +66,15 @@ public class DataView extends Div {
 
         try {
 
-            grid2.setItems(datasetService.listData());
+            grid2.setItems(datasetService.listCategories());
             grid2.setHeightByRows(true);
 
             grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.dataset]]>[[item.datasetTitle]]</a>")
-                    .withProperty("datasetTitle", Dataset::getDatasetTitle).withProperty("dataset", Dataset::getDataset)).setWidth("40%")
+                    .withProperty("datasetTitle", Dataset::getDatasetTitle).withProperty("dataset", Dataset::getDataset)).setWidth("35%")
                     .setHeader(new Html("<b>Dataset</b>"));
             
-            
             grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.datasetType]]>[[item.datasetTypeLabel]]</a>")
-                    .withProperty("datasetTypeLabel", Dataset::getDatasetTypeLabel).withProperty("datasetType", Dataset::getDatasetType)).setWidth("10%")
+                    .withProperty("datasetTypeLabel", Dataset::getDatasetTypeLabel).withProperty("datasetType", Dataset::getDatasetType)).setWidth("15%")
                     .setHeader(new Html("<b>Typ</b>"));
             
             grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.wasDerivedFrom]]>[[item.wasDerivedFromTitle]]</a>")
@@ -86,7 +85,7 @@ public class DataView extends Div {
                     .withProperty("publisherName", Dataset::getPublisherName).withProperty("publisher", Dataset::getPublisher)).setWidth("25%")
                     .setHeader(new Html("<b>Vydavateľ</b>"));
 
-    
+
 
         } catch (Exception e) {
             logger.warn(e.getMessage(), e);
