@@ -50,7 +50,7 @@ public class MetadataView extends Div {
 
         H1 h1 = new H1();
         h1.addClassName("idsk-search-results__title");
-        h1.add(new Html("<div>\n" + "    Metadáta (Centrálny model údajov)\n" + "  </div>"));
+        h1.add(new Html("<div>\n" + "    Ontológie\n" + "  </div>"));
 
         //        main.add(h1);
 

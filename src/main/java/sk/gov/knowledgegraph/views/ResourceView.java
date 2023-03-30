@@ -36,29 +36,15 @@ import sk.gov.knowledgegraph.service.ResourceService;
 
 public class ResourceView extends Div implements HasUrlParameter<String> {
 
-
     private static Logger logger = LoggerFactory.getLogger(ResourceView.class);
     private Grid<Resource> grid = new Grid<>(Resource.class, false);
     private ResourceService resourceService;
-
+    private Main main = new Main();  	
+    private Div whiteSpace = new Div();
+    
     public ResourceView(@Autowired ResourceService resourceService) {
         this.resourceService = resourceService;
 
-        setId("resource-view");
-        addClassName("govuk-width-container");
-
-        Main main = new Main();
-        main.addClassName("govuk-main-wrapper");
-        main.setId("main-content");
-        add(main);
-
-        Div whiteSpace = new Div();
-        whiteSpace.addClassName("app-whitespace-highlight");
-        main.add(whiteSpace);
-
-        Div dataResults = new Div();
-        dataResults.addClassName("govuk-grid-column-full");
-        whiteSpace.add(dataResults);
     }
 
 
@@ -74,7 +60,16 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
 
 
     private void showResource(String uriString) {
-          
+    	  
+  	    setId("resource-view");
+	    addClassName("govuk-width-container");
+	    main.addClassName("govuk-main-wrapper");
+	    main.setId("main-content");
+	    add(main);
+	   
+	    whiteSpace.getElement().removeAllChildren();
+	    whiteSpace.addClassName("app-whitespace-highlight");
+	 
         String prefLabel = "";
         String type = "";
         String typeLabel = "";
@@ -92,7 +87,6 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
             
             logger.info("res"+res);
 
-            //if (res.getType() != null)
             	
             if (res != null)	
             {
@@ -108,55 +102,29 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
             else
             	logger.warn("res == null");
      
-            
         	logger.info("uriString:"+uriString);
         	logger.info("prefLabel:"+prefLabel);
         	logger.info("type:"+type);
         	logger.info("typeLabel:"+typeLabel);
 
-    
-            String imageString = "";
+        	String imageString = "";
             
             
             if (prefLabel != "") {
             	
             	logger.info("type2"+type);
             	
-                add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>" + prefLabel
+            	whiteSpace.add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br><font size=5><b>" + prefLabel
                         + "</b></font>&nbsp;<a href=resource?uri=" + type + "><font size=5 color=gray>" + typeLabel
                         + "</font></a></td></tr><tr><td><font size=4 color=DarkBlue><b>" + uriString + " " + jsonLDIconString
                         + "</b></font>&nbsp;<img src=></td></tr></table></div>"));
-
             }            
             else {
-            	
-            	
-            	/*
-              //  if (type.length()>0)
-            	  if (type != null)
-                {
-                	logger.info("type3"+type);
-
-                	add(new Html("<div><font size=5 color=DarkBlue><b>&nbsp;&nbsp;znalosti o:&nbsp;</font>" + uriString + jsonLDIconString + "aaaaa" + "</div>"));
-                	
-                }
-                else
-               
-                    add(new Html("<div><font size=5 color=DarkBlue><b>znalosti o:</b></font><br>" + uriString + "&nbsp;<a href=resource?uri=" + type
-                            + "><font size=5 color=gray>" + typeLabel + "</font></a> " + jsonLDIconString + "</div>"));
-                */   
-                    
-            	add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br</tr><tr><td><font size=4 color=DarkBlue><b>" + uriString + " " + jsonLDIconString
+            	  	           
+            	whiteSpace.add(new Html("<div></br><table><tr><td><font color=DarkBlue size=5><b>znalosti o:</b></font><br</tr><tr><td><font size=4 color=DarkBlue><b>" + uriString + " " + jsonLDIconString
                         + "</b></font>&nbsp;<img src=></td></tr></table></div>"));
-
-            	
             }
-            
-            
-            
-           
-            
-            
+     
 
         } catch (Exception e) {
             add(e.toString());
@@ -164,34 +132,20 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
 
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid.setColumnReorderingAllowed(true);
-
         grid.setHeightByRows(true);
-
-        //     grid.setHeightFull();
-        grid.setSelectionMode(Grid.SelectionMode.NONE);
-        //     grid.setVerticalScrollingEnabled(false);
-        //      grid.setHeightByRows(true);        
+        grid.setSelectionMode(Grid.SelectionMode.NONE);       
         grid.removeAllColumns();
 
         try {
 
-            add(new Html("<br>"));
 
             grid.setItems(resourceService.describeUriBySelect(uriString));
             grid.setHeightByRows(true);
-
-            //  grid.setWidth("80%");
-
-            // grid.getColumns().forEach(col -> col.setAutoWidth(true));           
-
             grid.addColumn(new ComponentRenderer<>(resource -> {
 
                 if (resource.getIsInverse().contains("false")) {
                     return new Html("<div><b><a href=resource?uri=" + resource.getPredicate().replace("#", "%23") + ">" + resource.getPredicateShort()
                             + "</b></a>" + resource.getResourceIcon(resource.getPredicateShort()));
-
-                    //Image logo = new Image("images/logo.png", "SKKnowledgeGraph logo");
-                    //	return new Image("dede.jpg", "resource");
 
                 } else
                     return new Html("<div><b>is <a href=resource?uri=" + resource.getPredicate().replace("#", "%23") + ">" + resource.getPredicateShort()
@@ -257,17 +211,16 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
                     .withProperty("graph", Resource::getGraph).withProperty("graphName", Resource::getGraphName)).setWidth("20%")
                     .setHeader(new Html("<b>Graf</b>"));
 
-            //  add(grid);
-            //  dataLayout.setAlignItems(Alignment.CENTER);
+    
+           // HorizontalLayout dataLayout = new HorizontalLayout();
+           // dataLayout.setWidth("80%");
+           //  dataLayout.add(grid);
+           //  dataLayout.setAlignItems(Alignment.CENTER);
+           // add(dataLayout, grid);
 
-            // add(dataLayout, grid);
-
-            HorizontalLayout dataLayout = new HorizontalLayout();
-            dataLayout.setWidth("80%");
-            dataLayout.add(grid);
-            dataLayout.setAlignItems(Alignment.CENTER);
-            add(dataLayout, grid);
-
+            whiteSpace.add(grid);
+            main.add(whiteSpace);
+            
             //setContent(dataLayout);
 
         } catch (Exception e) {

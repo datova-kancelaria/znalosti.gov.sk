@@ -5,3 +5,8 @@ Centrálny portál strojovo-spracovateľných znalostí pre informačné systém
 Projekt je v súčasnosti v testovacom režime vývíjaný a prevádzkovaný [Dátovou kanceláriou](https://datalab.digital) MIRRI, a pre iný projekt je ho možné použiť pod licenciou EUPL. 
 Autori portálu: [Miroslav Líška](https://www.linkedin.com/in/miroslavliska/), [Marek Šurek](https://www.linkedin.com/in/mareksurek/) 
 
+
+## 3 úrovne znalostného grafu
+
+Vyhľadávanie
+![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-KnowledgeGraph.png)
