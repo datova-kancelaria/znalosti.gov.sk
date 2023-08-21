@@ -45,7 +45,7 @@ public class MetadataView extends Div {
         Div dataResults = new Div();
         dataResults.addClassName("govuk-grid-column-full");
         whiteSpace.add(dataResults);
-
+        
         //add(new Html("<h3>&nbsp;&nbsp;SKKnowledgeGraph Data</h3>"));
 
         H1 h1 = new H1();

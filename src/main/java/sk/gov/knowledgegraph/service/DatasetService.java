@@ -57,7 +57,7 @@ public class DatasetService {
                     + "FILTER langMatches( lang(?datasetTitle), \"sk\")"
                     + "FILTER langMatches( lang(?publisherName), \"sk\" )"
                     + "FILTER langMatches( lang(?themeLabel), \"sk\" )"
-                    + "} order by asc(?catalogTitle)  asc(?datasetTitle)";
+                    + "} order by desc(?publisherName)";
 
          //   String queryString = ""
             
@@ -111,12 +111,13 @@ public class DatasetService {
                     + "?publisher skos:prefLabel ?publisherName . "
                     + "?dataset dcat:theme ?theme ."
                     + "?theme skos:prefLabel ?themeLabel .  "
-                    + "FILTER ( ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY>)  "
+                    + "FILTER ( ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/ONTOLOGY>  "
+                    + "  || ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/DOMAIN_MODEL> )"                    
                     + "FILTER langMatches( lang(?datasetTypeLabel), \"sk\")  "
                     + "FILTER langMatches( lang(?datasetTitle), \"sk\")"
                     + "FILTER langMatches( lang(?publisherName), \"sk\" )"
                     + "FILTER langMatches( lang(?themeLabel), \"sk\" )"
-                    + "} order by asc(?catalogTitle)  asc(?datasetTitle)";
+                    + "} order by desc(?publisherName)";
             
             log.info(queryString);
             
@@ -173,7 +174,6 @@ public class DatasetService {
                     + "?theme skos:prefLabel ?themeLabel .  "
                     + "FILTER ( ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/TAXONOMY>"
                     + "  || ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/CODE_LIST>"
-                    + "  || ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/DOMAIN_MODEL>"
                     + "  || ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/GLOSSARY>"
                     + "  || ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/THESAURUS>"
                     + "  || ?datasetType = <http://publications.europa.eu/resource/authority/dataset-type/SCHEMA>)  "
@@ -181,7 +181,7 @@ public class DatasetService {
                     + "FILTER langMatches( lang(?datasetTitle), \"sk\")"
                     + "FILTER langMatches( lang(?publisherName), \"sk\" )"
                     + "FILTER langMatches( lang(?themeLabel), \"sk\" )"
-                    + "} order by asc(?catalogTitle)  asc(?datasetTitle)";
+                    + "} order by desc(?publisherName)";
             
             log.info(queryString);
             
