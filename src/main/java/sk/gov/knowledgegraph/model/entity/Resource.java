@@ -81,7 +81,7 @@ public class Resource extends AbstractEntity {
         // EÚ Ontologie
 
         else if (uri.contains("http://data.europa.eu/m8g/")) {
-            return uri.replaceAll("http://data.europa.eu/m8g/", "cpov:");
+            return uri.replaceAll("http://data.europa.eu/m8g/", "m8g:");
         } else if (uri.contains("http://www.w3.org/ns/locn#")) {
             return uri.replaceAll("http://www.w3.org/ns/locn#", "locn:");
         } else if (uri.contains("http://purl.org/vocab/cpsv#")) {
@@ -102,9 +102,22 @@ public class Resource extends AbstractEntity {
         else if (uri.contains("https://data.gov.sk/def/ontology/finance/"))
             return uri.replaceAll("https://data.gov.sk/def/ontology/finance/", "fin:");
 
+        else if (uri.contains("https://data.gov.sk/def/ontology/education/"))
+            return uri.replaceAll("https://data.gov.sk/def/ontology/education/", "edu:");
+
+        else if (uri.contains("https://data.gov.sk/def/ontology/healthcare/"))
+            return uri.replaceAll("https://data.gov.sk/def/ontology/healthcare/", "health:");
+        
         else if (uri.contains("https://data.gov.sk/def/ontology/egov/"))
             return uri.replaceAll("https://data.gov.sk/def/ontology/egov/", "egov:");
 
+        else if (uri.contains("http://purl.org/linked-data/cube#"))
+            return uri.replaceAll("http://purl.org/linked-data/cube#", "dq:");
+
+        else if (uri.contains("http://purl.org/ontology/bibo/"))
+            return uri.replaceAll("http://purl.org/ontology/bibo/", "bibo:");
+
+        
         else
             return uri;
     }

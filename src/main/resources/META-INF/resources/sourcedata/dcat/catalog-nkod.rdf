@@ -32,9 +32,6 @@
     <dct:modified rdf:datatype="&xsd;dateTime">2021-MM-DDT00:00:00Z</dct:modified>
     <dct:title xml:lang="sk">Národný katalóg otvorených dát</dct:title>
     <dct:title xml:lang="en">National Catalog Of Open Data</dct:title>
-    <skos:altLabel xml:lang="sk">Portál otvorených údajov 2.0</skos:altLabel>    
-    <skos:altLabel xml:lang="en">Open Data Portal 2.0</skos:altLabel>
-    <rdfs:comment xml:lang="sk">Národný katalóg otvorených dát (NKOD) predstavuje upgrade súčasných metadát o otvorených údajov z data.gov.sk do novej štruktúry (aj databázy) podľa štandardu DCAT. DCAT reprezentácia metadát prepojených údajov je vhodná pre ich dopytovanie prostredníctvom SPARQL dopytovacieho endpointu, ktorý nie je pre súčasný portál dostupný (možný).</rdfs:comment>    
     <dct:publisher rdf:resource="https://data.gov.sk/id/legal-subject/50349287"/>
     <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-organizacna-struktura"/>
     <dcat:dataset rdf:resource="https://data.gov.sk/dataset/mirri-kontaktne-miesta-2021-04-20"/>

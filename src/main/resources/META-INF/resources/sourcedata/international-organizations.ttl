@@ -25,3 +25,17 @@
                     foaf:homePage <https://op.europa.eu>  ;
                     foaf:logo <https://op.europa.eu/documents/10530/14988/eulawandpublications.png> ;
                     rdfs:isDefinedBy <https://data.gov.sk/set/international-organizations/2021-MM-DD> .
+
+<https://joinup.ec.europa.eu/interoperable-europe> a org:Organization ;
+                    skos:prefLabel "Interoperabilná Európa (iniciatíva EK)"@sk ,
+                                   "Interoperable Europe (EU initiative)"@en ;
+                    foaf:homePage <https://joinup.ec.europa.eu/interoperable-europe>  ;
+                    foaf:logo <https://joinup.ec.europa.eu/sites/default/files/2022-11/IOP-EU-gradient.dark-logo-on-NO-background-no-tagline_b.jpg> ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/international-organizations/2021-MM-DD> .
+
+<https://www.dublincore.org> a org:Organization ;
+                    skos:prefLabel "DCMI Iniciatíva"@sk ,
+                                   "DCMI Initiative"@en ;
+                    foaf:homePage <https://www.dublincore.org/about>  ;
+                    foaf:logo <https://www.dublincore.org/images/dcmi_logo_v802.svg> ;
+                    rdfs:isDefinedBy <https://data.gov.sk/set/international-organizations/2021-MM-DD> .

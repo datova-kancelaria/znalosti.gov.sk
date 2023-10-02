@@ -1,0 +1,522 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix pper: <https://data.gov.sk/def/ontology/physical-person/> .
+@prefix sha-rfo: <https://data.gov.sk/def/shapes/rfo/> .
+@prefix loca: <https://data.gov.sk/def/ontology/location/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+
+sha-rfo:PersonShape
+    a sh:NodeShape ;
+    egov:xmlElementName "PhysicalPerson" ;
+    sh:order 1 ;
+    sh:targetClass pper:PhysicalPerson ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/8848> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:PersonShape-givenName ,
+                sha-rfo:PersonShape-prefferedGivenName ,
+                sha-rfo:PersonShape-familyName ,
+                sha-rfo:PersonShape-givenFamilyName ,
+                sha-rfo:PersonShape-alternativeName ,
+                sha-rfo:PersonShape-formattedName ,
+                sha-rfo:PersonShape-legalName ,
+                sha-rfo:PersonShape-otherName ,
+                sha-rfo:PersonShape-birth,
+                sha-rfo:PersonShape-birthNumber ,
+                sha-rfo:PersonShape-sex ,
+                sha-rfo:PersonShape-maritalStatus ,
+                sha-rfo:PersonShape-existentialStatus ,
+                sha-rfo:PersonShape-civilDisability ,
+                sha-rfo:PersonShape-occupationBan ,
+                sha-rfo:PersonShape-namePrefix ,
+                sha-rfo:PersonShape-nameSuffix .
+
+sha-rfo:PersonShape-givenName
+    a sh:PropertyShape ;
+    egov:xmlElementName "GivenName" ;
+    sh:order 2 ;
+    sh:path pper:givenName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 255 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-prefferedGivenName
+    a sh:PropertyShape ;
+    egov:xmlElementName "PrefferedGivenName" ;
+    sh:order 3 ;
+    sh:path pper:prefferedGivenName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 255 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-familyName
+    a sh:PropertyShape ;
+    egov:xmlElementName "FamilyName" ;
+    sh:order 4 ;
+    sh:path pper:familyName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 255 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-givenFamilyName
+    a sh:PropertyShape ;
+    egov:xmlElementName "GivenFamilyName" ;
+    sh:order 5 ;
+    sh:path pper:givenFamilyName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 255 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-alternativeName
+    a sh:PropertyShape ;
+    egov:xmlElementName "AlternativeName" ;
+    sh:order 6 ;
+    sh:path pper:alternativeName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 255 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-formattedName
+    a sh:PropertyShape ;
+    egov:xmlElementName "FormattedName" ;
+    sh:order 7 ;
+    sh:path pper:formattedName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 1023 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-legalName
+    a sh:PropertyShape ;
+    egov:xmlElementName "LegalName" ;
+    sh:order 8 ;
+    sh:path pper:legalName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 1023 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-otherName
+    a sh:PropertyShape ;
+    egov:xmlElementName "OtherName" ;
+    sh:order 9 ;
+    sh:path pper:otherName ;
+    sh:datatype xsd:string ;
+    sh:minLenght 1 ;
+    sh:maxLenght 1023 ;
+    sh:minCount 1 .
+
+sha-rfo:PersonShape-birth
+    a sh:PropertyShape ;
+    sh:order 10 ;
+    sh:path pper:birth ;
+    sh:class pper:Birth ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:BirthShape
+    a sh:NodeShape ;
+    egov:xmlElementName "Birth" ;
+    sh:order 11 ;
+    sh:targetClass pper:Birth ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:BirthShape-dateOfBirth .
+
+sha-rfo:BirthShape-dateOfBirth
+    a sh:PropertyShape ;
+    egov:xmlElementName "DateOfBirth" ;
+    sh:order 12 ;
+    sh:path pper:dateOfBirth ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+# birthNumber
+
+sha-rfo:PersonShape-birthNumber
+    a sh:PropertyShape ;
+    sh:order 13 ;
+    sh:path pper:birthNumber ;
+    sh:class pper:BirthNumber ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:BirthNumberShape
+    a sh:NodeShape ;
+    sh:order 14 ;
+    sh:targetClass pper:BirthNumber ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:BirthNumberShape-notation .
+
+sha-rfo:BirthNumberShape-notation
+    a sh:PropertyShape ;
+    sh:order 15 ;
+    egov:xmlElementName "BirthNumber" ;
+    sh:path skos:notation ;
+    sh:datatype xsd:string ;
+    sh:pattern "[0-9]{6}\/[0-9]{4}" ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+# sex
+
+sha-rfo:PersonShape-sex
+    a sh:PropertyShape ;
+    sh:order 16 ;
+    sh:path pper:sex ;
+    sh:class pper:Sex ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:SexShape
+    a sh:NodeShape ;
+    sh:order 17 ;
+    egov:xmlElementName "Sex" ;
+    sh:targetClass pper:Sex ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    dct:source <https://data.gov.sk/def/codelist/CL003003> ;
+    rdfs:isDefinedBy sha-rfo:2023b .
+
+# maritalStatus
+
+sha-rfo:PersonShape-maritalStatus
+    a sh:PropertyShape ;
+    sh:order 18 ;
+    sh:path pper:maritalStatus ;
+    sh:class pper:MaritalStatus ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 .
+
+sha-rfo:MaritalStatus
+    a sh:NodeShape ;
+    sh:order 19 ;
+    sh:targetClass pper:MaritalStatus ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:MaritalStatus-startDate ,
+                sha-rfo:MaritalStatus-endDate ,
+                sha-rfo:MaritalStatus-type .
+
+sha-rfo:MaritalStatus-startDate
+    a sh:PropertyShape ;
+    sh:order 20 ;
+    sh:path schema:startDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:MaritalStatus-endDate
+    a sh:PropertyShape ;
+    sh:order 21 ;
+    sh:path schema:endDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sha-rfo:MaritalStatus-type
+    a sh:PropertyShape ;
+    sh:order 22 ;
+    sh:path dct:type ;
+    sh:class pper:MaritalStatusType ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:MaritalStatusTypeShape
+    a sh:NodeShape ;
+    sh:order 23 ;
+    egov:xmlElementName "MaritalStatus" ;
+    sh:targetClass pper:MaritalStatusType ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    dct:source <https://data.gov.sk/def/codelist/CL004002> ;
+    rdfs:isDefinedBy sha-rfo:2023b .
+
+# existentialStatus
+
+sha-rfo:PersonShape-existentialStatus
+    a sh:PropertyShape ;
+    sh:order 24 ;
+    sh:path pper:existentialStatus ;
+    sh:class pper:ExistentialStatus ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 .
+
+sha-rfo:ExistentialStatus
+    a sh:NodeShape ;
+    sh:order 25 ;
+    sh:targetClass pper:ExistentialStatus ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:ExistentialStatus-startDate ,
+                sha-rfo:ExistentialStatus-endDate ,
+                sha-rfo:ExistentialStatus-type .
+
+sha-rfo:ExistentialStatus-startDate
+    a sh:PropertyShape ;
+    sh:order 26 ;
+    sh:path schema:startDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:ExistentialStatus-endDate
+    a sh:PropertyShape ;
+    sh:order 27 ;
+    sh:path schema:endDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sha-rfo:ExistentialStatus-type
+    a sh:PropertyShape ;
+    sh:order 28 ;
+    sh:path dct:type ;
+    sh:class pper:ExistentialStatusType ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:ExistentialStatusTypeShape
+    a sh:NodeShape ;
+    sh:order 29 ;
+    egov:xmlElementName "PersonStatus" ;
+    sh:targetClass pper:ExistentialStatusType ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    dct:source <https://data.gov.sk/def/codelist/CL004003> ;
+    rdfs:isDefinedBy sha-rfo:2023b .
+
+# civilDisability
+
+sha-rfo:PersonShape-civilDisability
+    a sh:PropertyShape ;
+    sh:order 30 ;
+    sh:path pper:civilDisability ;
+    sh:class pper:CivilDisability ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 .
+
+sha-rfo:CivilDisability
+    a sh:NodeShape ;
+    sh:order 31 ;
+    egov:xmlElementName "CivilDisability" ;
+    sh:targetClass pper:CivilDisability ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:CivilDisability-startDate ,
+                sha-rfo:CivilDisability-endDate ,
+                sha-rfo:CivilDisability-type .
+
+sha-rfo:CivilDisability-startDate
+    a sh:PropertyShape ;
+    sh:order 32 ;
+    egov:xmlElementName "BeginningOfCivilDisability" ;
+    sh:path schema:startDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:CivilDisability-endDate
+    a sh:PropertyShape ;
+    egov:xmlElementName "TerminationOfCivilDisability" ;
+    sh:order 33 ;
+    sh:path schema:endDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sha-rfo:CivilDisability-type
+    a sh:PropertyShape ;
+    sh:order 34 ;
+    sh:path dct:type ;
+    sh:class pper:CivilDisabilityType ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:CivilDisabilityTypeShape
+    a sh:NodeShape ;
+    sh:order 35 ;
+    egov:xmlElementName "TypeOfCivilDisability" ;
+    sh:targetClass pper:CivilDisabilityType ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    dct:source <https://data.gov.sk/def/codelist/CL010136> ;
+    rdfs:isDefinedBy sha-rfo:2023b .
+
+# occupationBan
+
+sha-rfo:PersonShape-occupationBan
+    a sh:PropertyShape ;
+    sh:order 36 ;
+    sh:path pper:occupationBan ;
+    sh:class pper:OccupationBan ;
+    sh:nodeKind sh:IRI .
+
+sha-rfo:OccupationBan
+    a sh:NodeShape ;
+    sh:order 37 ;
+    egov:xmlElementName "OccupationBan" ;
+    sh:targetClass pper:OccupationBan ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:OccupationBan-startDate ,
+                sha-rfo:OccupationBan-endDate ,
+                sha-rfo:Occupation-type .
+
+sha-rfo:OccupationBan-startDate
+    a sh:PropertyShape ;
+    sh:order 38 ;
+    egov:xmlElementName "BeginningOfOccupationBan" ;
+    sh:path schema:startDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:OccupationBan-endDate
+    a sh:PropertyShape ;
+    sh:order 38 ;
+    egov:xmlElementName "TerminationOfOccupationBan" ;
+    sh:path schema:endDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sha-rfo:Occupation-type
+    a sh:PropertyShape ;
+    sh:order 39 ;
+    sh:path dct:type ;
+    sh:class pper:OccupationType ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:OccupationTypeShape
+    a sh:NodeShape ;
+    sh:order 40 ;
+    egov:xmlElementName "TypeOfOccupation" ;
+    sh:targetClass pper:OccupationType ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    dct:source <https://data.gov.sk/def/codelist/CL010134> ;
+    rdfs:isDefinedBy sha-rfo:2023b .
+
+# namePrefix
+
+sha-rfo:PersonShape-namePrefix
+    a sh:PropertyShape ;
+    sh:order 41 ;
+    sh:path pper:namePrefix ;
+    sh:class pper:NamePrefix ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 .
+
+sha-rfo:NamePrefix
+    a sh:NodeShape ;
+    sh:order 42 ;
+    egov:xmlElementName "NamePrefix" ;
+    sh:targetClass pper:NamePrefix ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:NamePrefix-startDate ,
+                sha-rfo:NamePrefix-endDate ,
+                sha-rfo:NamePrefix-type .
+
+sha-rfo:NamePrefix-startDate
+    a sh:PropertyShape ;
+    egov:xmlElementName "BeginningOfNamePrefix" ;
+    sh:order 43 ;
+    sh:path schema:startDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:NamePrefix-endDate
+    a sh:PropertyShape ;
+    egov:xmlElementName "TerminationOfNamePrefix" ;
+    sh:order 44 ;
+    sh:path schema:endDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sha-rfo:NamePrefix-type
+    a sh:PropertyShape ;
+    sh:order 45 ;
+    sh:path dct:type ;
+    sh:class pper:NamePrefixType ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+ sha-rfo:NamePrefixTypeShape
+    a sh:NodeShape ;
+    sh:order 46 ;
+    egov:xmlElementName "TypeOfNamePrefix" ;
+    sh:targetClass pper:NamePrefixType ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    dct:source <https://data.gov.sk/def/codelist/CL000062> ;
+    rdfs:isDefinedBy sha-rfo:2023b .
+
+
+# nameSuffix
+
+sha-rfo:PersonShape-nameSuffix
+    a sh:PropertyShape ;
+    sh:order 47 ;
+    sh:path pper:nameSuffix ;
+    sh:class pper:NameSuffix ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 .
+
+sha-rfo:NameSuffix
+    a sh:NodeShape ;
+    sh:order 48 ;
+    egov:xmlElementName "NameSuffix" ;
+    sh:targetClass pper:NameSuffix ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    rdfs:isDefinedBy sha-rfo:2023b ;
+    sh:property sha-rfo:NameSuffix-startDate ,
+                sha-rfo:NameSuffix-endDate ,
+                sha-rfo:NameSuffix-type .
+
+sha-rfo:NameSuffix-startDate
+    a sh:PropertyShape ;
+    sh:order 49 ;
+    egov:xmlElementName "BeginningOfNameSuffix" ;
+    sh:path schema:startDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:NameSuffix-endDate
+    a sh:PropertyShape ;
+    sh:order 50 ;
+    egov:xmlElementName "BeginningOfNameSuffix" ;
+    sh:path schema:endDate ;
+    sh:datatype xsd:date ;
+    sh:maxCount 1 .
+
+sha-rfo:NameSuffix-type
+    a sh:PropertyShape ;
+    sh:order 51 ;
+    sh:path dct:type ;
+    sh:class pper:NameSuffixType ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 .
+
+sha-rfo:NameSuffixTypeShape
+    a sh:NodeShape ;
+    sh:order 46 ;
+    egov:xmlElementName "TypeOfNameSuffix" ;
+    sh:targetClass pper:NameSuffixType ;
+    dct:subject <https://data.gov.sk/id/egov/isvs/191> ;
+    dct:source <https://data.gov.sk/def/codelist/CL000063> ;
+    rdfs:isDefinedBy sha-rfo:2023b .
+

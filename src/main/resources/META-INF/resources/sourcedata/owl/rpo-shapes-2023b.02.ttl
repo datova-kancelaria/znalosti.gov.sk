@@ -1,0 +1,58 @@
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix pper: <https://data.gov.sk/def/ontology/physical-person/> .
+@prefix loca: <https://data.gov.sk/def/ontology/location/> .
+@prefix lsub: <https://data.gov.sk/def/ontology/legal-subject/> .
+@prefix sha-rpo: <https://data.gov.sk/def/shapes/rpo/> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+lsub:RPOLegalSubjectShape
+	a sh:NodeShape ;
+	sh:targetClass lsub:LegalSubject ;
+        rdfs:isDefinedBy sha-rpo:2023b ;
+        dct:subject <https://data.gov.sk/id/egov/isvs/420> ;
+        sh:property sha-rpo:RPOLegalSubjectShape-prefLabel ,
+                    sha-rpo:RPOLegalSubjectShape-headquarters ,
+                    sha-rpo:RPOLegalSubjectShape-legalId .
+
+sha-rpo:RPOLegalSubjectShape-prefLabel
+        a sh:PropertyShape ;
+	sh:path skos:prefLabel ;
+	sh:datatype xsd:string ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+	
+sha-rpo:RPOLegalSubjectShape-headquarters
+        a sh:PropertyShape ;
+	sh:path lsub:headquarters ;
+	sh:class loca:PhysicalAddress ;
+	sh:nodeKind sh:IRI ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .
+	
+sha-rpo:RPOLegalSubjectShape-legalId
+        a sh:PropertyShape ;
+	sh:path lsub:legalId ;
+	sh:nodeKind sh:IRI ;
+	sh:class lsub:LegalId ;
+	sh:minCount 1 ;
+        sh:maxCount 1 .
+	
+sha-rpo:LegalIdShape
+	a sh:NodeShape ;
+	sh:targetClass lsub:LegalId ;
+        dct:subject <https://data.gov.sk/id/egov/isvs/420> ;
+        sh:property sha-rpo:LegalIdShape-notation .
+
+sha-rpo:LegalIdShape-notation
+        a sh:PropertyShape ;
+	sh:path skos:notation ;
+	sh:datatype xsd:string ;
+	sh:pattern "[0-9]{8}" ;
+	sh:minCount 1 ;
+	sh:maxCount 1 .

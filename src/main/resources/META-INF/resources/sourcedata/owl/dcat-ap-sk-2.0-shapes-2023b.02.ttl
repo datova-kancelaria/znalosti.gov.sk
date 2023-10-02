@@ -1,0 +1,143 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix pper: <https://data.gov.sk/def/ontology/physical-person/> .
+@prefix lsub: <https://data.gov.sk/def/ontology/legal-subject/> .
+@prefix loca: <https://data.gov.sk/def/ontology/location/> .
+@prefix leg: <https://data.gov.sk/def/ontology/legislation/> .
+@prefix sha-dcatapsk: <https://data.gov.sk/def/shapes/dcat-ap-sk2/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+sha-dcatapsk:NKODCatalogShape
+	a sh:NodeShape ;
+        dct:subject <https://data.gov.sk/id/egov/isvs/9184> ;
+	sh:targetClass dcat:Catalog ;
+        rdfs:isDefinedBy sha-dcatapsk:2023b ;
+        sh:property sha-dcatapsk:catalog_title ;
+        sh:property sha-dcatapsk:catalog_description ;
+        sh:property sha-dcatapsk:catalog_publisher ;
+        sh:property sha-dcatapsk:catalog_dataset .
+        
+sha-dcatapsk:NKODDatasetShape
+	a sh:NodeShape ;
+        dct:subject <https://data.gov.sk/id/egov/isvs/9184> ;
+	sh:targetClass dcat:Dataset ;
+        rdfs:isDefinedBy sha-dcatapsk:2023b ;
+        sh:property sha-dcatapsk:dataset_title ;
+        sh:property sha-dcatapsk:dataset_description ;
+        sh:property sha-dcatapsk:dataset_publisher ;        
+        sh:property sha-dcatapsk:dataset_theme ;
+        sh:property sha-dcatapsk:dataset_frequency ;
+        sh:property sha-dcatapsk:dataset_keyword .
+        
+sha-dcatapsk:NKODDistributionShape
+	a sh:NodeShape ;
+        dct:subject <https://data.gov.sk/id/egov/isvs/9184> ;
+	sh:targetClass dcat:Distribution ;
+        rdfs:isDefinedBy sha-dcatapsk:2023b ;
+        sh:property sha-dcatapsk:distribution_termsOfUse ;
+        sh:property sha-dcatapsk:distribution_downloadURL ;
+        sh:property sha-dcatapsk:distribution_accessURL ;        
+        sh:property sha-dcatapsk:distribution_format ;
+        sh:property sha-dcatapsk:distribution_mediaType .
+        
+sha-dcatapsk:catalog_title
+        a sh:PropertyShape ;
+	sh:path dct:title ;
+	sh:languageIn("sk" "en") ;
+	sh:minCount 1 .
+	
+sha-dcatapsk:catalog_description
+        a sh:PropertyShape ;
+	sh:path dct:description ;
+	sh:languageIn("sk" "en") ;
+	sh:minCount 1 .
+	
+sha-dcatapsk:catalog_publisher
+        a sh:PropertyShape ;
+    	sh:path dct:publisher ;
+	sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .
+	
+sha-dcatapsk:catalog_dataset
+        a sh:PropertyShape ;
+    	sh:path dcat:dataset ;
+	sh:class dcat:Dataset ;
+	sh:nodeKind sh:IRI ;
+        sh:minCount 1 .
+
+sha-dcatapsk:dataset_title
+        a sh:PropertyShape ;
+	sh:path dct:title ;
+	sh:languageIn("sk" "en") ;
+	sh:minCount 1 .
+	
+sha-dcatapsk:dataset_description
+        a sh:PropertyShape ;
+	sh:path dct:description ;
+	sh:languageIn("sk" "en") ;
+	sh:minCount 1 .
+	
+sha-dcatapsk:dataset_publisher
+        a sh:PropertyShape ;
+    	sh:path dct:publisher ;
+	sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .
+	
+sha-dcatapsk:dataset_theme
+        a sh:PropertyShape ;
+    	sh:path dcat:theme ;
+	sh:nodeKind sh:IRI ;
+        sh:minCount 1 .
+	
+sha-dcatapsk:dataset_frequency
+        a sh:PropertyShape ;
+    	sh:path dct:accrualPeriodicity ;
+	sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .
+		
+sha-dcatapsk:dataset_keyword
+        a sh:PropertyShape ;
+	sh:path dct:description ;
+	sh:languageIn("sk" "en") ;
+	sh:minCount 1 .	
+	
+sha-dcatapsk:distribution_termsOfUse
+        a sh:PropertyShape ;
+    	sh:path leg:termsOfUse ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .	
+
+sha-dcatapsk:distribution_downloadURL
+        a sh:PropertyShape ;
+    	sh:path dcat:downloadURL ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .	
+	
+sha-dcatapsk:distribution_accessURL
+        a sh:PropertyShape ;
+    	sh:path dcat:downloadURL ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .	
+
+sha-dcatapsk:distribution_format
+        a sh:PropertyShape ;
+    	sh:path dct:format ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .		
+        
+sha-dcatapsk:distribution_mediaType
+        a sh:PropertyShape ;
+    	sh:path dcat:mediaType ;
+        sh:minCount 1 ;
+        sh:maxCount 1 .
