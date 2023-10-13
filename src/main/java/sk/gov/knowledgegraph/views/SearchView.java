@@ -180,7 +180,7 @@ public class SearchView extends Div {
 
                 grid5.removeAllColumns();
                 grid5.setItems(searchService.search(input.getValue()));
-                grid5.setHeightByRows(true);
+                grid5.setAllRowsVisible(true);
                 grid5.addColumn(new ComponentRenderer<>(result -> {
 
                     return new Html("<div><font size=3><b><a href=resource?uri=" + result.getSubject().replace("#", "%23") + ">" + result.getObject()

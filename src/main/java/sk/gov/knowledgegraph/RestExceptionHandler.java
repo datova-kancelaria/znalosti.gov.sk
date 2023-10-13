@@ -3,10 +3,9 @@ package sk.gov.knowledgegraph;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.Nullable;
 import org.springframework.validation.FieldError;
@@ -19,10 +18,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
-import sk.gov.knowledgegraph.model.expcetion.KnowledgeGraphException;
+import sk.gov.knowledgegraph.model.exception.KnowledgeGraphException;
 
 @ControllerAdvice
 @Slf4j
@@ -43,10 +43,10 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return handleExceptionInternal(e, body, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
-
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(final MethodArgumentNotValidException e, final HttpHeaders headers, final HttpStatus status,
-            final WebRequest request) {
+    @Nullable
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+                    MethodArgumentNotValidException e, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         final Map<String, String> detail = new HashMap<>();
         e.getBindingResult().getAllErrors().forEach((error) -> {
             if (error instanceof FieldError) {
@@ -63,8 +63,9 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @Override
-    protected ResponseEntity<Object> handleExceptionInternal(final Exception ex, @Nullable final Object body, final HttpHeaders headers,
-            final HttpStatus status, final WebRequest request) {
+    @Nullable
+    protected ResponseEntity<Object> handleExceptionInternal(
+                    Exception ex, @Nullable Object body, HttpHeaders headers, HttpStatusCode statusCode, WebRequest request) {
         if (body != null && body instanceof Error && ((Error) body).getCode() != null) {
             Error err = (Error) body;
             switch (err.getCode()) {
@@ -78,7 +79,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         } else {
             log.error("going to handle exception: {}", ex.getMessage(), ex);
         }
-        return super.handleExceptionInternal(ex, body, headers, status, request);
+        return super.handleExceptionInternal(ex, body, headers, statusCode, request);
     }
 
 

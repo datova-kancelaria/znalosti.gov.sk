@@ -1,4 +1,4 @@
-package sk.gov.knowledgegraph.model.expcetion;
+package sk.gov.knowledgegraph.model.exception;
 
 import lombok.Getter;
 

@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import javax.servlet.http.HttpServletResponse;
-import javax.validation.constraints.NotBlank;
-
 import org.eclipse.rdf4j.query.BooleanQuery;
 import org.eclipse.rdf4j.query.GraphQuery;
 import org.eclipse.rdf4j.query.Query;
@@ -37,10 +34,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.constraints.NotBlank;
 import lombok.extern.slf4j.Slf4j;
 import sk.gov.knowledgegraph.model.entity.Result;
-import sk.gov.knowledgegraph.model.expcetion.ErrorCode;
-import sk.gov.knowledgegraph.model.expcetion.KnowledgeGraphException;
+import sk.gov.knowledgegraph.model.exception.ErrorCode;
+import sk.gov.knowledgegraph.model.exception.KnowledgeGraphException;
 import sk.gov.knowledgegraph.service.SearchService;
 import sk.gov.knowledgegraph.service.SparqlQueryService;
 

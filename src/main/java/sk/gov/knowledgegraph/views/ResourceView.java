@@ -4,9 +4,11 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.grid.Grid;
@@ -14,18 +16,15 @@ import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
-import com.vaadin.flow.data.renderer.TemplateRenderer;
+import com.vaadin.flow.data.renderer.LitRenderer;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.OptionalParameter;
-import com.vaadin.flow.router.QueryParameters;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.QueryParameters;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.VaadinService;
-import lombok.extern.slf4j.Slf4j;
+
 import sk.gov.knowledgegraph.model.entity.Resource;
 import sk.gov.knowledgegraph.service.ResourceService;
 
@@ -132,7 +131,7 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
 
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid.setColumnReorderingAllowed(true);
-        grid.setHeightByRows(true);
+        grid.setAllRowsVisible(true);
         grid.setSelectionMode(Grid.SelectionMode.NONE);       
         grid.removeAllColumns();
 
@@ -140,7 +139,7 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
 
 
             grid.setItems(resourceService.describeUriBySelect(uriString));
-            grid.setHeightByRows(true);
+            grid.setAllRowsVisible(true);
             grid.addColumn(new ComponentRenderer<>(resource -> {
 
                 if (resource.getIsInverse().contains("false")) {
@@ -207,7 +206,7 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
                     return new Html("");
             })).setWidth("45%").setHeader(new Html("<b>Hodnota</b>"));
 
-            grid.addColumn(TemplateRenderer.<Resource> of("<a href=resource?uri=[[item.graph]]>[[item.graphName]]</a>")
+            grid.addColumn(LitRenderer.<Resource> of("<a href=resource?uri=${item.graph}>${item.graphName}</a>")
                     .withProperty("graph", Resource::getGraph).withProperty("graphName", Resource::getGraphName)).setWidth("20%")
                     .setHeader(new Html("<b>Graf</b>"));
 

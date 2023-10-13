@@ -11,11 +11,10 @@ import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Main;
-import com.vaadin.flow.data.renderer.TemplateRenderer;
+import com.vaadin.flow.data.renderer.LitRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import sk.gov.knowledgegraph.controller.ResourceController;
 import sk.gov.knowledgegraph.model.entity.Dataset;
 import sk.gov.knowledgegraph.service.DatasetService;
 
@@ -61,27 +60,27 @@ public class CategoriesView extends Div {
         grid2.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid2.setHeightFull();
         grid2.setSelectionMode(Grid.SelectionMode.NONE);
-        grid2.setVerticalScrollingEnabled(false);
+       // grid2.setVerticalScrollingEnabled(false);
         grid2.removeAllColumns();
 
         try {
 
             grid2.setItems(datasetService.listCategories());
-            grid2.setHeightByRows(true);
+            grid2.setAllRowsVisible(true);
 
-            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.dataset]]>[[item.datasetTitle]]</a>")
+            grid2.addColumn(LitRenderer.<Dataset> of("<a href=resource?uri=${item.dataset}>${item.datasetTitle}</a>")
                     .withProperty("datasetTitle", Dataset::getDatasetTitle).withProperty("dataset", Dataset::getDataset)).setWidth("35%")
                     .setHeader(new Html("<b>Dataset</b>"));
             
-            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.datasetType]]>[[item.datasetTypeLabel]]</a>")
+            grid2.addColumn(LitRenderer.<Dataset> of("<a href=resource?uri=${item.datasetType}>${item.datasetTypeLabel}</a>")
                     .withProperty("datasetTypeLabel", Dataset::getDatasetTypeLabel).withProperty("datasetType", Dataset::getDatasetType)).setWidth("15%")
                     .setHeader(new Html("<b>Typ</b>"));
             
-            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.wasDerivedFrom]]>[[item.wasDerivedFromTitle]]</a>")
+            grid2.addColumn(LitRenderer.<Dataset> of("<a href=resource?uri=${item.wasDerivedFrom}>${item.wasDerivedFromTitle}</a>")
                     .withProperty("wasDerivedFromTitle", Dataset::getWasDerivedFromTitle).withProperty("wasDerivedFrom", Dataset::getWasDerivedFrom)).setWidth("25%")
                     .setHeader(new Html("<b>Zdrojový ISVS</b>"));
             
-            grid2.addColumn(TemplateRenderer.<Dataset> of("<a href=resource?uri=[[item.publisher]]>[[item.publisherName]]</a>")
+            grid2.addColumn(LitRenderer.<Dataset> of("<a href=resource?uri=${item.publisher}>${item.publisherName}</a>")
                     .withProperty("publisherName", Dataset::getPublisherName).withProperty("publisher", Dataset::getPublisher)).setWidth("25%")
                     .setHeader(new Html("<b>Vydavateľ</b>"));
 

@@ -1,4 +1,4 @@
-package sk.gov.knowledgegraph.model.expcetion;
+package sk.gov.knowledgegraph.model.exception;
 
 public class SystemException extends RuntimeException {
     private static final long serialVersionUID = 6930501473624734213L;

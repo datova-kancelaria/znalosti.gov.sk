@@ -1,5 +1,5 @@
 server:
-  port: 4040
+  port: 8080
   url: http://localhost:8080
 # Ensure application is run in Vaadin 14/npm mode
 vaadin:
@@ -9,14 +9,19 @@ logging:
     org.atmosphere: WARN
 database:
   url: http://localhost:9090/rdf4j-server
-  repository: znalosti.gov.sk2
+  repository: znalosti.gov.sk
+users:
+  integration:
+    metais:
+      username: admin
+      password: admin
 
 ---
 # This configuration is for cases when you proxy DB server from znalosti.gov.sk
 spring:
   config:
     activate:
-      on-profile: docker-test
+      on-profile: test-with-proxy
 server:
   port: 7070  
   url: http://localhost:7070
@@ -24,7 +29,16 @@ local:
   server:
     port:7070
 database:
-  url: http://localhost:8080/rdf4j-server 
+  url: http://localhost:8080/rdf4j-server
+
+---
+# This configuration is for cases when you proxy DB server from znalosti.gov.sk
+spring:
+  config:
+    activate:
+      on-profile: test
+database:
+  repository: znalosti.gov.sk-test
 ---
 spring:
   config:
@@ -33,4 +47,5 @@ spring:
 
 database:
   url: http://rdf-server:8080/rdf4j-server
+  repository: znalosti.gov.sk
       
