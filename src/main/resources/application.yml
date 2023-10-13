@@ -4,6 +4,8 @@ server:
 # Ensure application is run in Vaadin 14/npm mode
 vaadin:
   compatibilityMode: false
+  excludeUrls: /integration/api/docs/swagger-ui/**
+ 
 logging:
   level:
     org.atmosphere: WARN
@@ -16,6 +18,15 @@ users:
       username: admin
       password: admin
 
+# swagger-ui custom path
+springdoc:
+  pathsToMatch: /integration/api/*
+  swagger-ui:
+    enabled: true
+    path: /integration/api/docs/swagger-ui/index.html
+  api-docs:
+    enabled: true
+    path: /integration/api/docs/api-docs
 ---
 # This configuration is for cases when you proxy DB server from znalosti.gov.sk
 spring:

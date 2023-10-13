@@ -10,3 +10,13 @@ Autori portálu: [Miroslav Líška](https://www.linkedin.com/in/miroslavliska/),
 
 Vyhľadávanie
 ![alt text](src/main/resources/META-INF/resources/screenshots/znalosti.gov.sk-KnowledgeGraph.png)
+
+## Open API 3.0 neverejná dokumentácia
+
+Dokumentácia je chránená prístupovými údajmi
+![alt text](https://znalosti.gov.sk/integration/api/docs/api-docs)
+
+## Open API 3.0 Swagger UI neverejná dokumentácia
+
+Dokumentácia je chránená prístupovými údajmi
+![alt text](https://znalosti.gov.sk/integration/api/docs/swagger-ui/swagger-ui/index.html)
