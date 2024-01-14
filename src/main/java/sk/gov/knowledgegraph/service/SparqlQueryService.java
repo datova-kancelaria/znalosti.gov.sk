@@ -22,6 +22,7 @@ import org.eclipse.rdf4j.query.impl.SimpleDataset;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
@@ -34,6 +35,7 @@ public class SparqlQueryService {
      * The repository that is being served.
      */
     @Autowired
+    @Qualifier("znalostiRepository")
     private Repository repository;
 
     public String getTupleQueryResultHtml(String query) {

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" > 
+    <!ENTITY srra "https://data.gov.sk/def/ontology/semantic-resource-registration-application/" >
+]>
+
+<rdf:RDF
+    xmlns="https://data.gov.sk/def/ontology/semantic-resource-registration-application/"
+    xml:base="https://data.gov.sk/def/ontology/semantic-resource-registration-application/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:dct="http://purl.org/dc/terms/"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:srra="https://data.gov.sk/def/ontology/semantic-resource-registration-application/">
+
+	<srra:Organization rdf:about="https://metais.vicepremier.gov.sk/id/organization/mirri">
+ 		<srra:organizationId rdf:datatype="&xsd;string">MIRRI</srra:organizationId>
+	</srra:Organization>
+	
+	<srra:User rdf:about="https://metais.vicepremier.gov.sk/id/user/marek.surek">
+ 		<srra:username rdf:datatype="&xsd;string">marek.surek</srra:username>
+ 		<srra:institutionId rdf:datatype="&xsd;string">SOIT</srra:institutionId>
+	</srra:User>
+	<srra:User rdf:about="https://metais.vicepremier.gov.sk/id/user/miroslav.liska">
+ 		<srra:username rdf:datatype="&xsd;string">miroslav.liska</srra:username>
+		<srra:institutionId rdf:datatype="&xsd;string">MIRRI</srra:institutionId>
+ 	</srra:User>
+	<srra:User rdf:about="https://metais.vicepremier.gov.sk/id/user/viktoria.sunderlikova">
+ 		<srra:username rdf:datatype="&xsd;string">viktoria.sunderlikova</srra:username>
+ 		<srra:institutionId rdf:datatype="&xsd;string">MIRRI</srra:institutionId>
+ 	</srra:User>
+
+
+	<srra:URITemplateRegistrationApplication rdf:about="https://znalosti.gov.sk/id/application/00000000-0000-0000-0000-000000000004">
+		<srra:createdBy rdf:resource="https://metais.vicepremier.gov.sk/id/user/marek.surek"/>
+		<srra:createdAt rdf:datatype="&xsd;date">2023-11-01</srra:createdAt>
+	 	<srra:lastModifiedBy rdf:resource="https://metais.vicepremier.gov.sk/id/user/marek.surek"/>
+		<srra:lastModiefiedAt rdf:datatype="&xsd;date">2023-11-03</srra:lastModiefiedAt>
+		<srra:appliedBy rdf:resource="https://metais.vicepremier.gov.sk/id/user/marek.surek"/>
+		<srra:appliedAt rdf:datatype="&xsd;date">2023-11-02</srra:appliedAt>
+		<srra:approvedBy rdf:resource="https://metais.vicepremier.gov.sk/id/user/miroslav.liska"/>
+		<srra:approvedAt rdf:datatype="&xsd;date">2023-11-03</srra:approvedAt>
+		<srra:applicant rdf:resource="https://metais.vicepremier.gov.sk/id/organization/mirri"/>
+ 		<srra:state rdf:datatype="&xsd;string">DRAFT</srra:state>
+		<srra:subject rdf:resource="https://znalosti.gov.sk/id/uri-template/00000000-0000-0000-0000-000000000004"/>
+	</srra:URITemplateRegistrationApplication>
+	
+
+	<srra:URITemplate rdf:about="https://znalosti.gov.sk/id/uri-template/00000000-0000-0000-0000-000000000004">
+		<srra:name xml:lang="sk">URI konkrétnej fyzickej osoby podľa anonymného id (pre medzisystémovú komunikáciu)</srra:name>
+		<srra:uriNamespace rdf:datatype="&xsd;string">https://data.gov.sk/id/physical-person/[id]</srra:uriNamespace>
+		<srra:redirectTemplateUrl rdf:datatype="&xsd;string">https://rfo.sk/detail/{id}</srra:redirectTemplateUrl>
+		<srra:hasVersion rdf:datatype="&xsd;boolean">false</srra:hasVersion>
+		<srra:description xml:lang="sk">Toto je element o priezvisku</srra:description>
+		<srra:validFrom rdf:datatype="&xsd;date">2023-11-02</srra:validFrom>
+		<srra:validTo rdf:datatype="&xsd;date">2024-11-02</srra:validTo>
+		<srra:queryParam rdf:resource="https://znalosti.gov.sk/id/uri-template-query-param/2345654321"/>
+		<srra:queryParam rdf:resource="https://znalosti.gov.sk/id/uri-template-query-param/2345654322"/>
+	</srra:URITemplate>
+	
+	<srra:URITemplateQueryParam rdf:about="https://znalosti.gov.sk/id/uri-template-query-param/2345654321">
+		<srra:name rdf:datatype="&xsd;string">param1</srra:name>
+		<srra:description xml:lang="sk">Parameter XYZ_1</srra:description>
+	</srra:URITemplateQueryParam>
+	
+	<srra:URITemplateQueryParam rdf:about="https://znalosti.gov.sk/id/uri-template-query-param/2345654322">
+		<srra:name rdf:datatype="&xsd;string">param2</srra:name>
+		<srra:description xml:lang="sk">Parameter XYZ_2</srra:description>
+	</srra:URITemplateQueryParam>
+
+
+</rdf:RDF>
+

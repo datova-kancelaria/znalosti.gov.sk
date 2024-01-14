@@ -176,7 +176,22 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-javadoc</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.therapi</groupId>
+			<artifactId>therapi-runtime-javadoc</artifactId>
+			<version>0.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.therapi</groupId>
+			<artifactId>therapi-runtime-javadoc-scribe</artifactId>
+			<version>0.15.0</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -208,6 +223,26 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+
+			<!-- To allow generate OpenAPI docs from Javadocs comments -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+						<path>
+							<groupId>com.github.therapi</groupId>
+							<artifactId>therapi-runtime-javadoc-scribe</artifactId>
+							<version>0.15.0</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -247,6 +282,25 @@
 						</executions>
 						<configuration>
 							<productionMode>true</productionMode>
+						</configuration>
+					</plugin>
+					<!-- To allow generate OpenAPI docs from Javadocs comments -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<annotationProcessorPaths>
+								<path>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok</artifactId>
+									<version>${lombok.version}</version>
+								</path>
+								<path>
+									<groupId>com.github.therapi</groupId>
+									<artifactId>therapi-runtime-javadoc-scribe</artifactId>
+									<version>0.15.0</version>
+								</path>
+							</annotationProcessorPaths>
 						</configuration>
 					</plugin>
 					<plugin>

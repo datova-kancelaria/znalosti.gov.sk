@@ -11,7 +11,10 @@ logging:
     org.atmosphere: WARN
 database:
   url: http://localhost:9090/rdf4j-server
-  repository: znalosti.gov.sk
+  repository:
+    znalosti: znalosti.gov.sk
+    refid: refid
+  reset-db-allowed: false
 users:
   integration:
     metais:
@@ -20,7 +23,7 @@ users:
 
 # swagger-ui custom path
 springdoc:
-  pathsToMatch: /integration/api/*
+  pathsToMatch: /integration/api/**
   swagger-ui:
     enabled: true
     path: /integration/api/docs/swagger-ui/index.html
@@ -33,6 +36,10 @@ spring:
   config:
     activate:
       on-profile: test-with-proxy
+logging:
+  level:
+    org.atmosphere: WARN
+    sk.gov.knowledgegraph: DEBUG
 server:
   port: 7070  
   url: http://localhost:7070
@@ -41,15 +48,24 @@ local:
     port:7070
 database:
   url: http://localhost:8080/rdf4j-server
-
+  repository: 
+    znalosti: znalosti.gov.sk
+    refid: refid-test
+  reset-db-allowed: true
+  
 ---
-# This configuration is for cases when you proxy DB server from znalosti.gov.sk
+# This configuration is for test environment on znalosti.gov.sk server
 spring:
   config:
     activate:
       on-profile: test
 database:
-  repository: znalosti.gov.sk-test
+  url: http://rdf-server:8080/rdf4j-server
+  repository:
+    znalosti: znalosti.gov.sk-test
+    refid: refid-test
+  reset-db-allowed: false
+  
 ---
 spring:
   config:
@@ -58,5 +74,8 @@ spring:
 
 database:
   url: http://rdf-server:8080/rdf4j-server
-  repository: znalosti.gov.sk
-      
+  repository: 
+    znalosti: znalosti.gov.sk
+    refid: refid
+  reset-db-allowed: false
+    

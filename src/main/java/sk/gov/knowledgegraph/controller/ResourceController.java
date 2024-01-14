@@ -22,6 +22,7 @@ import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.rio.RDFFormat;
 import org.eclipse.rdf4j.rio.Rio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
@@ -50,6 +51,7 @@ import sk.gov.knowledgegraph.service.SparqlQueryService;
 public class ResourceController {
 
     @Autowired
+    @Qualifier("znalostiRepository")
     private Repository repository;
     @Autowired
     private SearchService searchService;

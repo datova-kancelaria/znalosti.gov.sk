@@ -10,6 +10,7 @@ import org.eclipse.rdf4j.query.TupleQueryResult;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,7 @@ import sk.gov.knowledgegraph.model.entity.Result;
 public class SearchService {
 
     @Autowired
+    @Qualifier("znalostiRepository")
     private Repository repository;
 
     public List<Result> search(String searchString) {

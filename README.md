@@ -14,9 +14,9 @@ Vyhľadávanie
 ## Open API 3.0 neverejná dokumentácia
 
 Dokumentácia je chránená prístupovými údajmi
-![alt text](https://znalosti.gov.sk/integration/api/docs/api-docs)
+[REST API](https://znalosti.gov.sk/integration/api/docs/api-docs)
 
 ## Open API 3.0 Swagger UI neverejná dokumentácia
 
 Dokumentácia je chránená prístupovými údajmi
-![alt text](https://znalosti.gov.sk/integration/api/docs/swagger-ui/swagger-ui/index.html)
+[REST API](https://znalosti.gov.sk/integration/api/docs/swagger-ui/swagger-ui/index.html)
