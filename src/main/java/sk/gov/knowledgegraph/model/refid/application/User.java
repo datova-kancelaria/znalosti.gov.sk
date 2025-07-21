@@ -9,6 +9,9 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class User {
 
+    /**
+     * Používateľské/prihlasovacie meno
+     */
     @NotBlank
     private String username;
     /**

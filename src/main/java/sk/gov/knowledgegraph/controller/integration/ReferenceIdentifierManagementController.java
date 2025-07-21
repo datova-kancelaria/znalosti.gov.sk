@@ -140,7 +140,14 @@ public class ReferenceIdentifierManagementController {
         return referenceIdentifierApplicationManagementService.approveApplication(request);
     }
 
-    
+    /**
+     * Operácia na zresetovanie stavu databázy do pôvodného nastavanie. Táto operácia je navrhnutá výhradne na testovacie účely. Operácia nie je prístupná na produkčnom prostredí, iba na testovacom.
+     * @throws KnowledgeGraphException
+     * @throws RDFParseException
+     * @throws RepositoryException
+     * @throws IllegalArgumentException
+     * @throws IOException
+     */
     @DeleteMapping(value = "/reset-db", produces = MediaType.APPLICATION_JSON_VALUE)
     public void resetDb() throws KnowledgeGraphException, RDFParseException, RepositoryException, IllegalArgumentException, IOException {
         log.info("Reseting db");

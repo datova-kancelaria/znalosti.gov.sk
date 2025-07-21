@@ -45,6 +45,8 @@ public class ApiView extends Div {
 
         add(new Html("<div class=govuk-heading-m>POST SPARQL Enpoint</div>"));
         add(new Html("<div class=govuk-link>POST /api/sparql?q={query}&default-graph-uri={default-graph-uri}&named-graph-uri={named-graph-uri}</div>"));
+        add(new Html(
+                "<div class=govuk-inset-text><p>Príklady volania: </p><p>curl --location --request POST 'https://znalosti.gov.sk/api/sparql?q=SELECT%20%2A%20WHERE%20%7B%20%3FS%20%3Fp%20%3Fo%20%7D' --header 'Content-Type: application/xml'</p><p>curl --location --request POST 'https://znalosti.gov.sk/api/sparql?q=CONSTRUCT%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20WHERE%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D%20%20' --header 'Content-Type: application/rdf+xml'</p></div>"));
 
         add(new Html("<div class=govuk-link><br></div>"));
         add(new Html("<div class=govuk-link><br></div>"));

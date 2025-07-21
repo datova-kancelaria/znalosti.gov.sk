@@ -60,7 +60,7 @@ public class ResourceController {
     @Autowired
     private transient HttpServletResponse response;
     private final List<RDFFormat> supportedGraphRDFFormates = List.of(RDFFormat.JSONLD, RDFFormat.RDFXML, RDFFormat.TURTLE, RDFFormat.NTRIPLES);
-    private final List<TupleQueryResultFormat> supportedTupleRDFFormates = List.of(TupleQueryResultFormat.JSON, TupleQueryResultFormat.CSV,
+    private final List<TupleQueryResultFormat> supportedTupleRDFFormates = List.of(TupleQueryResultFormat.SPARQL, TupleQueryResultFormat.CSV,
             TupleQueryResultFormat.TSV);
     private final List<BooleanQueryResultFormat> supportedBooleanRDFFormates = List.of(BooleanQueryResultFormat.JSON, BooleanQueryResultFormat.TEXT);
 
@@ -70,6 +70,7 @@ public class ResourceController {
             @RequestHeader(value = HttpHeaders.ACCEPT, required = false) String acceptHeader) throws KnowledgeGraphException {
         return getResourceStreamForURI(uri, contentType, acceptHeader);
     }
+
 
     @CrossOrigin
     @PostMapping(value = "/resource", produces = { "application/ld+json", "application/rdf+xml" })
@@ -94,11 +95,8 @@ public class ResourceController {
         try (RepositoryConnection connection = repository.getConnection()) {
             Query preparedQuery = connection.prepareQuery(QueryLanguage.SPARQL, query);
             sparqlQueryService.setQueryDataSet(preparedQuery, defaultGraphUri, namedGraphUri, connection);
-            if (preparedQuery instanceof GraphQuery) {
-                return getResourceStreamForSPARQL(preparedQuery, contentType, acceptHeader);
-            }
+            return getResourceStreamForSPARQL(preparedQuery, contentType, acceptHeader);
         }
-        return null;
 
     }
 

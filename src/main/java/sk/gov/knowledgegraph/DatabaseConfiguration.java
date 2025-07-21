@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Configuration
 @ComponentScan(basePackageClasses = { Application.class })
 public class DatabaseConfiguration {
@@ -23,9 +26,13 @@ public class DatabaseConfiguration {
     @Bean("znalostiRepository")
     public Repository getZnalostiRepository() {
         RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
-        //   repositoryManager.setUsernameAndPassword(dbUser, dbPassword );
         repositoryManager.init();
-        return repositoryManager.getRepository(dbZnalostiRepository);
+
+        Repository repo = repositoryManager.getRepository(dbZnalostiRepository);
+        if (repo == null) {
+            log.error("No dababase with id: {} on url: {}", dbZnalostiRepository, dbUrl);
+        }
+        return repo;
     }
 
 
@@ -33,7 +40,11 @@ public class DatabaseConfiguration {
     public Repository getRefIdRepository() {
         RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
         repositoryManager.init();
-        return repositoryManager.getRepository(dbRefIdRepository);
+        Repository repo = repositoryManager.getRepository(dbRefIdRepository);
+        if (repo == null) {
+            log.error("No dababase with id: {} on url: {}", dbRefIdRepository, dbUrl);
+        }
+        return repo;
     }
 
 }
