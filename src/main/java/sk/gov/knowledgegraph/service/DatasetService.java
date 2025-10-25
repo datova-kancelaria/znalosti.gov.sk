@@ -1,24 +1,18 @@
 package sk.gov.knowledgegraph.service;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
-import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
-import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import sk.gov.knowledgegraph.model.RepositoryPool;
 import sk.gov.knowledgegraph.model.entity.Dataset;
 
 @Service
@@ -27,21 +21,21 @@ public class DatasetService {
 
     @Autowired
     @Qualifier("znalostiRepository")
-    private Repository repository;
+    private RepositoryPool repositoryPool;
 
     public List<Dataset> listData() {
         List<Dataset> list = new ArrayList<>();
 
-        try (RepositoryConnection conn = repository.getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
         	String queryString = ""
                     + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>"
                     + "prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#> prefix prov: <http://www.w3.org/ns/prov#>"
-                    + "select distinct ?dataset ?datasetTitle ?datasetType ?datasetTypeLabel ?wasDerivedFrom ?wasDerivedFromTitle ?publisher ?publisherName ?theme ?themeLabel ?version where {"
-                    + "?dataset rdf:type dcat:Dataset ."
-                    + "?dataset dct:type ?datasetType ."
+                    + "SELECT DISTINCT ?dataset ?datasetTitle ?datasetType ?datasetTypeLabel ?wasDerivedFrom ?wasDerivedFromTitle ?publisher ?publisherName ?theme ?themeLabel ?version where {"
+                    + "?dataset rdf:type dcat:Dataset . "
+                    + "?dataset dct:type ?datasetType . "
                     + "?datasetType skos:prefLabel ?datasetTypeLabel . "
-                    + "?dataset dct:title ?datasetTitle ."
-                    + "?dataset prov:wasDerivedFrom ?wasDerivedFrom ."
+                    + "?dataset dct:title ?datasetTitle . "
+                    + "?dataset prov:wasDerivedFrom ?wasDerivedFrom . "
                     + "?wasDerivedFrom dct:title ?wasDerivedFromTitle . "
                     + "?dataset dcat:version ?version ."
                     + "?dataset dct:publisher ?publisher ."
@@ -84,9 +78,7 @@ public class DatasetService {
                     dataset.setVersion(bindingSet.getValue("version").stringValue());
                     list.add(dataset);
                 }
-            } catch (Exception e) {
-                log.warn(e.getMessage(), e);
-            }
+            } 
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }
@@ -97,11 +89,11 @@ public class DatasetService {
     public List<Dataset> listMetaData() {
         List<Dataset> list = new ArrayList<>();
 
-        try (RepositoryConnection conn = repository.getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
             String queryString = ""
             	    + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>"
                     + "prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#> prefix prov: <http://www.w3.org/ns/prov#>"
-                    + "select distinct ?dataset ?datasetTitle ?datasetType ?datasetTypeLabel ?wasDerivedFrom ?wasDerivedFromTitle ?publisher ?publisherName ?theme ?themeLabel ?version where {"
+                    + "SELECT DISTINCT ?dataset ?datasetTitle ?datasetType ?datasetTypeLabel ?wasDerivedFrom ?wasDerivedFromTitle ?publisher ?publisherName ?theme ?themeLabel ?version WHERE {"
                     + "?dataset rdf:type dcat:Dataset ."
                     + "?dataset dct:type ?datasetType ."
                     + "?datasetType skos:prefLabel ?datasetTypeLabel . "
@@ -145,9 +137,7 @@ public class DatasetService {
                     dataset.setVersion(bindingSet.getValue("version").stringValue());
                     list.add(dataset);
                 }
-            } catch (Exception e) {
-                log.warn(e.getMessage(), e);
-            }
+            } 
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }
@@ -158,7 +148,7 @@ public class DatasetService {
     public List<Dataset> listCategories() {
         List<Dataset> list = new ArrayList<>();
 
-        try (RepositoryConnection conn = repository.getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
             String queryString = ""
             	    + "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>"
                     + "prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#> prefix prov: <http://www.w3.org/ns/prov#>"
@@ -209,9 +199,7 @@ public class DatasetService {
                     dataset.setVersion(bindingSet.getValue("version").stringValue());
                     list.add(dataset);
                 }
-            } catch (Exception e) {
-                log.warn(e.getMessage(), e);
-            }
+            } 
         } catch (Exception e) {
             log.warn(e.getMessage(), e);
         }

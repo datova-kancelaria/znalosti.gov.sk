@@ -8,7 +8,6 @@ import javax.xml.transform.TransformerException;
 
 import org.eclipse.rdf4j.rio.UnsupportedRDFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.vaadin.flow.component.Html;
 import com.vaadin.flow.component.Key;
@@ -27,7 +26,6 @@ import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouteAlias;
 
 import sk.gov.idsk4j.IDSKSearchResultsContent;
-import sk.gov.idsk4j.IDSKSearchResultsFilter;
 import sk.gov.knowledgegraph.model.entity.Result;
 import sk.gov.knowledgegraph.service.SearchService;
 import sk.gov.knowledgegraph.service.StatisticsService;
@@ -38,12 +36,6 @@ import sk.gov.knowledgegraph.service.StatisticsService;
 @CssImport("./styles/idsk-frontend-2.8.0.min.css")
 public class SearchView extends Div {
 
-    //private TextField searchText;
-    private Button btnSearch;
-
-    //@Id("search-results-input")
-    //TextField searchInput = new TextField(); 
-
     private Grid<Result> grid5 = new Grid<>(Result.class, false);
 
     public SearchView(@Autowired SearchService searchService, @Autowired StatisticsService statisticsService)
@@ -51,15 +43,6 @@ public class SearchView extends Div {
         setId("search-view");
 
         addClassName("govuk-width-container");
-
-        /*
-         * ShortcutListener shortcut = new ShortcutListener("Shortcut Name", ShortcutAction.KeyCode.ENTER, null) {
-         * 
-         * @Override
-         * public void handleAction(Object sender, Object target) {
-         * startSearch();
-         * }
-         */
 
         Main main = new Main();
         main.addClassName("govuk-main-wrapper");
@@ -89,12 +72,10 @@ public class SearchView extends Div {
         int getAllTriplesCount = 0;
         int getAllNamedGraphsCount = 0;
         int datasetsCount = 0;
-        int catalogCount = 0;
 
         getAllNamedGraphsCount = statisticsService.getAllNamedGraphsCount();
         getAllTriplesCount = statisticsService.getAllTriplesCount();
         datasetsCount = statisticsService.getDatasetsCount();
-        catalogCount = statisticsService.getCatalogsCount();
 
         //     searchResults.add(new Html("<div>"+datasetsCount+" datasetov, "+catalogCount+" katalógy, <b>"+getAllTriplesCount+"</b> tripletov (znalostí)</div>"));
         searchResults.add(new Html("<div>" + datasetsCount + " datasetov, " + getAllNamedGraphsCount + " grafov (isvs), <b>" + getAllTriplesCount
@@ -112,50 +93,16 @@ public class SearchView extends Div {
 
         Input input = new Input();
 
-        // TextField input = new TextField();
-
         input.addClassName("govuk-input");
         input.addClassName("govuk-input--width-30");
         input.addClassName("idsk-search-component__input");
         input.setId("search-results-input");
 
-        /*
-         * ShortcutListener enter = new ShortcutListener("Enter", KeyCode.ENTER, null) {
-         * 
-         * @Override
-         * public void handleAction(Object sender, Object target) {
-         * // Do nice stuff
-         * log.info("Enter pressed");
-         * }
-         * };
-         * 
-         * 
-         * input.addShorcutListener(enter);
-         * 
-         * 
-         */
-
-        //    input.setType("text");
-
-        /*
-         * input.setImmedate(true);
-         * OnEnterKeyHandler onEnterHandler=new OnEnterKeyHandler(){
-         * 
-         * @Override
-         * public void onEnterKeyPressed() {
-         * Notification.show("Voight Kampff Test",
-         * Notification.Type.HUMANIZED_MESSAGE);
-         * }
-         * };
-         */
-
-        // TextField searchText = new TextField();
-        // searchComponent.add(new Html("<input class=\"govuk-input govuk-input--width-30 idsk-search-component__input \" id=\"search-results-input\" name=\"search\" type=\"text\">"));
 
         searchComponent.add(input);
 
         Button btnSearch2 = new Button();
-        btnSearch2.addClickShortcut(Key.ENTER); // .setClickShortcut(KeyCode.ENTER);
+        btnSearch2.addClickShortcut(Key.ENTER); 
 
         btnSearch2.addClassName("idsk-button");
         btnSearch2.addClassName("idsk-search-component__button");
@@ -166,8 +113,6 @@ public class SearchView extends Div {
         searchComponent.add(btnSearch2);
         idskSearchResultsDiv.add(searchBar);
 
-        IDSKSearchResultsFilter idskSearchResultsFilter = new IDSKSearchResultsFilter();
-        //idskSearchResultsDiv.add(idskSearchResultsFilter.create());
         IDSKSearchResultsContent idskSearchResultsContent = new IDSKSearchResultsContent();
 
         grid5.addThemeVariants(GridVariant.LUMO_NO_BORDER);
@@ -195,17 +140,6 @@ public class SearchView extends Div {
             }
         });
 
-        /*
-         * 
-         * input.addShortcutListener(new ShortcutListener("Shortcut Name", ShortcutAction.KeyCode.ENTER, null) {
-         * 
-         * @Override
-         * public void handleAction(Object sender, Object target) {
-         * // your code here
-         * }
-         * });
-         * 
-         */
 
     }
 

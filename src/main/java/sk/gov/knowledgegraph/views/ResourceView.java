@@ -79,7 +79,7 @@ public class ResourceView extends Div implements HasUrlParameter<String> {
         
         try {
 
-        	String jsonLDIconString = "<a target=new href=api/resource?uri=" + uriString + "&content-type="
+        	String jsonLDIconString = "<a target=new href=api/resource?uri=" + uriString + "&Accept="
                     + URLEncoder.encode("application/ld+json", StandardCharsets.UTF_8.toString()) + "><img src=images/json-ld-data-32.png valign=bottom></a>";
 
         	res = resourceService.getBaseProperties(uriString);

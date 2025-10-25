@@ -15,6 +15,8 @@ database:
     znalosti: znalosti.gov.sk
     refid: refid
   reset-db-allowed: false
+  source-data:
+    github-url: https://api.github.com/repos/slovak-egov/centralny-model-udajov
 users:
   integration:
     metais:

@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import sk.gov.knowledgegraph.model.RepositoryPool;
 import sk.gov.knowledgegraph.model.entity.Resource;
 
 @Service
@@ -30,12 +31,12 @@ public class ResourceService {
 
     @Autowired
     @Qualifier("znalostiRepository")
-    private Repository repository;
+    private RepositoryPool repositoryPool;
 
     public List<Resource> describeUriBySelect(String uri)
             throws IOException, UnsupportedRDFormatException, FileNotFoundException, ParserConfigurationException, TransformerException {
         List<Resource> list = new ArrayList<>();
-        try (RepositoryConnection conn = repository.getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
             String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> prefix dcat: <http://www.w3.org/ns/dcat#>\n"
                     + "prefix dct: <http://purl.org/dc/terms/> prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
                     + "select distinct ?subject ?predicate ?object ?isInverse ?graph ?graphName ?language where\n" + "{ graph ?graph { {\n" + "    <" + uri
@@ -99,18 +100,7 @@ public class ResourceService {
 
     public Resource getBaseProperties(String uri) {
 
-        try (RepositoryConnection conn = repository.getConnection()) {
-
-            String queryString2 = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-                    + "prefix dcat: <http://www.w3.org/ns/dcat#> prefix dct: <http://purl.org/dc/terms/>\n"
-                    + "prefix skos: <http://www.w3.org/2004/02/skos/core#> select distinct ?score ?type ?prefLabel ?title ?label ?typeLabel \n" + "where "
-
-                    + "{  <" + uri + "> rdf:type ?type .   \n" + "       graph ?q {\n" + "       ?type rdfs:label ?typeLabel .\n"
-                    + "       filter langMatches( lang(?typeLabel), \"sk\" ) }\n" + " graph ?g { {\n" + "    <" + uri + "> skos:prefLabel ?prefLabel .\n"
-                    + "     bind (1 as ?score)\n" + "     filter langMatches( lang(?prefLabel), \"sk\" ) \n" + "    } union {\n" + "     <" + uri
-                    + "> dct:title ?title .\n" + "     bind (2 as ?score)     \n" + "     filter langMatches( lang(?title), \"sk\" ) \n" + "    } union {\n"
-                    + "     <" + uri + "> rdfs:label ?label .\n" + "     bind (3 as ?score)           \n" + "     filter langMatches( lang(?label), \"sk\" ) \n"
-                    + "    } } } order by desc(?score) limit 1";
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
 
             String queryString = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>"
                     + "prefix dcat: <http://www.w3.org/ns/dcat#> prefix dct: <http://purl.org/dc/terms/>"

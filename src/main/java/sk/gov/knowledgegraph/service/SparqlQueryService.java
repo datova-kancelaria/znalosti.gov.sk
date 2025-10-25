@@ -9,23 +9,20 @@ package sk.gov.knowledgegraph.service;
 
 import java.util.List;
 
-import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.query.BindingSet;
 import org.eclipse.rdf4j.query.BooleanQuery;
 import org.eclipse.rdf4j.query.GraphQueryResult;
-import org.eclipse.rdf4j.query.Query;
 import org.eclipse.rdf4j.query.QueryLanguage;
 import org.eclipse.rdf4j.query.TupleQuery;
 import org.eclipse.rdf4j.query.TupleQueryResult;
-import org.eclipse.rdf4j.query.impl.SimpleDataset;
-import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
+import sk.gov.knowledgegraph.model.RepositoryPool;
 
 @Service
 @Slf4j
@@ -36,14 +33,14 @@ public class SparqlQueryService {
      */
     @Autowired
     @Qualifier("znalostiRepository")
-    private Repository repository;
+    private RepositoryPool repositoryPool;
 
     public String getTupleQueryResultHtml(String query) {
         log.info("setTupleQueryResultHtml");
 
         String resultHtml = "<table class=\"govuk-table\"><thead class=\"govuk-table__head\">";
 
-        try (RepositoryConnection conn = repository.getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
             TupleQuery tupleQuery = conn.prepareTupleQuery(query);
             TupleQueryResult result = tupleQuery.evaluate();
             List<String> bindingNames = result.getBindingNames();
@@ -77,7 +74,7 @@ public class SparqlQueryService {
         String resultHtml = "<table class=\"govuk-table\"><thead class=\"govuk-table__head\"><tr class=\"govuk-table__row\"><th scope=\"col\" class=\"govuk-table__header\">?subject</th><th scope=\"col\" class=\"govuk-table__header\">?predicate</th><th scope=\"col\" class=\"govuk-table__header\">?object</th></tr></thead>";
         resultHtml = resultHtml + "<tbody class=\"govuk-table__body\">";
 
-        try (RepositoryConnection conn = repository.getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
 
             GraphQueryResult graphResult = conn.prepareGraphQuery(query).evaluate();
 
@@ -102,7 +99,7 @@ public class SparqlQueryService {
         String resultHtml = "<table class=\"govuk-table\"><thead class=\"govuk-table__head\"><tr class=\"govuk-table__row\"><th scope=\"col\" class=\"govuk-table__header\">Je to pravda?</th></tr></thead>";
         resultHtml = resultHtml + "<tbody class=\"govuk-table__body\">";
 
-        try (RepositoryConnection conn = repository.getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getDefaultRepository().getConnection()) {
 
             BooleanQuery bq = conn.prepareBooleanQuery(QueryLanguage.SPARQL, query);
 
@@ -123,31 +120,6 @@ public class SparqlQueryService {
             return "<<a href=resource?uri=" + inString.replace("#", "%23") + ">" + inString + "</a>>";
         } else {
             return inString;
-        }
-    }
-
-
-    /**
-     * @see                   <a href="https://www.w3.org/TR/sparql11-protocol/#dataset">protocol dataset</a>
-     * @param q               the query
-     * @param defaultGraphUri
-     * @param namedGraphUri
-     * @param connection
-     */
-    public void setQueryDataSet(Query q, String defaultGraphUri, String namedGraphUri, RepositoryConnection connection) {
-        if (defaultGraphUri != null || namedGraphUri != null) {
-            SimpleDataset dataset = new SimpleDataset();
-
-            if (defaultGraphUri != null) {
-                IRI defaultIri = connection.getValueFactory().createIRI(defaultGraphUri);
-                dataset.addDefaultGraph(defaultIri);
-            }
-
-            if (namedGraphUri != null) {
-                IRI namedIri = connection.getValueFactory().createIRI(namedGraphUri);
-                dataset.addNamedGraph(namedIri);
-            }
-            q.setDataset(dataset);
         }
     }
 

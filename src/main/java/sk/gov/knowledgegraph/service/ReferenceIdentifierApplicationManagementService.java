@@ -76,9 +76,6 @@ public class ReferenceIdentifierApplicationManagementService {
     private boolean resetDbAllowed;
     @Autowired
     protected Validator validator;
-    @Autowired
-    @Qualifier("znalostiRepository")
-    private Repository znalostiRepository;
 
     @Autowired
     @Qualifier("refidRepository")
