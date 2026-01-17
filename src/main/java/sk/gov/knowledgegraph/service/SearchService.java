@@ -40,7 +40,7 @@ public class SearchService {
             throw new KnowledgeGraphException(ErrorCode.UNKNOWN_REPOSITORY, Map.of("dbId", dbId));
         }
 
-        try (RepositoryConnection conn = repositoryPool.getRepositoryOrDefault(dbId).getConnection()) {
+        try (RepositoryConnection conn = repositoryPool.getRepositoryOrDefault(dbId, true).getConnection()) {
             String queryString = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n       " + "prefix dcat: <http://www.w3.org/ns/dcat#>\n"
                     + "prefix dct: <http://purl.org/dc/terms/>\n" + "prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
                     + "select distinct ?subject ?object ?graph ?graphName where\n" + "{ graph ?graph {\n" + "    ?subject ?predicate ?object .\n"

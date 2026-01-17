@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
@@ -83,16 +84,42 @@ public class RepositoryPool {
     }
 
 
-    public Repository getRepositoryOrDefault(String repositoryId) {
+    public Repository getRepositoryOrDefault(String repositoryId, boolean loadIfExists) {
         if (this.repositories.containsKey(repositoryId)) {
             return this.repositories.get(repositoryId);
         }
 
+        RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
+        repositoryManager.init();
+
+        Repository repo = repositoryManager.getRepository(repositoryId);
+        if (repo == null) {
+            log.error("No dababase with id: {} on url: {}", repositoryId, dbUrl);
+        } else {
+            repositories.put(repositoryId, repo);
+            return this.repositories.get(repositoryId);
+        }
+        
         return this.repositories.get(this.defaultRepositoryId);
     }
 
 
-    public Repository getRepository(String repositoryId) {
+    public Repository getRepository(String repositoryId, boolean loadIfExists) {
+        if (this.repositories.containsKey(repositoryId)) {
+            return this.repositories.get(repositoryId);
+        }
+
+        RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
+        repositoryManager.init();
+
+        Repository repo = repositoryManager.getRepository(repositoryId);
+        if (repo == null) {
+            log.error("No dababase with id: {} on url: {}", repositoryId, dbUrl);
+        } else {
+            repositories.put(repositoryId, repo);
+            return this.repositories.get(repositoryId);
+        }
+
         return this.repositories.get(repositoryId);
     }
 
@@ -200,7 +227,7 @@ public class RepositoryPool {
                     RDFParser parser = Rio.createParser(format);
                     parser.getParserConfig().set(BasicParserSettings.VERIFY_URI_SYNTAX, true);
                     parser.getParserConfig().set(BasicParserSettings.FAIL_ON_UNKNOWN_DATATYPES, true);
-                    parser.setRDFHandler(new StatementCollector()); 
+                    parser.setRDFHandler(new StatementCollector());
                     parser.parse(stream, "http://example.org/base/");
 
                     conn.begin();
@@ -263,5 +290,19 @@ public class RepositoryPool {
         }
 
         return manager.getRepository(repositoryId);
+    }
+
+
+    public void exportDb(String dbId, RDFFormat rdfFormat, OutputStream out) throws KnowledgeGraphException {
+        Repository repository = getRepositoryOrDefault(dbId, true);
+
+        if (repository == null) {
+            throw new KnowledgeGraphException(ErrorCode.REPOSITORY_DOES_NOT_EXIST, Map.of("dbId", dbId));
+        }
+
+        // Get all statements in the context
+        try (RepositoryConnection conn = repository.getConnection()) {
+            conn.exportStatements(null, null, null, false, Rio.createWriter(rdfFormat, out));
+        }
     }
 }

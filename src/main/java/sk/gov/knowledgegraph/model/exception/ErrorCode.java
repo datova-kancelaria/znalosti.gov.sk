@@ -16,6 +16,7 @@ public enum ErrorCode implements Error {
     YOU_CAN_NOT_DELETE_APPLICATION_WHICH_IS_NOT_IN_DRAFT_STATE("You can not delete application which is not in draft state!", 400),
     YOU_CAN_NOT_REJECT_APPLICATION_WHICH_IS_NOT_IN_APPLIED_STATE("You can not reject application which is not in applied state!", 400),
     YOU_CAN_NOT_APPROVE_APPLICATION_WHICH_IS_NOT_IN_DRAFT_STATE("You can not approve application which is not in draft state!", 400),
+    REPOSITORY_DOES_NOT_EXIST("Repository does not exist!", 400),
     TECHNICAL_ERROR("Technical error!", 500), 
     OUTPUT_FORMAT_FORMAT_MISSING("Missing output format!", 400), 
     MISMATCHED_ACCEPT_HEADER("Mismatched accept header!", 400);

@@ -1,5 +1,6 @@
 package sk.gov.knowledgegraph.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -95,11 +96,42 @@ public class ResourceController {
         return repositoryPool.reloadDbFromBranch(null);
     }
 
+
+    @GetMapping(value = "/export-db", produces = MediaType.ALL_VALUE)
+    public StreamingResponseBody exportDb(@RequestParam(value = "db-id", required = false) String dbId,
+            @RequestParam(value = HttpHeaders.ACCEPT, required = false) String acceptHeader) throws KnowledgeGraphException, IOException {
+
+        RDFFormat format = null;
+        if (acceptHeader != null) {
+            Optional<RDFFormat> f = RDFFormat.matchMIMEType(acceptHeader, supportedGraphRDFFormates);
+            if (f.isPresent()) {
+                format = f.get();
+            }
+        } else {
+            format = RDFFormat.RDFXML;
+        }
+
+        if (format == null) {
+            throw new KnowledgeGraphException(ErrorCode.OUTPUT_FORMAT_FORMAT_MISSING, Map.of("acceptHeader", acceptHeader));
+        }
+        String fileExtension = format.getDefaultFileExtension();
+        String mimeType = format.getDefaultMIMEType();
+
+        repositoryPool.exportDb(dbId, format, response.getOutputStream());
+
+        return out -> {
+            response.addHeader("Content-disposition", "inline;filename=" + "output." + fileExtension);
+            response.setContentType(mimeType);
+        };
+
+    }
+
+
     @GetMapping(value = "/reload-db/{branch-id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<String> reloadDbByBranchId(@RequestParam(value = "branchId", required = true) String branchId) throws KnowledgeGraphException {
         return repositoryPool.reloadDbFromBranch(branchId);
     }
-    
+
 
     @PostMapping(value = "/sparql")
     public StreamingResponseBody sparqlPostURLencoded(@RequestParam(value = "named-graph-uri", required = false) String namedGraphUri,
@@ -114,7 +146,7 @@ public class ResourceController {
         if (!repositoryPool.getRepositories().containsKey(dbId)) {
             throw new KnowledgeGraphException(ErrorCode.UNKNOWN_REPOSITORY, Map.of("dbId", dbId));
         }
-        try (RepositoryConnection connection = repositoryPool.getRepositoryOrDefault(dbId).getConnection()) {
+        try (RepositoryConnection connection = repositoryPool.getRepositoryOrDefault(dbId, false).getConnection()) {
             Query preparedQuery = connection.prepareQuery(QueryLanguage.SPARQL, query);
             if (namedGraphUri != null) {
                 SimpleDataset dataset = new SimpleDataset();
@@ -189,9 +221,9 @@ public class ResourceController {
             throw new KnowledgeGraphException(ErrorCode.UNKNOWN_REPOSITORY, Map.of("dbId", dbId));
         }
 
-        try (RepositoryConnection connection = repositoryPool.getRepositoryOrDefault(dbId).getConnection()) {
-            String queryString = "CONSTRUCT { <" + uri + "> ?p ?o . ?s2 ?p2 <" + uri + "> } where { {  <" + uri + "> ?p ?o } UNION "
-                    + "{ ?s2 ?p2 <" + uri + "> }}";
+        try (RepositoryConnection connection = repositoryPool.getRepositoryOrDefault(dbId, false).getConnection()) {
+            String queryString = "CONSTRUCT { <" + uri + "> ?p ?o . ?s2 ?p2 <" + uri + "> } where { {  <" + uri + "> ?p ?o } UNION " + "{ ?s2 ?p2 <" + uri
+                    + "> }}";
             return getStreamingResponseBody(format, connection.prepareGraphQuery(QueryLanguage.SPARQL, queryString),
                     "output." + format.getDefaultFileExtension(), response);
         } catch (Exception e) {

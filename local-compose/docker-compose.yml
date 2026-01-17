@@ -1,0 +1,38 @@
+services:
+  rdf-server:
+    image: eclipse/rdf4j-workbench:4.3.8
+    ports:
+      - "8080:8080"
+    volumes:
+       - db-data:/var/rdf4j
+       - logs:/usr/local/tomcat/logs
+    networks:
+      - net
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 768M
+        reservations:
+          memory: 256M
+ 
+  znalosti-proxy:
+    image: docker.datalab.digital/semweb/znalosti-proxy:1.0-SNAPSHOT
+    ports:
+      - "81:80"
+    networks:
+      - net
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 128M
+        reservations:
+          memory: 96M
+
+volumes:
+  db-data:
+  logs:
+  
+networks:
+  net:

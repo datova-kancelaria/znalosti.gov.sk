@@ -33,7 +33,7 @@ public class ApiView extends Div {
 
         H1 h1 = new H1();
         h1.addClassName("idsk-search-results__title");
-        h1.add(new Html("<div align=\"center\">Znalost.sk API</div>"));
+        h1.add(new Html("<div align=\"center\">Znalosti.sk API</div>"));
 
         whiteSpace.add(h1);
 
