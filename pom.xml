@@ -11,7 +11,7 @@
 
 	<properties>
 		<java.version>21</java.version>
-		<vaadin.version>24.9.9</vaadin.version>
+		<vaadin.version>24.1.12</vaadin.version>
 		<rdf4j.version>4.3.16</rdf4j.version>
 	</properties>
 

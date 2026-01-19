@@ -39,25 +39,25 @@ public class ApiView extends Div {
 
         add(new Html("<div class=\"govuk-heading-m\">Dopyty nad SPARQL Endpointom</div>"));
         add(new Html(
-                "<div><b>Popis: </b><br />Operácia na dopytovanie na SPARQL endpointom zverejnenom na znalosti.gov.sk. Výstupom operácie výsledok SPARQL dopytu vo formáte súboru na základe hlavičky Accept.</div>"));
+                "<div><b>Popis: </b><br />Operácia na dopytovanie na SPARQL endpointom zverejnenom na znalosti.gov.sk. Výstupom operácie výsledok SPARQL dopytu vo formáte súboru na základe parametra Accept.</div>"));
         add(new Html(
-                "<div class=\"govuk-inset-text\"><div class=govuk-link>POST /api/sparql?q={query}&default-graph-uri={default-graph-uri}&db-id={db-id}</div></div>"));
+                "<div class=\"govuk-inset-text\"><div class=govuk-link>POST /api/sparql?Accept={accept}&q={query}&default-graph-uri={default-graph-uri}&db-id={db-id}</div></div>"));
         add(new Html("<div><b>URL parametre: </b><ul>"
                 + "<li><span style=\"text-decoration: underline;\">q</span> - URL Encoded SPARQL query. Podporované sú SELECT, ASK a CONSTRUCT dopyty. <b>Required</b></li>"
                 + "<li><span style=\"text-decoration: underline;\">named-graph-uri</span> - IRI podgrafu v databáze, voči ktorému má byť query spustené. <b>Optional</b></li>"
                 + "<li><span style=\"text-decoration: underline;\">db-id</span> - Identifikátor databázy voči ktorej má byť dopyt spustený. Ak nie je uvedený tak sa dopytujeme poslednej platnej verzii. Zoznam možných hodnôť je možné získať z \"Zoznam databáz znalosti.sk\". <b>Optional</b></li>"
                 + "</ul></div>"));
-        add(new Html("<div><b>Povolené hodnoty hlavičky \"Accept\" pre ASK query: </b><ul>"
+        add(new Html("<div><b>Povolené hodnoty parametra \"Accept\" pre ASK query: </b><ul>"
                 + "<li><span style=\"text-decoration: underline;\">application/sparql-results+json</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">application/json</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">application/x-sparqlstar-results+json</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">text/boolean</span></li>" + "</ul></div>"));
-        add(new Html("<div><b>Povolené hodnoty hlavičky \"Accept\" pre SELECT query: </b><ul>"
+        add(new Html("<div><b>Povolené hodnoty parametra \"Accept\" pre SELECT query: </b><ul>"
                 + "<li><span style=\"text-decoration: underline;\">application/xml</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">application/sparql-results+xml</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">text/csv</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">text/tab-separated-values</span></li>" + "</ul></div>"));
-        add(new Html("<div><b>Povolené hodnoty hlavičky \"Accept\" pre CONSTRUCT query: </b><ul>"
+        add(new Html("<div><b>Povolené hodnoty parametra \"Accept\" pre CONSTRUCT query: </b><ul>"
                 + "<li><span style=\"text-decoration: underline;\">application/ld+json</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">application/rdf+xml</span></li>"
                 + "<li><span style=\"text-decoration: underline;\">application/xml</span></li>"
@@ -77,6 +77,35 @@ public class ApiView extends Div {
                 "<div><b>Popis: </b><br />Zoznam databáz znalosti.sk. Znalosti.sk podporuje viacero verzií databáz pre zabezpečenie kompatibility medzi integrujúcimi sa subjektami. Rôzne verzie databáz znalosti.sk reprezentujú rôzne verzie Centrálneho modelu údajov, ktoré vznikajú v priebehu času.</div>"));
         add(new Html("<div class=\"govuk-inset-text\"><div class=\"govuk-link\">GET /api/list-dbs</div></div>"));
 
+        
+        
+        
+        add(new Html("<div class=\"govuk-heading-m\">Export databázy znalosti.sk</div>"));
+        add(new Html(
+                "<div><b>Popis: </b><br />Operácia na export databázy znalosti.gov.sk. Výstupom operácie export databázy vo formáte súboru na základe parametra Accept.</div>"));
+        add(new Html(
+                "<div class=\"govuk-inset-text\"><div class=govuk-link>GET /api/export-db?Accept={accept}&db-id={db-id}</div></div>"));
+        add(new Html("<div><b>URL parametre: </b><ul>"
+                + "<li><span style=\"text-decoration: underline;\">db-id</span> - Identifikátor databázy voči ktorej má byť dopyt spustený. Ak nie je uvedený tak sa dopytujeme poslednej platnej verzii. Zoznam možných hodnôť je možné získať z \"Zoznam databáz znalosti.sk\". <b>Optional</b></li>"
+                + "</ul></div>"));
+        add(new Html("<div><b>Povolené hodnoty parametra \"Accept\": </b><ul>"
+                + "<li><span style=\"text-decoration: underline;\">application/ld+json</span></li>"
+                + "<li><span style=\"text-decoration: underline;\">application/rdf+xml</span></li>"
+                + "<li><span style=\"text-decoration: underline;\">application/xml</span></li>"
+                + "<li><span style=\"text-decoration: underline;\">text/xml</span></li>"
+                + "<li><span style=\"text-decoration: underline;\">text/turtle</span></li>"
+                + "<li><span style=\"text-decoration: underline;\">application/x-turtle</span></li>"
+                + "<li><span style=\"text-decoration: underline;\">application/n-triples</span></li>"
+                + "<li><span style=\"text-decoration: underline;\">text/plain</span></li>" + "</ul></div>"));
+        add(new Html("<div><b>Príklady volania: </b></div>"));
+        add(new Html(
+                "<div class=\"govuk-inset-text\"><p>curl --location --request GET 'https://znalosti.gov.sk/api/export-db?Accept=application%2Fxml'</p><p>curl --location --request GET 'https://znalosti.gov.sk/api/export-db?Accept=application%2Fxml'</p></div>"));
+
+        add(new Html("<div><br></div>"));
+        add(new Html("<div><br></div>"));
+        
+        
+        
         add(new Html("<div class=govuk-heading-m>Vráť všetky znalosti o URI</div>"));
         add(new Html("<div class=govuk-link>GET /api/resource?uri={URI}&Accept={Accept}</div>"));
         add(new Html("<div class=govuk-link>POST /api/resource?uri={URI}</div>"));
