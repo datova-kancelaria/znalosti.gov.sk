@@ -127,7 +127,7 @@ public class ResourceController {
     }
 
 
-    @GetMapping(value = "/reload-db/{branch-id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/reload-db", produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<String> reloadDbByBranchId(@RequestParam(value = "branchId", required = true) String branchId) throws KnowledgeGraphException {
         return repositoryPool.reloadDbFromBranch(branchId);
     }
