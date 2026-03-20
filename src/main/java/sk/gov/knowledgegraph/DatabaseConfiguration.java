@@ -29,9 +29,13 @@ public class DatabaseConfiguration {
     @Value("${database.repository.refid}")
     private String dbRefIdRepository;
 
+    @Value("${database.default-repository-cache-ttl-seconds:300}")
+    private long defaultRepositoryCacheTtlSeconds;
+
     @Bean("znalostiRepository")
     public RepositoryPool getZnalostiRepository() {
-        return new RepositoryPool(dbZnalostiRepository, dbUrl, githubSourceDataUrl, new RestTemplate());
+        return new RepositoryPool(dbZnalostiRepository, dbUrl, githubSourceDataUrl, new RestTemplate(),
+                getRefIdRepository(), defaultRepositoryCacheTtlSeconds);
     }
 
 

@@ -91,6 +91,12 @@ public class ResourceController {
     }
 
 
+    @GetMapping(value = "/default-db", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Map<String, String> defaultDb() {
+        return repositoryPool.getCurrentVersionInfo();
+    }
+
+
     @GetMapping(value = "/reload-dbs", produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<String> reloadDbs() throws KnowledgeGraphException {
         return repositoryPool.reloadDbFromBranch(null);
