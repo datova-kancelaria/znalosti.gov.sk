@@ -128,8 +128,18 @@ public class ResourceController {
 
 
     @GetMapping(value = "/reload-db", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<String> reloadDbByBranchId(@RequestParam(value = "branchId", required = true) String branchId) throws KnowledgeGraphException {
-        return repositoryPool.reloadDbFromBranch(branchId);
+    public Set<String> reloadDb(@RequestParam(value = "branchId", required = false) String branchId,
+            @RequestParam(value = "tagId", required = false) String tagId) throws KnowledgeGraphException {
+        if (branchId == null && tagId == null) {
+            throw new KnowledgeGraphException(ErrorCode.BRANCH_ID_OR_TAG_ID_REQUIRED, Map.of());
+        }
+        if (branchId != null && tagId != null) {
+            throw new KnowledgeGraphException(ErrorCode.BRANCH_ID_OR_TAG_ID_REQUIRED, Map.of());
+        }
+        if (branchId != null) {
+            return repositoryPool.reloadDbFromBranch(branchId);
+        }
+        return repositoryPool.reloadDbFromTag(tagId);
     }
 
 

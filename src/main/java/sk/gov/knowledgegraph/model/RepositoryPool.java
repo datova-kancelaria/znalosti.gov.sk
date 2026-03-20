@@ -161,7 +161,7 @@ public class RepositoryPool {
 
             try {
                 repositories.put(newDbId, createRepository(newDbId, repositoryManager));
-                loadFromGithubBranch(id, newDbId);
+                loadFromGithubRef(id, newDbId);
             } catch (IOException e) {
                 log.warn(e.getMessage(), e);
             }
@@ -194,9 +194,61 @@ public class RepositoryPool {
     }
 
 
-    private void loadFromGithubBranch(String branchId, String dbId) throws IOException {
-        log.debug("Trying to get content of github repository from branch {} and load it to database {}", branchId, dbId);
-        URL url = URI.create(githubRepositoryUrl + "/zipball/" + branchId).toURL();
+    private Set<String> getGithubTags() {
+        Set<String> tagIds = new HashSet<>();
+
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(githubRepositoryUrl + "/tags", String.class);
+        String tagsJsonStr = responseEntity.getBody();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        GithubBranch[] jsonObj = null;
+        try {
+            jsonObj = mapper.readValue(tagsJsonStr, GithubBranch[].class);
+        } catch (JsonProcessingException e) {
+            log.error(e.getMessage(), e);
+        }
+
+        for (int i = 0; i < jsonObj.length; i++) {
+            tagIds.add(jsonObj[i].getName());
+        }
+        return tagIds;
+    }
+
+
+    public Set<String> reloadDbFromTag(String tagId) throws KnowledgeGraphException {
+        Set<String> tagIds = getGithubTags();
+
+        if (!tagIds.contains(tagId)) {
+            throw new KnowledgeGraphException(ErrorCode.TAG_TO_RELOAD_DOES_NOT_EXIST, Map.of("tagId", tagId));
+        }
+
+        RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
+        repositoryManager.init();
+        Set<String> existingRepositories = repositoryManager.getInitializedRepositoryIDs();
+
+        String newDbId = "znalosti-" + tagId;
+
+        if (repositories.containsKey(newDbId) || existingRepositories.contains(newDbId)) {
+            try (RepositoryConnection conn = repositories.get(newDbId).getConnection()) {
+                conn.clear();
+            }
+        }
+
+        try {
+            repositories.put(newDbId, createRepository(newDbId, repositoryManager));
+            loadFromGithubRef(tagId, newDbId);
+        } catch (IOException e) {
+            log.warn(e.getMessage(), e);
+        }
+
+        return repositories.keySet();
+    }
+
+
+    private void loadFromGithubRef(String ref, String dbId) throws IOException {
+        log.debug("Trying to get content of github repository from ref {} and load it to database {}", ref, dbId);
+        URL url = URI.create(githubRepositoryUrl + "/zipball/" + ref).toURL();
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -254,7 +306,7 @@ public class RepositoryPool {
                     Values.literal("Centrálny metainformačný systém verejnej správy", "sk"), Values.iri("https://data.gov.sk/id/egov/isvs/63")));
             conn.commit();
         }
-        log.info("Finished loading data from branch {} to database {}", branchId, dbId);
+        log.info("Finished loading data from ref {} to database {}", ref, dbId);
     }
 
 

@@ -13,6 +13,8 @@ public enum ErrorCode implements Error {
     UNKNOWN_REPOSITORY("Unknown repository!", 400),
     DB_RESET_NOT_ALLOWED("DB reset not allowed!", 400),
     BRANCH_TO_RELOAD_DOES_NOT_EXIST("Branch to reload does not exist!", 400),
+    TAG_TO_RELOAD_DOES_NOT_EXIST("Tag to reload does not exist!", 400),
+    BRANCH_ID_OR_TAG_ID_REQUIRED("Either branchId or tagId must be provided!", 400),
     YOU_CAN_NOT_DELETE_APPLICATION_WHICH_IS_NOT_IN_DRAFT_STATE("You can not delete application which is not in draft state!", 400),
     YOU_CAN_NOT_REJECT_APPLICATION_WHICH_IS_NOT_IN_APPLIED_STATE("You can not reject application which is not in applied state!", 400),
     YOU_CAN_NOT_APPROVE_APPLICATION_WHICH_IS_NOT_IN_DRAFT_STATE("You can not approve application which is not in draft state!", 400),
