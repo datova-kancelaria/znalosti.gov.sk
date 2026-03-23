@@ -1,0 +1,29 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+# This file documents the configuration triples that must be present in the
+# 'refid' (prod) or 'refid-test' (test) RDF4J repository to configure the
+# default dataset version served by the application.
+#
+# The application queries these triples at runtime (with a configurable TTL
+# cache, default 5 minutes) to determine which repository to use as default
+# when no 'db-id' parameter is provided in API requests.
+#
+# To update the default version:
+#   1. Load the new version data via POST /api/reload-db?tagId=<tagId> or branchId
+#   2. Update the dcat:hasCurrentVersion triple in the refid repo manually
+#      via RDF4J Workbench, pointing to the new version IRI
+#   3. The app will pick up the change within the configured TTL period
+#
+# To load this file into the refid repo:
+#   - RDF4J Workbench: http://<host>:8080/rdf4j-workbench -> Add -> Upload file
+#
+# Version IRI convention: https://znalosti.gov.sk/centralny-model-udajov/<version>
+# RDF4J repo ID convention: znalosti-<version>
+
+<https://znalosti.gov.sk/app>
+    dcat:hasCurrentVersion <https://znalosti.gov.sk/centralny-model-udajov/2026a> .
+
+<https://znalosti.gov.sk/centralny-model-udajov/2026a>
+    dct:identifier "znalosti-2026a" ;
+    dcat:version   "2026a" .

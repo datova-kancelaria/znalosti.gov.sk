@@ -8,6 +8,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -25,9 +27,14 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.util.Statements;
 import org.eclipse.rdf4j.model.util.Values;
+import org.eclipse.rdf4j.query.BindingSet;
+import org.eclipse.rdf4j.query.QueryLanguage;
+import org.eclipse.rdf4j.query.TupleQuery;
+import org.eclipse.rdf4j.query.TupleQueryResult;
 import org.eclipse.rdf4j.repository.Repository;
 import org.eclipse.rdf4j.repository.RepositoryConnection;
 import org.eclipse.rdf4j.repository.config.RepositoryConfig;
@@ -48,6 +55,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.AccessLevel;
 import lombok.extern.slf4j.Slf4j;
 import sk.gov.knowledgegraph.model.exception.ErrorCode;
 import sk.gov.knowledgegraph.model.exception.KnowledgeGraphException;
@@ -56,31 +65,45 @@ import sk.gov.knowledgegraph.model.exception.KnowledgeGraphException;
 @Slf4j
 public class RepositoryPool {
 
-    private final String defaultRepositoryId;
+    @Getter(AccessLevel.NONE)
+    private final String configuredDefaultRepositoryId;
     private final String dbUrl;
     private final String githubRepositoryUrl;
     private final RestTemplate restTemplate;
+    private final Repository refidRepository;
+    private final long cacheTtlSeconds;
+
+    private volatile CachedDefault cachedDefault = null;
+
+    private record CachedDefault(String repoId, String version, Instant fetchedAt) {}
 
     private final Map<String, Repository> repositories = new HashMap<>();
 
-    public RepositoryPool(String defaultRepositoryId, String dbUrl, String githubRepositoryUrl, RestTemplate restTemplate) {
-        this.defaultRepositoryId = defaultRepositoryId;
+    public RepositoryPool(String defaultRepositoryId, String dbUrl, String githubRepositoryUrl,
+            RestTemplate restTemplate, Repository refidRepository, long cacheTtlSeconds) {
+        this.configuredDefaultRepositoryId = defaultRepositoryId;
         this.dbUrl = dbUrl;
         this.githubRepositoryUrl = githubRepositoryUrl;
         this.restTemplate = restTemplate;
+        this.refidRepository = refidRepository;
+        this.cacheTtlSeconds = cacheTtlSeconds;
         RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
         repositoryManager.init();
-        Repository repo = repositoryManager.getRepository(this.defaultRepositoryId);
+        Repository repo = repositoryManager.getRepository(this.configuredDefaultRepositoryId);
         if (repo != null) {
-            this.repositories.put(this.defaultRepositoryId, repo);
+            this.repositories.put(this.configuredDefaultRepositoryId, repo);
         } else {
-            log.error("No database with id: {} on url: {}", this.defaultRepositoryId, dbUrl);
+            log.error("No database with id: {} on url: {}", this.configuredDefaultRepositoryId, dbUrl);
         }
+    }
+
+    public String getDefaultRepositoryId() {
+        return resolveDefault().repoId();
     }
 
 
     public Repository getDefaultRepository() {
-        return this.repositories.get(this.defaultRepositoryId);
+        return getRepositoryOrDefault(getDefaultRepositoryId(), true);
     }
 
 
@@ -100,7 +123,7 @@ public class RepositoryPool {
             return this.repositories.get(repositoryId);
         }
         
-        return this.repositories.get(this.defaultRepositoryId);
+        return this.repositories.get(getDefaultRepositoryId());
     }
 
 
@@ -161,7 +184,7 @@ public class RepositoryPool {
 
             try {
                 repositories.put(newDbId, createRepository(newDbId, repositoryManager));
-                loadFromGithubBranch(id, newDbId);
+                loadFromGithubRef(id, newDbId);
             } catch (IOException e) {
                 log.warn(e.getMessage(), e);
             }
@@ -169,6 +192,52 @@ public class RepositoryPool {
         }
 
         return repositories.keySet();
+    }
+
+
+    private CachedDefault resolveDefault() {
+        CachedDefault cached = this.cachedDefault;
+        if (cached != null && Duration.between(cached.fetchedAt(), Instant.now()).getSeconds() < cacheTtlSeconds) {
+            return cached;
+        }
+        if (refidRepository != null) {
+            try (RepositoryConnection conn = refidRepository.getConnection()) {
+                TupleQuery query = conn.prepareTupleQuery(QueryLanguage.SPARQL,
+                        "PREFIX dcat: <http://www.w3.org/ns/dcat#> " +
+                        "PREFIX dct: <http://purl.org/dc/terms/> " +
+                        "SELECT ?repoId ?version WHERE { " +
+                        "  <https://znalosti.gov.sk/app> dcat:hasCurrentVersion ?v . " +
+                        "  ?v dct:identifier ?repoId . " +
+                        "  OPTIONAL { ?v dcat:version ?version . } " +
+                        "}");
+                try (TupleQueryResult result = query.evaluate()) {
+                    if (result.hasNext()) {
+                        BindingSet row = result.next();
+                        String repoId = row.getValue("repoId").stringValue();
+                        Value v = row.getValue("version");
+                        CachedDefault fresh = new CachedDefault(repoId, v != null ? v.stringValue() : null, Instant.now());
+                        this.cachedDefault = fresh;
+                        return fresh;
+                    }
+                }
+            } catch (Exception e) {
+                log.warn("Could not resolve default repository from refid, using fallback: {}", e.getMessage());
+            }
+        }
+        CachedDefault fallback = new CachedDefault(configuredDefaultRepositoryId, null, Instant.now());
+        this.cachedDefault = fallback;
+        return fallback;
+    }
+
+
+    public Map<String, String> getCurrentVersionInfo() {
+        CachedDefault current = resolveDefault();
+        Map<String, String> info = new HashMap<>();
+        info.put("repoId", current.repoId());
+        if (current.version() != null) {
+            info.put("version", current.version());
+        }
+        return info;
     }
 
 
@@ -180,9 +249,9 @@ public class RepositoryPool {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        GithubBranch[] jsonObj = null;
+        GithubRef[] jsonObj = new GithubRef[0];
         try {
-            jsonObj = mapper.readValue(branchesJsonStr, GithubBranch[].class);
+            jsonObj = mapper.readValue(branchesJsonStr, GithubRef[].class);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
         }
@@ -194,9 +263,61 @@ public class RepositoryPool {
     }
 
 
-    private void loadFromGithubBranch(String branchId, String dbId) throws IOException {
-        log.debug("Trying to get content of github repository from branch {} and load it to database {}", branchId, dbId);
-        URL url = URI.create(githubRepositoryUrl + "/zipball/" + branchId).toURL();
+    private Set<String> getGithubTags() {
+        Set<String> tagIds = new HashSet<>();
+
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(githubRepositoryUrl + "/tags", String.class);
+        String tagsJsonStr = responseEntity.getBody();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        GithubRef[] jsonObj = new GithubRef[0];
+        try {
+            jsonObj = mapper.readValue(tagsJsonStr, GithubRef[].class);
+        } catch (JsonProcessingException e) {
+            log.error(e.getMessage(), e);
+        }
+
+        for (int i = 0; i < jsonObj.length; i++) {
+            tagIds.add(jsonObj[i].getName());
+        }
+        return tagIds;
+    }
+
+
+    public Set<String> reloadDbFromTag(String tagId) throws KnowledgeGraphException {
+        Set<String> tagIds = getGithubTags();
+
+        if (!tagIds.contains(tagId)) {
+            throw new KnowledgeGraphException(ErrorCode.TAG_TO_RELOAD_DOES_NOT_EXIST, Map.of("tagId", tagId));
+        }
+
+        RemoteRepositoryManager repositoryManager = new RemoteRepositoryManager(dbUrl);
+        repositoryManager.init();
+        Set<String> existingRepositories = repositoryManager.getInitializedRepositoryIDs();
+
+        String newDbId = "znalosti-" + tagId;
+
+        if (repositories.containsKey(newDbId) || existingRepositories.contains(newDbId)) {
+            try (RepositoryConnection conn = repositories.get(newDbId).getConnection()) {
+                conn.clear();
+            }
+        }
+
+        try {
+            repositories.put(newDbId, createRepository(newDbId, repositoryManager));
+            loadFromGithubRef(tagId, newDbId);
+        } catch (IOException e) {
+            log.warn(e.getMessage(), e);
+        }
+
+        return repositories.keySet();
+    }
+
+
+    private void loadFromGithubRef(String ref, String dbId) throws IOException {
+        log.debug("Trying to get content of github repository from ref {} and load it to database {}", ref, dbId);
+        URL url = URI.create(githubRepositoryUrl + "/zipball/" + ref).toURL();
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -254,7 +375,7 @@ public class RepositoryPool {
                     Values.literal("Centrálny metainformačný systém verejnej správy", "sk"), Values.iri("https://data.gov.sk/id/egov/isvs/63")));
             conn.commit();
         }
-        log.info("Finished loading data from branch {} to database {}", branchId, dbId);
+        log.info("Finished loading data from ref {} to database {}", ref, dbId);
     }
 
 

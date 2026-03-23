@@ -17,6 +17,7 @@ database:
   reset-db-allowed: false
   source-data:
     github-url: https://api.github.com/repos/slovak-egov/centralny-model-udajov
+  default-repository-cache-ttl-seconds: 300
 users:
   integration:
     metais:

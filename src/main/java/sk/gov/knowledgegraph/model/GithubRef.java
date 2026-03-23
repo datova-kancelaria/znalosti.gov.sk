@@ -3,7 +3,7 @@ package sk.gov.knowledgegraph.model;
 import lombok.Data;
 
 @Data
-public class GithubBranch {
+public class GithubRef {
 
     private String name;
 }
