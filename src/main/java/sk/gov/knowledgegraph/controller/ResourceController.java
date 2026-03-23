@@ -140,7 +140,7 @@ public class ResourceController {
             throw new KnowledgeGraphException(ErrorCode.BRANCH_ID_OR_TAG_ID_REQUIRED, Map.of());
         }
         if (branchId != null && tagId != null) {
-            throw new KnowledgeGraphException(ErrorCode.BRANCH_ID_OR_TAG_ID_REQUIRED, Map.of());
+            throw new KnowledgeGraphException(ErrorCode.BRANCH_ID_AND_TAG_ID_CANNOT_BE_COMBINED, Map.of());
         }
         if (branchId != null) {
             return repositoryPool.reloadDbFromBranch(branchId);

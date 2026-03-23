@@ -249,9 +249,9 @@ public class RepositoryPool {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        GithubBranch[] jsonObj = null;
+        GithubRef[] jsonObj = new GithubRef[0];
         try {
-            jsonObj = mapper.readValue(branchesJsonStr, GithubBranch[].class);
+            jsonObj = mapper.readValue(branchesJsonStr, GithubRef[].class);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
         }
@@ -271,9 +271,9 @@ public class RepositoryPool {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        GithubBranch[] jsonObj = null;
+        GithubRef[] jsonObj = new GithubRef[0];
         try {
-            jsonObj = mapper.readValue(tagsJsonStr, GithubBranch[].class);
+            jsonObj = mapper.readValue(tagsJsonStr, GithubRef[].class);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
         }
