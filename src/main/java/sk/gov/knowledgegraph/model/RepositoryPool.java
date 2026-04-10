@@ -108,6 +108,10 @@ public class RepositoryPool {
 
 
     public Repository getRepositoryOrDefault(String repositoryId, boolean loadIfExists) {
+        if (repositoryId == null) {
+            repositoryId = getDefaultRepositoryId();
+        }
+
         if (this.repositories.containsKey(repositoryId)) {
             return this.repositories.get(repositoryId);
         }
