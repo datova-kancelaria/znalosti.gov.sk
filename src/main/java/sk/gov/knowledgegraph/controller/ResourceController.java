@@ -159,7 +159,7 @@ public class ResourceController {
 
     private StreamingResponseBody getResourceStreamForSPARQL(String query, String dbId, String namedGraphUri, String acceptHeader)
             throws KnowledgeGraphException {
-        if (!repositoryPool.getRepositories().containsKey(dbId)) {
+        if (dbId != null && !repositoryPool.getRepositories().containsKey(dbId)) {
             throw new KnowledgeGraphException(ErrorCode.UNKNOWN_REPOSITORY, Map.of("dbId", dbId));
         }
         try (RepositoryConnection connection = repositoryPool.getRepositoryOrDefault(dbId, false).getConnection()) {
@@ -233,7 +233,7 @@ public class ResourceController {
             throw new KnowledgeGraphException(ErrorCode.OUTPUT_FORMAT_FORMAT_MISSING, Map.of("uri", uri));
         }
 
-        if (repositoryPool.getRepositories().containsKey(dbId)) {
+        if (dbId != null && !repositoryPool.getRepositories().containsKey(dbId)) {
             throw new KnowledgeGraphException(ErrorCode.UNKNOWN_REPOSITORY, Map.of("dbId", dbId));
         }
 

@@ -36,7 +36,7 @@ public class SearchService {
 
         List<Result> list = new ArrayList<>();
 
-        if (!repositoryPool.getRepositories().containsKey(dbId)) {
+        if (dbId != null && !repositoryPool.getRepositories().containsKey(dbId)) {
             throw new KnowledgeGraphException(ErrorCode.UNKNOWN_REPOSITORY, Map.of("dbId", dbId));
         }
 
