@@ -155,6 +155,13 @@ public class ResourceController {
             @RequestParam(HttpHeaders.ACCEPT) String acceptHeader) throws KnowledgeGraphException {
         return getResourceStreamForSPARQL(query, dbId, namedGraphUri, acceptHeader);
     }
+    
+    @GetMapping(value = "/sparql")
+    public StreamingResponseBody sparqlGetURLencoded(@RequestParam(value = "named-graph-uri", required = false) String namedGraphUri,
+            @NotBlank @RequestParam(value = "query") String query, @RequestParam(value = "db-id", required = false) String dbId,
+            @RequestParam(HttpHeaders.ACCEPT) String acceptHeader) throws KnowledgeGraphException {
+        return getResourceStreamForSPARQL(query, dbId, namedGraphUri, acceptHeader);
+    }
 
 
     private StreamingResponseBody getResourceStreamForSPARQL(String query, String dbId, String namedGraphUri, String acceptHeader)
