@@ -25,8 +25,10 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.eclipse.rdf4j.model.IRI;
 import org.eclipse.rdf4j.model.Model;
 import org.eclipse.rdf4j.model.Resource;
+import org.eclipse.rdf4j.model.Statement;
 import org.eclipse.rdf4j.model.Value;
 import org.eclipse.rdf4j.model.impl.LinkedHashModel;
 import org.eclipse.rdf4j.model.util.Statements;
@@ -64,6 +66,9 @@ import sk.gov.knowledgegraph.model.exception.KnowledgeGraphException;
 @Data
 @Slf4j
 public class RepositoryPool {
+
+    private static final String CONTEXT_CONFIG_FILE = "abox/znalosti.gov.sk-data/import-contexts.ttl";
+    private static final String CONTEXT_CONFIG_BASE = "https://data.gov.sk/cmu/";
 
     @Getter(AccessLevel.NONE)
     private final String configuredDefaultRepositoryId;
@@ -325,13 +330,26 @@ public class RepositoryPool {
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-        try (InputStream in = connection.getInputStream();
-                ZipInputStream zipIn = new ZipInputStream(in);
+
+        byte[] zipBytes;
+        try (InputStream in = connection.getInputStream()) {
+            zipBytes = IOUtils.toByteArray(in);
+        }
+
+        // First pass: look for import-contexts.json to determine context mappings
+        Map<String, String> contextMappings = loadContextMappings(zipBytes);
+
+        // Second pass: load all RDF files using the resolved context mappings
+        try (ZipInputStream zipIn = new ZipInputStream(new ByteArrayInputStream(zipBytes));
                 RepositoryConnection conn = repositories.get(dbId).getConnection()) {
             ZipEntry entry = null;
             while ((entry = zipIn.getNextEntry()) != null) {
                 if (entry.isDirectory()) {
                     log.info("Skipping directory {}", entry.getName());
+                    continue;
+                }
+                String relativePath = toRelativePath(entry.getName());
+                if (CONTEXT_CONFIG_FILE.equals(relativePath)) {
                     continue;
                 }
                 log.info("Trying to load file {} to {} database.", entry.getName(), dbId);
@@ -345,7 +363,11 @@ public class RepositoryPool {
                     log.info("Unrecognized RDFFormat for file {}. Unable to load to {} database.", entry.getName(), dbId);
                     continue;
                 }
-                Resource context = resolveContext(entry.getName());
+                if (!contextMappings.containsKey(relativePath)) {
+                    log.warn("File {} not listed in {} — skipping import", relativePath, CONTEXT_CONFIG_FILE);
+                    continue;
+                }
+                Resource context = resolveContext(relativePath, contextMappings);
                 byte[] data = IOUtils.toByteArray(zipIn);
                 try (InputStream stream = new ByteArrayInputStream(data)) {
                     //we need to verify validity of loaded data to make sure repository wont be broken
@@ -383,11 +405,53 @@ public class RepositoryPool {
     }
 
 
-    private Resource resolveContext(String name) {
-        if (name != null && (name.contains("abox") || name.contains("tbox"))) {
-            return Values.iri("https://data.slovensko.sk/datasety/catalog/knowledgegraph");
+    /**
+     * Scans the zip for import-contexts.ttl (a DCAT DIRECTORY catalog) and parses its
+     * dcat:distribution / dcat:downloadURL triples to build a file-path → named-graph map.
+     * Throws IllegalStateException if the config file is absent — it is required.
+     */
+    private Map<String, String> loadContextMappings(byte[] zipBytes) {
+        IRI DCAT_DISTRIBUTION = Values.iri("http://www.w3.org/ns/dcat#distribution");
+        IRI DCAT_DOWNLOAD_URL = Values.iri("http://www.w3.org/ns/dcat#downloadURL");
+        try (ZipInputStream zipIn = new ZipInputStream(new ByteArrayInputStream(zipBytes))) {
+            ZipEntry entry;
+            while ((entry = zipIn.getNextEntry()) != null) {
+                if (entry.isDirectory()) continue;
+                if (!CONTEXT_CONFIG_FILE.equals(toRelativePath(entry.getName()))) continue;
+                Model model = Rio.parse(
+                        new ByteArrayInputStream(IOUtils.toByteArray(zipIn)),
+                        CONTEXT_CONFIG_BASE, RDFFormat.TURTLE);
+                Map<String, String> map = new HashMap<>();
+                for (Statement distStmt : model.filter(null, DCAT_DISTRIBUTION, null)) {
+                    Resource graph = distStmt.getSubject();
+                    Resource dist = (Resource) distStmt.getObject();
+                    for (Statement urlStmt : model.filter(dist, DCAT_DOWNLOAD_URL, null)) {
+                        String fileUri = urlStmt.getObject().stringValue();
+                        if (fileUri.startsWith(CONTEXT_CONFIG_BASE)) {
+                            map.put(fileUri.substring(CONTEXT_CONFIG_BASE.length()), graph.stringValue());
+                        }
+                    }
+                }
+                log.info("Loaded {} context mapping(s) from {}", map.size(), CONTEXT_CONFIG_FILE);
+                return map;
+            }
+        } catch (IOException e) {
+            log.warn("Failed to parse {}: {}", CONTEXT_CONFIG_FILE, e.getMessage());
         }
-        return null;
+        throw new IllegalStateException(
+                CONTEXT_CONFIG_FILE + " not found in repository — cannot determine import contexts");
+    }
+
+
+    private String toRelativePath(String zipEntryName) {
+        int slash = zipEntryName.indexOf('/');
+        return slash >= 0 ? zipEntryName.substring(slash + 1) : zipEntryName;
+    }
+
+
+    private Resource resolveContext(String relativePath, Map<String, String> mappings) {
+        String ctx = mappings.get(relativePath);
+        return ctx != null ? Values.iri(ctx) : null;
     }
 
 
